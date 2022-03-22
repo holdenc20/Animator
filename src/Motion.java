@@ -9,15 +9,15 @@ public class Motion {
     this.endShape = endShape;
   }
 
-  public int getStartTime(){
+  public int getStartTime() {
     return this.startTime;
   }
 
-  public int getEndTime(){
+  public int getEndTime() {
     return this.endTime;
   }
 
-  public Shape getEndShape(){
+  public Shape getEndShape() {
     return this.endShape;
   }
 }

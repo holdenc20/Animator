@@ -1,7 +1,8 @@
 /**
- * Represents an abstract shape.
+ * Represents an abstract shape. This shape stores several variables: xPosition, yPosition, width,
+ * height, red, green, blue, and an ID as a string.
  */
-public abstract class AbstractShape implements Shape{
+public abstract class AbstractShape implements Shape {
   private final String id;
   private final int xPosn;
   private final int yPosn;
@@ -13,23 +14,25 @@ public abstract class AbstractShape implements Shape{
 
   /**
    * Constructor for an abstract shape.
-   * @param id - The ID of a shape.
-   * @param xPosn - The X position of a shape.
-   * @param yPosn - The Y position of a shape.
-   * @param width - The width of a shape.
+   *
+   * @param id     - The ID of a shape.
+   * @param xPosn  - The X position of a shape.
+   * @param yPosn  - The Y position of a shape.
+   * @param width  - The width of a shape.
    * @param height - The height of a shape.
-   * @param red - The rgb red value.
-   * @param green - The rgb green value.
-   * @param blue - The rgb blue value.
+   * @param red    - The rgb red value.
+   * @param green  - The rgb green value.
+   * @param blue   - The rgb blue value.
    */
-  public AbstractShape(String id, int xPosn, int yPosn, int width, int height, int red, int green, int blue) {
-    if(red < 0 || red > 255 || green < 0 || green > 255 || blue < 0 || blue > 255){
+  public AbstractShape(String id, int xPosn, int yPosn, int width, int height, int red, int green,
+                       int blue) {
+    if (red < 0 || red > 255 || green < 0 || green > 255 || blue < 0 || blue > 255) {
       throw new IllegalArgumentException("RGB values are between 0 and 255!");
     }
-    if(width < 0 || height < 0){
+    if (width < 0 || height < 0) {
       throw new IllegalArgumentException("Width/Height cannot be negative!");
     }
-    if(id == null){
+    if (id == null) {
       throw new IllegalArgumentException("ID cannot be null!");
     }
     this.id = id;
