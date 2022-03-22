@@ -7,13 +7,13 @@ import java.util.Map;
  */
 public class ShapeAnimator implements Animator {
 
-  private final Map<String, ArrayList<Motion>> motions;
+  private final Map<String, AnimatedShape> shapes;
 
   /**
    * Constructor for the ShapeAnimator class.
    */
   public ShapeAnimator() {
-    this.motions = new HashMap<String, ArrayList<Motion>>();
+    this.shapes = new HashMap<String, AnimatedShape>();
   }
 
 
