@@ -1,30 +1,33 @@
 import java.util.List;
 
 /**
- * Class to represent a specific shape throughout an animation. This class has a startingShape,
- * an ID, and a list of motions that the shape will perform over the course of the animation.
+ * Interface to represent a specific shape throughout an animation. This Interface has a
+ * startingShape, an ID, and a list of motions that the shape will perform over the course of the
+ * animation. The interface also has a creationTime and a deletionTime for any given shape that
+ * represents when the shape will be added or removed from the animation.
  */
-public class AnimatedShape {
-
-  private List<Motion> motions;
-  private final String shapeID;
-  private Shape startShape;
-  private int creationTime;
-  private int deletionTime;
+public interface AnimatedShape {
 
   /**
-   * Constructor to create an AnimatedShape with a given ID, startingShape, and creationTime.
+   * Gets the ID of the animated shape.
    *
-   * @param shapeID      the ID of the shape.
-   * @param startShape   the shape this AnimatedShape will have at the start of the animation.
-   * @param creationTime the time of the shape's creation within the animation.
+   * @return - The ID of the shape.
    */
-  public AnimatedShape(String shapeID, Shape startShape, int creationTime) {
-    this.shapeID = shapeID;
-    this.startShape = startShape;
-    this.creationTime = creationTime;
-  }
+  String getID();
 
-
+  /**
+   * Gets the state of the animated shape at a given time.
+   *
+   * @param time - The time to be shown.
+   * @return
+   */
+  Shape getShapeAtTime(int time);
+  List<Motion> getMotions();
+  int getCreationTime();
+  int getDeletionTime();
+  void setCreationTime(int time);
+  void setDeletionTime(int time);
+  void addMotion(Motion motion);
+  void removeMotion(int time);
 
 }

@@ -1,6 +1,5 @@
 /**
- * Represents an abstract shape. This shape stores several variables: xPosition, yPosition, width,
- * height, red, green, blue, and an ID as a string.
+ * Represents an abstract shape. This shape stores a position, width, height, and a color.
  */
 public abstract class AbstractShape implements Shape {
   private final Position position;
@@ -9,7 +8,7 @@ public abstract class AbstractShape implements Shape {
   private final Color color;
 
   /**
-   * Constructor for an abstract shape that takes in a positon, width, height and a color.
+   * Constructor for an abstract shape that takes in a position, width, height and a color.
    *
    * @param position - The position of a shape.
    * @param width    - The width of a shape.
