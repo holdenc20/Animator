@@ -1,29 +1,15 @@
 /**
  * Represents an animated shape object. This is an immutable shape that stores the state of a given
- * shape. Each shape has a position, a dimension, and a color.
+ * shape. Each shape has a position, width, height, and a color.
  */
 public interface Shape {
 
   /**
-   * Gets the name id of this shape.
+   * Gets the position of the shape.
    *
-   * @return - The id of this shape.
+   * @return - The position.
    */
-  String getID();
-
-  /**
-   * Gets the X position of this shape.
-   *
-   * @return - The X position.
-   */
-  int getX();
-
-  /**
-   * Gets the Y position of this shape.
-   *
-   * @return - The Y position.
-   */
-  int getY();
+  Position getPosition();
 
   /**
    * Gets the width of this shape.
@@ -40,23 +26,9 @@ public interface Shape {
   int getHeight();
 
   /**
-   * Gets the rgb red value of this shape.
+   * Gets the color of the shape.
    *
-   * @return - The redness of the shape.
+   * @return - The color.
    */
-  int getRed();
-
-  /**
-   * Gets the rgb green value of this shape.
-   *
-   * @return - The greenness of the shape.
-   */
-  int getGreen();
-
-  /**
-   * Gets the rgb blue value of this shape.
-   *
-   * @return - The blueness of the shape.
-   */
-  int getBlue();
+  Color getColor();
 }
