@@ -60,4 +60,16 @@ public class ShapeAnimator implements Animator {
     Motion temp = new Motion(initialTime, endTime, target);
     motions.get(shapeID).add(temp);
   }
+
+  @Override
+  public void removeMotion(String shapeID, int initialTime) {
+    //TODO: implement removeMotion
+  }
+
+  @Override
+  public Shape getShapeAtTime(String shapeID, int time) {
+    return null;
+    //TODO: implement getShapeAtTime
+  }
+
 }

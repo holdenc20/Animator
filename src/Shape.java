@@ -1,5 +1,6 @@
 /**
- * Represents an animated shape object. This is an immutable shape that stores all of the
+ * Represents an animated shape object. This is an immutable shape that stores the state of a given
+ * shape. Each shape has a position, a dimension, and a color.
  */
 public interface Shape {
 
