@@ -24,7 +24,10 @@ public class Motion {
       throw new IllegalArgumentException("Times cannot be negative!");
     }
     if (endShape == null) {
-      throw new IllegalArgumentException("endShape cannot be null");
+      throw new IllegalArgumentException("endShape cannot be null!");
+    }
+    if (startTime >= endTime) {
+      throw new IllegalArgumentException("start time must be strictly less than end time!");
     }
     this.startTime = startTime;
     this.endTime = endTime;

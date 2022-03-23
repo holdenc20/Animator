@@ -31,4 +31,17 @@ public interface Shape {
    * @return - The color.
    */
   Color getColor();
+
+  /**
+   * Computes the state of a shape during a continuous motion over a time.
+   *
+   * @param other  The other shape.
+   * @param startT The start time.
+   * @param endT   The end time.
+   * @param currT  The current time.
+   * @return The state of the shape at the current time in the motion.
+   * @throws IllegalArgumentException if other is not the same class as this or if startT, endT,
+   *                                  or currT are invalid.
+   */
+  Shape getAverageWith(Shape other, int startT, int endT, int currT);
 }

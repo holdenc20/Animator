@@ -41,7 +41,7 @@ public interface AnimatedShape {
   /**
    * Gets the deletion time of the shape.
    *
-   * @return the deletion time.
+   * @return the deletion time or -1 if no deletion time is specified.
    */
   int getDeletionTime();
 
@@ -73,7 +73,9 @@ public interface AnimatedShape {
   void addMotion(Motion motion);
 
   /**
-   * Removes the motion taking place at the given time.
+   * Removes the motion taking place at the given time. Motions will be removed if:
+   *
+   * <p>startTime <= time < endTime.
    *
    * @param time - The time.
    * @throws IllegalArgumentException if no motion can be removed.

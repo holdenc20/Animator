@@ -44,4 +44,33 @@ public abstract class AbstractShape implements Shape {
   public Position getPosition() {
     return position;
   }
+
+  /**
+   * Validates that: start <= curr <= end.
+   *
+   * @param start the start time.
+   * @param end   the end time.
+   * @param curr  the current time.
+   * @return true if the conditions are met.
+   */
+  protected boolean validateTimes(int start, int end, int curr) {
+    return curr >= start && end >= curr;
+  }
+
+  protected int weightedAverage(int start, int end, int tStart, int tEnd, int currTime) {
+    return (end - start) * (currTime - tStart) / (tEnd - tStart) + start;
+  }
+
+  protected Position weightedAveragePosition(Position start, Position end, int tStart, int tEnd,
+                                             int currTime) {
+    return new Position(weightedAverage(start.getX(), end.getX(), tStart, tEnd, currTime),
+            weightedAverage(start.getY(), end.getY(), tStart, tEnd, currTime));
+  }
+
+  protected Color weightedAverageColor(Color start, Color end, int tStart, int tEnd,
+                                       int currTime) {
+    return new Color(weightedAverage(start.getRed(), end.getRed(), tStart, tEnd, currTime),
+            weightedAverage(start.getGreen(), end.getGreen(), tStart, tEnd, currTime),
+            weightedAverage(start.getBlue(), end.getBlue(), tStart, tEnd, currTime));
+  }
 }
