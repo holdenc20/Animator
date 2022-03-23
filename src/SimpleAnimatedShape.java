@@ -198,7 +198,7 @@ public class SimpleAnimatedShape implements AnimatedShape {
     addIntro(builder);
     Shape prevShape = startShape;
     for (Motion m : motions) {
-      builder.append(m.getStartTime() + " " + prevShape.toString() + " ");
+      builder.append(m.getStartTime() + " " + prevShape.toString() + " -> ");
       builder.append(m.getEndTime() + " " + m.getEndShape().toString() + "\n");
       prevShape = m.getEndShape();
     }
