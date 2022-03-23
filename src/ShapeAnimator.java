@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -29,6 +31,11 @@ public class ShapeAnimator implements Animator {
   public SimpleAnimatedShape getAnimatedShape(String shapeID) {
     AnimatedShape animatedShape = getFromID(shapeID);
     return new SimpleAnimatedShape(animatedShape);
+  }
+
+  @Override
+  public List<String> getShapeIDs() {
+    return new ArrayList<>(shapes.keySet());
   }
 
   @Override

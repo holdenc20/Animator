@@ -98,4 +98,21 @@ public interface AnimatedShape {
    */
   void setStartShape(Shape shape);
 
+  /**
+   * Returns a string representation of this animated shape formatted as follows:
+   * <pre>
+   * Shapetype ShapeID:
+   * [shape1] -> [shape2]
+   * [shape2] -> [shape3]
+   * [shape3] -> [shape4]
+   * ...
+   * </pre>
+   * and [shapeN] is of the format:
+   * <pre>
+   * t (x, y) w h (r, g, b)
+   * </pre>
+   * @return the formatted string as seen above.
+   */
+  String toString();
+
 }

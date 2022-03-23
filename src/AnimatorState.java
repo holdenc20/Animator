@@ -1,3 +1,5 @@
+import java.util.List;
+
 /**
  * Interface which contains several getter methods for an Animator that can be called to obtain
  * information about the state of an animation. It has the ability to get the information about a given
@@ -25,6 +27,24 @@ public interface AnimatorState {
    */
   AnimatedShape getAnimatedShape(String shapeID);
 
+  /**
+   * Gets a list of all shapeIDs in the animation.
+   *
+   * @return the list of IDs.
+   */
+  List<String> getShapeIDs();
 
+  /**
+   * Returns a string representing the animated shape as follows:
+   * <pre>
+   * Shapetype ShapeID:
+   * [shape1] -> [shape2]
+   * [shape2] -> [shape3]
+   * [shape3] -> [shape4]
+   * ...
+   * </pre>
+   * @return the formatted string as seen above.
+   */
+  String toString();
 
 }

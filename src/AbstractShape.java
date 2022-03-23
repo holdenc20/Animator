@@ -81,10 +81,7 @@ public abstract class AbstractShape implements Shape {
     return position.toString() + " " + width + " " + height + " " + color.toString();
   }
 
-  /**
-   * Gets the type of the shape.
-   * @return
-   */
+  @Override
   public ShapeType getShapeType() {
     return type;
   }

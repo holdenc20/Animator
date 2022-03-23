@@ -79,10 +79,11 @@ public class SimpleAnimatedShape implements AnimatedShape {
 
   /**
    * Calculates the shape at a time in the motion of the shapes.
-   * @param start the starting shape at the starting time.
-   * @param end the ending shape at the ending time.
-   * @param tStart the start time of the motion.
-   * @param tEnd the end time of the motion.
+   *
+   * @param start    the starting shape at the starting time.
+   * @param end      the ending shape at the ending time.
+   * @param tStart   the start time of the motion.
+   * @param tEnd     the end time of the motion.
    * @param currTime the current time of the shape that we are looking for.
    * @return the shape at currentTime.
    */
@@ -147,8 +148,9 @@ public class SimpleAnimatedShape implements AnimatedShape {
 
   /**
    * Determines if the given value is between the lo and hi bounds.
-   * @param lo the lower bound for comparison.
-   * @param hi the upper bound for comparison.
+   *
+   * @param lo    the lower bound for comparison.
+   * @param hi    the upper bound for comparison.
    * @param value the value to determine if it is in the bounds.
    * @return
    */
@@ -185,5 +187,22 @@ public class SimpleAnimatedShape implements AnimatedShape {
       throw new IllegalArgumentException("New shape must have the same class as the old shape!");
     }
     this.startShape = shape;
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder builder = new StringBuilder();
+    addIntro(builder);
+    Shape prevShape = startShape;
+    for (Motion m : motions) {
+      builder.append(m.getStartTime() + " " + prevShape.toString() + " ");
+      builder.append(m.getEndTime() + " " + m.getEndShape().toString() + "\n");
+      prevShape = m.getEndShape();
+    }
+    return builder.toString();
+  }
+
+  private void addIntro(StringBuilder builder) {
+    builder.append(startShape.getShapeType() + " " + shapeID + ":\n");
   }
 }

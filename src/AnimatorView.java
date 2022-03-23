@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 /**
  * Interface to represent the view of a given animation.
  */
@@ -12,7 +14,7 @@ public interface AnimatorView {
    *   h == height
    *   c == color as (r, g, b)
    *   t pos w h color -> t pos w h color
-   *   ----------------------------------------------------------------------
+   *   ----------------------------------
    *   [AnimatedShape1]
    *
    *   [AnimatedShape2]
@@ -37,25 +39,8 @@ public interface AnimatorView {
 
   /**
    * Renders the Animator to a given destination.
+   * @throws IOException if an error appending occurs.
    */
-  void renderAnimation();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  void renderAnimation() throws IOException;
 
 }

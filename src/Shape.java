@@ -54,4 +54,11 @@ public interface Shape {
    * @return the formatted string as shown above
    */
   String toString();
+
+  /**
+   * Gets the type of the shape.
+   *
+   * @return the shape type.
+   */
+  ShapeType getShapeType();
 }
