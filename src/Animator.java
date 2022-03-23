@@ -13,13 +13,6 @@ public interface Animator extends AnimatorState {
   void makeAnimatedShape(String shapeID, Shape shape);
 
   /**
-   * Gets a shape with a given ID.
-   * @param shapeID The shape ID.
-   * @return
-   */
-  AnimatedShape getAnimatedShape(String shapeID);
-
-  /**
    * Deletes the shape with the given ID.
    *
    * @param shapeID the id of the shape to be deleted.

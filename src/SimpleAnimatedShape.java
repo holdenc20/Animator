@@ -112,6 +112,9 @@ public class SimpleAnimatedShape implements AnimatedShape {
 
   @Override
   public void addMotion(Motion motion) {
+    if (motion == null) {
+      throw new IllegalArgumentException("Motion cannot be null");
+    }
     if (creationTime > motion.getStartTime() || deletionTime < motion.getEndTime()) {
       throw new IllegalArgumentException("Motion is out of bounds");
     }
@@ -155,6 +158,9 @@ public class SimpleAnimatedShape implements AnimatedShape {
 
   @Override
   public void setStartShape(Shape shape) {
+    if (shape == null) {
+      throw new IllegalArgumentException("Shape cannot be null");
+    }
     if (shape.getClass() != startShape.getClass()) {
       throw new IllegalArgumentException("New shape must have the same class as the old shape!");
     }

@@ -16,4 +16,13 @@ public interface AnimatorState {
    */
   Shape getShapeAtTime(String shapeID, int time);
 
+  /**
+   * Gets the animated shape with a given ID.
+   *
+   * @param shapeID The shape ID.
+   * @return the animated shape corresponding to the id.
+   * @throws IllegalArgumentException if the shapeID is invalid.
+   */
+  AnimatedShape getAnimatedShape(String shapeID);
+
 }

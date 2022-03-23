@@ -27,7 +27,8 @@ public class ShapeAnimator implements Animator {
 
   @Override
   public SimpleAnimatedShape getAnimatedShape(String shapeID) {
-    return new SimpleAnimatedShape(shapes.get(shapeID));
+    AnimatedShape animatedShape = getFromID(shapeID);
+    return new SimpleAnimatedShape(animatedShape);
   }
 
   @Override
