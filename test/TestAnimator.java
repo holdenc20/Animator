@@ -4,22 +4,28 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Tester class for the Animator interface. Tests on the SimpleAnimator implementation.
+ */
 public class TestAnimator {
   Animator a;
-  Position p = new Position(10,10);
-  Position p2 = new Position(20,30);
-  Color c = new Color(30,40,50);
+  Position p = new Position(10, 10);
+  Position p2 = new Position(20, 30);
+  Color c = new Color(30, 40, 50);
   Shape s1 = new Rectangle(p, 10, 20, c);
   Shape s1dest = new Rectangle(p2, 50, 100, c);
   Shape s2 = new Rectangle(p, 100, 200, c);
   Shape s1destBad = new Ellipse(p2, 50, 100, c);
 
-  public TestAnimator(){
+  /**
+   * Initializes a ShapeAnimater that will be used in the test cases.
+   */
+  public TestAnimator() {
     a = new ShapeAnimator();
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void testMakeInvalidShape(){
+  public void testMakeInvalidShape() {
     a.makeAnimatedShape("Rect1", s1);
     a.makeAnimatedShape("Rect1", s2);
   }
@@ -39,28 +45,28 @@ public class TestAnimator {
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void testAddMotionBadShapeID(){
+  public void testAddMotionBadShapeID() {
     a.makeAnimatedShape("Rect1", s1);
     a.makeAnimatedShape("Rect2", s2);
     a.addMotion("Rect600", s1dest, 1, 10);
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void testAddMotionDifferentTypeShape(){
+  public void testAddMotionDifferentTypeShape() {
     a.makeAnimatedShape("Rect1", s1);
     a.makeAnimatedShape("Rect2", s2);
     a.addMotion("Rect1", s1destBad, 1, 10);
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void testAddMotionTimeLessThanZero(){
+  public void testAddMotionTimeLessThanZero() {
     a.makeAnimatedShape("Rect1", s1);
     a.makeAnimatedShape("Rect2", s2);
     a.addMotion("Rect1", s1dest, -1, 10);
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void testAddMotionTimesOutOfOrder(){
+  public void testAddMotionTimesOutOfOrder() {
     a.makeAnimatedShape("Rect1", s1);
     a.makeAnimatedShape("Rect2", s2);
     a.addMotion("Rect1", s1dest, 10, 1);

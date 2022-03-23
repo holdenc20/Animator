@@ -42,6 +42,9 @@ public class SimpleAnimatedShape implements AnimatedShape {
    * @param shape the shape to be copied.
    */
   public SimpleAnimatedShape(AnimatedShape shape) {
+    if (shape == null) {
+      throw new IllegalArgumentException("startShape cannot be null");
+    }
     motions = new TreeSet<Motion>(shape.getMotions());
     shapeID = shape.getID();
     startShape = shape.getStartShape();
@@ -74,6 +77,15 @@ public class SimpleAnimatedShape implements AnimatedShape {
     return prevShape;
   }
 
+  /**
+   * Calculates the shape at a time in the motion of the shapes.
+   * @param start the starting shape at the starting time.
+   * @param end the ending shape at the ending time.
+   * @param tStart the start time of the motion.
+   * @param tEnd the end time of the motion.
+   * @param currTime the current time of the shape that we are looking for.
+   * @return the shape at currentTime.
+   */
   private Shape weightedAverageShape(Shape start, Shape end, int tStart, int tEnd, int currTime) {
     return start.getAverageWith(end, tStart, tEnd, currTime);
   }
@@ -167,6 +179,4 @@ public class SimpleAnimatedShape implements AnimatedShape {
     }
     this.startShape = shape;
   }
-
-
 }
