@@ -148,6 +148,4 @@ public class SimpleAnimatedShape implements AnimatedShape {
     }
     throw new IllegalArgumentException("No motion can be removed.");
   }
-
-
 }
