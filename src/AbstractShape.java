@@ -73,4 +73,9 @@ public abstract class AbstractShape implements Shape {
             weightedAverage(start.getGreen(), end.getGreen(), tStart, tEnd, currTime),
             weightedAverage(start.getBlue(), end.getBlue(), tStart, tEnd, currTime));
   }
+
+  @Override
+  public String toString() {
+    return position.toString() + " " + width + " " + height + " " + color.toString();
+  }
 }

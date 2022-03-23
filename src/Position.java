@@ -34,4 +34,9 @@ public class Position {
   public int getY() {
     return yPos;
   }
+
+  @Override
+  public String toString() {
+    return "(" + xPos + ", " + yPos + ")";
+  }
 }

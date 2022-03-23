@@ -51,4 +51,8 @@ public class Color {
     return blue;
   }
 
+  @Override
+  public String toString() {
+    return "(" + red + ", " + green + ", " + blue + ")";
+  }
 }

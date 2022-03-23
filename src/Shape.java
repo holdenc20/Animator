@@ -44,4 +44,14 @@ public interface Shape {
    *                                  or currT are invalid.
    */
   Shape getAverageWith(Shape other, int startT, int endT, int currT);
+
+  /**
+   * Returns a string in the following format:
+   * <pre>
+   *   (x, y) w h (r, g, b)
+   * </pre>
+   * where (x, y) == pos, w == width, h == height, and (r, g, b) == color.
+   * @return the formatted string as shown above
+   */
+  String toString();
 }
