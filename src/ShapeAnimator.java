@@ -1,9 +1,9 @@
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * An implementation of the Animator.
+ * TODO: Document more
  */
 public class ShapeAnimator implements Animator {
 
@@ -26,33 +26,55 @@ public class ShapeAnimator implements Animator {
   }
 
   @Override
-  public void addMotion(String shapeID, Shape target, int initialTime, int endTime) {
+  public void deleteShape(String shapeID) {
     if (!shapes.containsKey(shapeID)) {
       throw new IllegalArgumentException("ShapeID does not exist!");
     }
-    if (!shapes.get(shapeID).getClass().equals(target.getClass())) {
-      throw new IllegalArgumentException("The target has to be the same shape type!");
+    shapes.remove(shapeID);
+  }
+
+  private AnimatedShape getFromID(String id) {
+    if (!shapes.containsKey(id)) {
+      throw new IllegalArgumentException("ShapeID does not exist!");
     }
-    if (initialTime < 0) {
-      throw new IllegalArgumentException("Time cannot be negative!");
-    }
-    if (initialTime > endTime) {
-      throw new IllegalArgumentException("The ending time has to be " +
-              "greater or equals to the starting time!");
-    }
+    return shapes.get(id);
+  }
+
+  @Override
+  public void addMotion(String shapeID, Shape target, int initialTime, int endTime) {
+    AnimatedShape animatedShape = getFromID(shapeID);
     Motion toAdd = new Motion(initialTime, endTime, target);
-    shapes.get(shapeID).addMotion(toAdd);
+    animatedShape.addMotion(toAdd);
   }
 
   @Override
   public void removeMotion(String shapeID, int initialTime) {
-    //TODO: implement removeMotion
+    AnimatedShape animatedShape = getFromID(shapeID);
+    animatedShape.removeMotion(initialTime);
+  }
+
+  @Override
+  public void setStartShape(String shapeID, Shape shape) {
+    AnimatedShape animatedShape = getFromID(shapeID);
+    animatedShape.setStartShape(shape);
+  }
+
+  @Override
+  public void setCreationTime(String shapeID, int time) {
+    AnimatedShape animatedShape = getFromID(shapeID);
+    animatedShape.setCreationTime(time);
+  }
+
+  @Override
+  public void setDeletionTime(String shapeID, int time) {
+    AnimatedShape animatedShape = getFromID(shapeID);
+    animatedShape.setDeletionTime(time);
   }
 
   @Override
   public Shape getShapeAtTime(String shapeID, int time) {
-    return null;
-    //TODO: implement getShapeAtTime
+    AnimatedShape animatedShape = getFromID(shapeID);
+    return animatedShape.getShapeAtTime(time);
   }
 
 }

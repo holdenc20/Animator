@@ -23,23 +23,6 @@ public class SimpleAnimatedShape implements AnimatedShape {
    * @param startShape the shape this AnimatedShape will have at the start of the animation.
    */
   public SimpleAnimatedShape(String shapeID, Shape startShape) {
-    initShape(shapeID, startShape);
-  }
-
-  /**
-   * Copy Constructor that makes a copy of the given shape.
-   *
-   * @param shape the shape to be copied.
-   */
-  public SimpleAnimatedShape(AnimatedShape shape) {
-    motions = new TreeSet<Motion>(shape.getMotions());
-    shapeID = shape.getID();
-    startShape = shape.getShapeAtTime(shape.getCreationTime());
-    creationTime = shape.getCreationTime();
-    deletionTime = shape.getDeletionTime();
-  }
-
-  private void initShape(String shapeID, Shape startShape) {
     if (shapeID == null || shapeID.equals("")) {
       throw new IllegalArgumentException("ID cannot be null or empty");
     }
@@ -51,6 +34,19 @@ public class SimpleAnimatedShape implements AnimatedShape {
     creationTime = 0;
     deletionTime = -1;
     motions = new TreeSet<Motion>((o1, o2) -> o1.getStartTime() - o2.getStartTime());
+  }
+
+  /**
+   * Copy Constructor that makes a copy of the given shape.
+   *
+   * @param shape the shape to be copied.
+   */
+  public SimpleAnimatedShape(AnimatedShape shape) {
+    motions = new TreeSet<Motion>(shape.getMotions());
+    shapeID = shape.getID();
+    startShape = shape.getStartShape();
+    creationTime = shape.getCreationTime();
+    deletionTime = shape.getDeletionTime();
   }
 
   @Override
@@ -119,6 +115,9 @@ public class SimpleAnimatedShape implements AnimatedShape {
     if (creationTime > motion.getStartTime() || deletionTime < motion.getEndTime()) {
       throw new IllegalArgumentException("Motion is out of bounds");
     }
+    if (motion.getEndShape().getClass() != startShape.getClass()) {
+      throw new IllegalArgumentException("New shape must have the same class as the old shape!");
+    }
     for (Motion m : motions) {
       if (clamp(m.getStartTime(), m.getEndTime(), motion.getEndTime())
               || clamp(m.getStartTime(), m.getEndTime(), motion.getStartTime())
@@ -148,4 +147,19 @@ public class SimpleAnimatedShape implements AnimatedShape {
     }
     throw new IllegalArgumentException("No motion can be removed.");
   }
+
+  @Override
+  public Shape getStartShape() {
+    return startShape;
+  }
+
+  @Override
+  public void setStartShape(Shape shape) {
+    if (shape.getClass() != startShape.getClass()) {
+      throw new IllegalArgumentException("New shape must have the same class as the old shape!");
+    }
+    this.startShape = shape;
+  }
+
+
 }

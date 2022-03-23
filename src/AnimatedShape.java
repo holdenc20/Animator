@@ -82,4 +82,20 @@ public interface AnimatedShape {
    */
   void removeMotion(int time);
 
+  /**
+   * Gets the start shape.
+   *
+   * @return the start shape.
+   */
+  Shape getStartShape();
+
+  /**
+   * Sets the start shape to the given shape.
+   *
+   * @param shape the new starting shape.
+   * @throws IllegalArgumentException if the starting shape is not the same class as the old
+   * starting shape.
+   */
+  void setStartShape(Shape shape);
+
 }
