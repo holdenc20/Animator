@@ -145,6 +145,13 @@ public class SimpleAnimatedShape implements AnimatedShape {
     motions.add(motion);
   }
 
+  /**
+   * Determines if the given value is between the lo and hi bounds.
+   * @param lo the lower bound for comparison.
+   * @param hi the upper bound for comparison.
+   * @param value the value to determine if it is in the bounds.
+   * @return
+   */
   private boolean clamp(int lo, int hi, int value) {
     return lo <= value && value < hi;
   }
