@@ -105,9 +105,10 @@ public class SimpleAnimatedShape implements AnimatedShape {
   @Override
   public void setDeletionTime(int time) {
     if (time < 0 || time <= creationTime
-            || (!motions.isEmpty() && motions.last().getEndTime() > deletionTime)) {
+            || (!motions.isEmpty() && motions.last().getEndTime() > time)) {
       throw new IllegalArgumentException("Time is not valid!");
     }
+    deletionTime = time;
   }
 
   @Override
@@ -115,7 +116,7 @@ public class SimpleAnimatedShape implements AnimatedShape {
     if (motion == null) {
       throw new IllegalArgumentException("Motion cannot be null");
     }
-    if (creationTime > motion.getStartTime() || deletionTime < motion.getEndTime()) {
+    if (creationTime > motion.getStartTime() || (deletionTime != -1 && deletionTime < motion.getEndTime())) {
       throw new IllegalArgumentException("Motion is out of bounds");
     }
     if (motion.getEndShape().getClass() != startShape.getClass()) {
@@ -133,7 +134,7 @@ public class SimpleAnimatedShape implements AnimatedShape {
   }
 
   private boolean clamp(int lo, int hi, int value) {
-    return lo >= value && value < hi;
+    return lo <= value && value < hi;
   }
 
   @Override

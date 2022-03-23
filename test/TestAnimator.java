@@ -131,6 +131,53 @@ public class TestAnimator {
   }
 
   @Test
-  public void getShapeAtTime() {
+  public void setStartShape() {
+    a.makeAnimatedShape("Rect1", s1);
+    a.makeAnimatedShape("Rect2", s2);
+    a.addMotion("Rect1", s1dest, 0, 10);
+    a.setStartShape("Rect1", s2);
+
+    Shape s5 = a.getShapeAtTime("Rect1", 5);
+    assertEquals(s5.getPosition().getX(), 15);
+    assertEquals(s5.getPosition().getY(), 20);
+    assertEquals(s5.getWidth(), 75);
+    assertEquals(s5.getHeight(), 150);
+    assertEquals(s5.getColor().getRed(), 30);
+    assertEquals(s5.getColor().getGreen(), 40);
+    assertEquals(s5.getColor().getBlue(), 50);
+  }
+
+  @Test
+  public void setCreationTime() {
+    a.makeAnimatedShape("Rect1", s1);
+    a.makeAnimatedShape("Rect2", s2);
+    a.addMotion("Rect1", s1dest, 10, 20);
+    a.setCreationTime("Rect1", 10);
+
+    Shape s5 = a.getShapeAtTime("Rect1", 15);
+    assertEquals(s5.getPosition().getX(), 15);
+    assertEquals(s5.getPosition().getY(), 20);
+    assertEquals(s5.getWidth(), 30);
+    assertEquals(s5.getHeight(), 60);
+    assertEquals(s5.getColor().getRed(), 30);
+    assertEquals(s5.getColor().getGreen(), 40);
+    assertEquals(s5.getColor().getBlue(), 50);
+  }
+
+  @Test
+  public void setDeletionTime() {
+    a.makeAnimatedShape("Rect1", s1);
+    a.makeAnimatedShape("Rect2", s2);
+    a.addMotion("Rect1", s1dest, 10, 20);
+    a.setDeletionTime("Rect1", 20);
+
+    Shape s5 = a.getShapeAtTime("Rect1", 15);
+    assertEquals(s5.getPosition().getX(), 15);
+    assertEquals(s5.getPosition().getY(), 20);
+    assertEquals(s5.getWidth(), 30);
+    assertEquals(s5.getHeight(), 60);
+    assertEquals(s5.getColor().getRed(), 30);
+    assertEquals(s5.getColor().getGreen(), 40);
+    assertEquals(s5.getColor().getBlue(), 50);
   }
 }
