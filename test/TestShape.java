@@ -50,4 +50,16 @@ public class TestShape {
   public void testGetPosition(){
     assertEquals(rect.getPosition(), p);
   }
+
+  @Test
+  public void testGetShapeType() {
+    assertEquals(ShapeType.RECTANGLE, rect.getShapeType());
+    assertEquals(ShapeType.ELLIPSE, circ.getShapeType());
+  }
+
+  @Test
+  public void testToString() {
+    assertEquals("(10, 11) 20 30 (100, 150, 200)", rect.toString());
+    assertEquals("(10, 11) 20 20 (100, 150, 200)", circ.toString());
+  }
 }

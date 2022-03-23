@@ -1,5 +1,6 @@
 /**
- * Represents an abstract shape. This shape stores a position, width, height, and a color.
+ * Represents an abstract shape of a given ShapeType.
+ * This shape stores a position, width, height, and a color.
  */
 public abstract class AbstractShape implements Shape {
   private final Position position;
@@ -15,6 +16,7 @@ public abstract class AbstractShape implements Shape {
    * @param width    - The width of a shape.
    * @param height   - The height of a shape.
    * @param color    - the color of a shape.
+   * @throws IllegalArgumentException if width or height is negative.
    */
   public AbstractShape(Position position, int width, int height, Color color, ShapeType type) {
     if (width < 0 || height < 0) {

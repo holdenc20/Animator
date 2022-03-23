@@ -17,7 +17,8 @@ public class Motion {
    * @param startTime the time of the start of the motion.
    * @param endTime   the time of the end of the motion.
    * @param endShape  the Shape to be seen at the end of the motion.
-   * @throws IllegalArgumentException if either time is negative or if endShape is null.
+   * @throws IllegalArgumentException if either time is negative, endTime is <= startTime, or
+   *                                  endShape is null.
    */
   public Motion(int startTime, int endTime, Shape endShape) {
     if (startTime < 0 || endTime < 0) {

@@ -2,17 +2,17 @@
  * An enumeration for the type of the shape.
  */
 public enum ShapeType {
-  RECTANGLE, ELLIPSE;
+  RECTANGLE("Rectangle"),
+  ELLIPSE("Ellipse");
+
+  private String type;
+
+  private ShapeType(String type) {
+    this.type = type;
+  }
 
   @Override
   public String toString() {
-    switch (this) {
-      case RECTANGLE:
-        return "Rectangle";
-      case ELLIPSE:
-        return "Ellipse";
-      default:
-        return "";
-    }
+    return type;
   }
 }

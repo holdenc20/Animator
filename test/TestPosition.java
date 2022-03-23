@@ -23,4 +23,9 @@ public class TestPosition {
   public void testGetY(){
     assertEquals(p.getY(), 11);
   }
+
+  @Test
+  public void testToString() {
+    assertEquals("(10, 11)", p.toString());
+  }
 }

@@ -45,7 +45,10 @@ public class SimpleAnimatedShape implements AnimatedShape {
     if (shape == null) {
       throw new IllegalArgumentException("startShape cannot be null");
     }
-    motions = new TreeSet<Motion>(shape.getMotions());
+    motions = new TreeSet<Motion>((m1, m2) -> m1.getStartTime() - m2.getStartTime());
+    for (Motion m : shape.getMotions()) {
+      motions.add(m);
+    }
     shapeID = shape.getID();
     startShape = shape.getStartShape();
     creationTime = shape.getCreationTime();
