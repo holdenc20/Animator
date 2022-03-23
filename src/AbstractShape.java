@@ -6,6 +6,7 @@ public abstract class AbstractShape implements Shape {
   private final int width;
   private final int height;
   private final Color color;
+  private final ShapeType type;
 
   /**
    * Constructor for an abstract shape that takes in a position, width, height and a color.
@@ -15,7 +16,7 @@ public abstract class AbstractShape implements Shape {
    * @param height   - The height of a shape.
    * @param color    - the color of a shape.
    */
-  public AbstractShape(Position position, int width, int height, Color color) {
+  public AbstractShape(Position position, int width, int height, Color color, ShapeType type) {
     if (width < 0 || height < 0) {
       throw new IllegalArgumentException("Width/Height cannot be negative!");
     }
@@ -23,6 +24,7 @@ public abstract class AbstractShape implements Shape {
     this.width = width;
     this.height = height;
     this.position = position;
+    this.type = type;
   }
 
   @Override
@@ -77,5 +79,13 @@ public abstract class AbstractShape implements Shape {
   @Override
   public String toString() {
     return position.toString() + " " + width + " " + height + " " + color.toString();
+  }
+
+  /**
+   * Gets the type of the shape.
+   * @return
+   */
+  public ShapeType getShapeType() {
+    return type;
   }
 }

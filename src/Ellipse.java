@@ -11,7 +11,7 @@ public class Ellipse extends AbstractShape {
    * @param color    - The color.
    */
   public Ellipse(Position position, int width, int height, Color color) {
-    super(position, width, height, color);
+    super(position, width, height, color, ShapeType.ELLIPSE);
   }
 
   @Override

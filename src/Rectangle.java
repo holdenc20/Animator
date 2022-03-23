@@ -12,7 +12,7 @@ public class Rectangle extends AbstractShape {
    * @param color    - The color.
    */
   public Rectangle(Position position, int width, int height, Color color) {
-    super(position, width, height, color);
+    super(position, width, height, color, ShapeType.RECTANGLE);
   }
 
   @Override
