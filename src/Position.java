@@ -11,12 +11,8 @@ public class Position {
    *
    * @param xPos the x position.
    * @param yPos the y position.
-   * @throws IllegalArgumentException if either position is negative.
    */
   public Position(int xPos, int yPos) {
-    if (xPos < 0 || yPos < 0) {
-      throw new IllegalArgumentException("x and y values cannot be negative!");
-    }
     this.xPos = xPos;
     this.yPos = yPos;
   }
