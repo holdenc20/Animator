@@ -176,7 +176,7 @@ public class TestAnimator {
     a.makeAnimatedShape("Rect2", s2);
     a.addMotion("Rect1", s1dest, 10, 20);
     a.setDeletionTime("Rect1", 20);
-
+    assertEquals(a.getAnimatedShape("Rect1").getDeletionTime(), 20);
     Shape s5 = a.getShapeAtTime("Rect1", 15);
     assertEquals(s5.getPosition().getX(), 15);
     assertEquals(s5.getPosition().getY(), 20);
