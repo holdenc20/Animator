@@ -55,4 +55,20 @@ public class Color {
   public String toString() {
     return "(" + red + ", " + green + ", " + blue + ")";
   }
+
+  /**
+   * Returns the weighted average between two colors over a period of time.
+   *
+   * @param other the other color.
+   * @param tStart the start of the time period.
+   * @param tEnd the end of the time period.
+   * @param currTime the time of the average.
+   * @return the Color representing the average.
+   */
+  public Color weightedAverage(Color other, int tStart, int tEnd, int currTime) {
+    return new Color(Utility.weightedAverage(getRed(), other.getRed(), tStart, tEnd, currTime),
+            Utility.weightedAverage(getGreen(), other.getGreen(), tStart, tEnd, currTime),
+            Utility.weightedAverage(getBlue(), other.getBlue(), tStart, tEnd, currTime));
+  }
+
 }

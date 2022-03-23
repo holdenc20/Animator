@@ -2,8 +2,9 @@ import java.util.List;
 
 /**
  * Interface which contains several getter methods for an Animator that can be called to obtain
- * information about the state of an animation. It has the ability to get the information about a given
- * shape at a specific time.
+ * information about the state of an animation. It has the ability to get the information about a
+ * given shape at a specific time. It also has the ability to get any animated shape in the
+ * animation given the ID.
  */
 public interface AnimatorState {
 
