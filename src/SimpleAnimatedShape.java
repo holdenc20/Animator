@@ -4,8 +4,8 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 /**
- * Implementation of an AnimatedShape the stores motions in a list and gets values, inserts,
- * and deletes.
+ * Implementation of an AnimatedShape that stores a sorted list of Motions by the starting time,
+ * and also implements a creation and deletion time for the animation.
  */
 public class SimpleAnimatedShape implements AnimatedShape {
 
@@ -139,26 +139,14 @@ public class SimpleAnimatedShape implements AnimatedShape {
       throw new IllegalArgumentException("New shape must have the same class as the old shape!");
     }
     for (Motion m : motions) {
-      if (clamp(m.getStartTime(), m.getEndTime(), motion.getEndTime())
-              || clamp(m.getStartTime(), m.getEndTime(), motion.getStartTime())
-              || clamp(motion.getStartTime(), motion.getEndTime(), m.getStartTime())
-              || clamp(motion.getStartTime(), motion.getEndTime(), m.getEndTime())) {
+      if (Utility.clamp(m.getStartTime(), m.getEndTime(), motion.getEndTime())
+              || Utility.clamp(m.getStartTime(), m.getEndTime(), motion.getStartTime())
+              || Utility.clamp(motion.getStartTime(), motion.getEndTime(), m.getStartTime())
+              || Utility.clamp(motion.getStartTime(), motion.getEndTime(), m.getEndTime())) {
         throw new IllegalArgumentException("Motion overlaps with current motions");
       }
     }
     motions.add(motion);
-  }
-
-  /**
-   * Determines if the given value is between the lo and hi bounds.
-   *
-   * @param lo    the lower bound for comparison.
-   * @param hi    the upper bound for comparison.
-   * @param value the value to determine if it is in the bounds.
-   * @return
-   */
-  private boolean clamp(int lo, int hi, int value) {
-    return lo <= value && value < hi;
   }
 
   @Override

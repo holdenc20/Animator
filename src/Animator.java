@@ -1,6 +1,18 @@
 /**
- * Represents an animator that moves shapes.
- * TODO: document more
+ * Represents an animator that moves shapes. An animation is made out of AnimatedShapes that are
+ * referred to by their ID. To create an Animated shape, the makeAnimatedShape method is used
+ * with an ID and a Shape to represent the shape that will be displayed at the time of creation.
+ * This shape can be changed later with the setStartShape method.
+ *
+ * <p>By default, Animated shapes are created at time 0 and have no deletion time, but these times can
+ * be set with the setCreationTime and setDeletionTime methods respectively. To delete a shape, use
+ * the deleteShape method.
+ *
+ * <p>To actually animate shapes, use the addMotion method and pass in a start and end time for the
+ * animation to occur as well as a target shape that will be the final state of the shape at the
+ * end of the motion. During the time of the animation, the shape will gradually transform into
+ * the target shape. Motions can be removed by passing in a time value that is during the motion
+ * to be deleted.
  */
 public interface Animator extends AnimatorState {
 

@@ -24,9 +24,9 @@ public class Rectangle extends AbstractShape {
       throw new IllegalArgumentException("Times are not valid");
     }
     return new Rectangle(
-            weightedAveragePosition(this.getPosition(), other.getPosition(), startT, endT, currT),
-            weightedAverage(this.getWidth(), other.getWidth(), startT, endT, currT),
-            weightedAverage(this.getHeight(), other.getHeight(), startT, endT, currT),
-            weightedAverageColor(this.getColor(), other.getColor(), startT, endT, currT));
+            this.getPosition().weightedAverage(other.getPosition(), startT, endT, currT),
+            Utility.weightedAverage(this.getWidth(), other.getWidth(), startT, endT, currT),
+            Utility.weightedAverage(this.getHeight(), other.getHeight(), startT, endT, currT),
+            this.getColor().weightedAverage(other.getColor(), startT, endT, currT));
   }
 }
