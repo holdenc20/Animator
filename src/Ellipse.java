@@ -1,5 +1,5 @@
 /**
- * Represents an ellipse shape.
+ * Represents an ellipse shape. Concrete implementation of the AbstractShape class of type Ellipse.
  */
 public class Ellipse extends AbstractShape {
   /**

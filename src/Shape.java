@@ -51,6 +51,7 @@ public interface Shape {
    *   (x, y) w h (r, g, b)
    * </pre>
    * where (x, y) == pos, w == width, h == height, and (r, g, b) == color.
+   *
    * @return the formatted string as shown above
    */
   String toString();

@@ -4,8 +4,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * An implementation of the Animator.
- * TODO: Document more
+ * An implementation of the Animator. This implementation uses a Map of string IDs to AnimatedShapes
+ * in order to store information. Otherwise, this is a straightforward implementation to the
+ * Animator interface.
  */
 public class ShapeAnimator implements Animator {
 

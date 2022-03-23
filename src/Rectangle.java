@@ -1,5 +1,6 @@
 /**
- * Represents a rectangle shape.
+ * Represents a rectangle shape. Concrete implementation of the AbstractShape class of type
+ * Rectangle.
  */
 public class Rectangle extends AbstractShape {
 
