@@ -36,7 +36,7 @@ public interface AnimatorState {
   List<String> getShapeIDs();
 
   /**
-   * Returns a string representing the animated shape as follows:
+   * Returns a string representing the animated shape as follows.
    * <pre>
    * Shapetype ShapeID:
    * [shape1] -> [shape2]

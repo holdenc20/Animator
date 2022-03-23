@@ -7,6 +7,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class TestPosition {
   Position p;
+
   /**
    * Initializes position variables to use in test cases.
    */
@@ -15,12 +16,12 @@ public class TestPosition {
   }
 
   @Test
-  public void testGetX(){
+  public void testGetX() {
     assertEquals(p.getX(), 10);
   }
 
   @Test
-  public void testGetY(){
+  public void testGetY() {
     assertEquals(p.getY(), 11);
   }
 

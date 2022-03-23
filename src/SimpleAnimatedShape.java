@@ -132,7 +132,8 @@ public class SimpleAnimatedShape implements AnimatedShape {
     if (motion == null) {
       throw new IllegalArgumentException("Motion cannot be null");
     }
-    if (creationTime > motion.getStartTime() || (deletionTime != -1 && deletionTime < motion.getEndTime())) {
+    if (creationTime > motion.getStartTime()
+            || (deletionTime != -1 && deletionTime < motion.getEndTime())) {
       throw new IllegalArgumentException("Motion is out of bounds");
     }
     if (motion.getEndShape().getClass() != startShape.getClass()) {

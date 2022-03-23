@@ -6,7 +6,7 @@ import java.io.IOException;
 public interface AnimatorView {
 
   /**
-   * Represents an Animation through text in the following format:
+   * Represents an Animation through text in the following format.
    * <pre>
    *   t == time
    *   p == position as (x, y)
@@ -21,7 +21,7 @@ public interface AnimatorView {
    *
    *   ...
    * </pre>
-   * where [AnimatedShapeN] is of the format:
+   * where [AnimatedShapeN] is of the format.
    * <pre>
    * Shapetype ShapeID:
    * [shape1] -> [shape2]

@@ -10,44 +10,44 @@ public class TestShape {
   Shape circ;
   Shape badShape1;
   Shape badShape2;
-  Position p = new Position(10,11);
+  Position p = new Position(10, 11);
   Color c = new Color(100, 150, 200);
 
   /**
    * Initializes Shape objects.
    */
-  public TestShape(){
+  public TestShape() {
     rect = new Rectangle(p, 20, 30, c);
     circ = new Ellipse(p, 20, 20, c);
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void testCreateIllegalShape1(){
+  public void testCreateIllegalShape1() {
     badShape1 = new Rectangle(p, -10, 10, c);
   }
 
   @Test(expected = IllegalArgumentException.class)
-  public void testCreateIllegalShape2(){
+  public void testCreateIllegalShape2() {
     badShape2 = new Rectangle(p, 10, -10, c);
   }
 
   @Test
-  public void testGetWidth(){
+  public void testGetWidth() {
     assertEquals(rect.getWidth(), 20);
   }
 
   @Test
-  public void testGetHeight(){
+  public void testGetHeight() {
     assertEquals(rect.getHeight(), 30);
   }
 
   @Test
-  public void testGetColor(){
+  public void testGetColor() {
     assertEquals(rect.getColor(), c);
   }
 
   @Test
-  public void testGetPosition(){
+  public void testGetPosition() {
     assertEquals(rect.getPosition(), p);
   }
 

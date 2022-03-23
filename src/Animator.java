@@ -4,7 +4,8 @@
  * with an ID and a Shape to represent the shape that will be displayed at the time of creation.
  * This shape can be changed later with the setStartShape method.
  *
- * <p>By default, Animated shapes are created at time 0 and have no deletion time, but these times can
+ * <p>By default, Animated shapes are created at time 0 and have no deletion time, but these times
+ * can
  * be set with the setCreationTime and setDeletionTime methods respectively. To delete a shape, use
  * the deleteShape method.
  *

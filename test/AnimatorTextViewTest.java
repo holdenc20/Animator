@@ -2,15 +2,21 @@ import org.junit.Test;
 
 import java.io.IOException;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
+/**
+ * Tester for the AnimatorTextView class.
+ */
 public class AnimatorTextViewTest {
 
   Appendable app;
   Animator state;
   AnimatorTextView atv;
 
-  public AnimatorTextViewTest(){
+  /**
+   * Constructor to intiialize text values.
+   */
+  public AnimatorTextViewTest() {
     app = new StringBuffer();
     state = new ShapeAnimator();
     atv = new AnimatorTextView(state, app);

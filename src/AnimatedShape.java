@@ -94,12 +94,12 @@ public interface AnimatedShape {
    *
    * @param shape the new starting shape.
    * @throws IllegalArgumentException if the starting shape is not the same class as the old
-   * starting shape.
+   *                                  starting shape.
    */
   void setStartShape(Shape shape);
 
   /**
-   * Returns a string representation of this animated shape formatted as follows:
+   * Returns a string representation of this animated shape formatted as follows.
    * <pre>
    * Shapetype ShapeID:
    * [shape1] -> [shape2]
@@ -111,6 +111,7 @@ public interface AnimatedShape {
    * <pre>
    * t (x, y) w h (r, g, b)
    * </pre>
+   *
    * @return the formatted string as seen above.
    */
   String toString();

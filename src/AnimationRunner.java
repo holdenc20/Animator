@@ -9,7 +9,7 @@ public class AnimationRunner {
    * @param args the arguments of the program.
    */
   public static void main(String[] args) {
-
+    //Used for manual testing
   }
 
 }
