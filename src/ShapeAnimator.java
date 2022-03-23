@@ -18,11 +18,16 @@ public class ShapeAnimator implements Animator {
 
 
   @Override
-  public void makeShape(String shapeID, Shape s) {
+  public void makeAnimatedShape(String shapeID, Shape s) {
     if (shapes.containsKey(shapeID)) {
       throw new IllegalArgumentException("This shape already exists");
     }
     shapes.put(shapeID, new SimpleAnimatedShape(shapeID, s));
+  }
+
+  @Override
+  public SimpleAnimatedShape getAnimatedShape(String shapeID) {
+    return new SimpleAnimatedShape(shapes.get(shapeID));
   }
 
   @Override
