@@ -7,9 +7,10 @@ public interface Animator extends AnimatorState {
   /**
    * Adds a shape object to this animation.
    *
-   * @param s - A shape.
+   * @param shapeID - The shape ID.
+   * @param shape   - the starting shape.
    */
-  void makeShape(Shape s);
+  void makeShape(String shapeID, Shape shape);
 
   /**
    * Adds a motion for a shape.

@@ -61,6 +61,7 @@ public class SimpleAnimatedShape implements AnimatedShape {
       }
       prevShape = m.getEndShape();
     }
+    return prevShape;
   }
 
   private Shape weightedAverageShape(Shape start, Shape end, int tStart, int tEnd, int currTime) {
