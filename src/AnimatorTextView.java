@@ -32,7 +32,7 @@ public class AnimatorTextView implements AnimatorView {
 
   @Override
   public void renderAnimation() throws IOException {
-    app.append(state.toString());
+    app.append(this.toString());
   }
 
   @Override

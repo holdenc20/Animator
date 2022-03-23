@@ -1,5 +1,7 @@
 import org.junit.Test;
 
+import java.io.IOException;
+
 import static org.junit.Assert.*;
 
 public class AnimatorTextViewTest {
@@ -9,13 +11,30 @@ public class AnimatorTextViewTest {
   AnimatorTextView atv;
 
   public AnimatorTextViewTest(){
-    app = new StringBuilder();
+    app = new StringBuffer();
     state = new ShapeAnimator();
     atv = new AnimatorTextView(state, app);
   }
 
   @Test
   public void renderAnimation() {
+    Position p = new Position(10, 10);
+    Color c = new Color(30, 40, 50);
+    Shape s1 = new Rectangle(p, 10, 20, c);
+    state.makeAnimatedShape("Rect1", s1);
+    try {
+      atv.renderAnimation();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    assertEquals(app.toString(), "t == time\n" +
+            "p == position as (x, y)\n" +
+            "w == width\n" +
+            "h == height\n" +
+            "c == color as (r, g, b)\n" +
+            "t pos w h color -> t pos w h color\n" +
+            "----------------------------------\n" +
+            "Rectangle Rect1:\n\n");
   }
 
   @Test
