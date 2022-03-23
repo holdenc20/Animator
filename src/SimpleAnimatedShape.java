@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -23,6 +24,19 @@ public class SimpleAnimatedShape implements AnimatedShape {
    */
   public SimpleAnimatedShape(String shapeID, Shape startShape) {
     initShape(shapeID, startShape);
+  }
+
+  /**
+   * Copy Constructor that makes a copy of the given shape.
+   *
+   * @param shape the shape to be copied.
+   */
+  public SimpleAnimatedShape(AnimatedShape shape) {
+    motions = new TreeSet<Motion>(shape.getMotions());
+    shapeID = shape.getID();
+    startShape = shape.getShapeAtTime(shape.getCreationTime());
+    creationTime = shape.getCreationTime();
+    deletionTime = shape.getDeletionTime();
   }
 
   private void initShape(String shapeID, Shape startShape) {
@@ -70,7 +84,7 @@ public class SimpleAnimatedShape implements AnimatedShape {
 
   @Override
   public List<Motion> getMotions() {
-    return motions.stream().toList();
+    return new ArrayList<>(motions.stream().toList());
   }
 
   @Override
@@ -134,4 +148,6 @@ public class SimpleAnimatedShape implements AnimatedShape {
     }
     throw new IllegalArgumentException("No motion can be removed.");
   }
+
+
 }

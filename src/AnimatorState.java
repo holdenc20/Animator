@@ -16,6 +16,4 @@ public interface AnimatorState {
    */
   Shape getShapeAtTime(String shapeID, int time);
 
-
-
 }
