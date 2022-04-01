@@ -21,7 +21,7 @@ public class TestAnimator {
    * Initializes a ShapeAnimater that will be used in the test cases.
    */
   public TestAnimator() {
-    a = new ShapeAnimator();
+    a = new ShapeAnimator(300, 300);
   }
 
   @Test(expected = IllegalArgumentException.class)

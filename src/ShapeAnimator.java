@@ -11,12 +11,16 @@ import java.util.Map;
 public class ShapeAnimator implements Animator {
 
   private final Map<String, AnimatedShape> shapes;
+  private int animationWidth;
+  private int animationHeight;
 
   /**
    * Constructor for the ShapeAnimator class.
    */
-  public ShapeAnimator() {
+  public ShapeAnimator(int width, int height) {
     this.shapes = new HashMap<String, AnimatedShape>();
+    this.animationWidth = width;
+    this.animationHeight = height;
   }
 
 

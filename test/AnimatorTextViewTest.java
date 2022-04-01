@@ -18,7 +18,7 @@ public class AnimatorTextViewTest {
    */
   public AnimatorTextViewTest() {
     app = new StringBuffer();
-    state = new ShapeAnimator();
+    state = new ShapeAnimator(300, 300);
     atv = new AnimatorTextView(state, app);
   }
 
