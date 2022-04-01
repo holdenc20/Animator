@@ -67,6 +67,7 @@ public class AnimatorTextView implements AnimatorView {
    */
   @Override
   public String toString() {
+    //TODO: Add creation and deletion markers for text view
     StringBuilder builder = new StringBuilder();
     addIntro(builder);
     for (String s : state.getShapeIDs()) {

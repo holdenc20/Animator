@@ -6,6 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * Tester for the AnimatorTextView class.
+ * TODO: Write empty animation test
  */
 public class AnimatorTextViewTest {
 

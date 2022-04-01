@@ -1,3 +1,4 @@
+
 /**
  * This interface contains all the methods that the AnimationFileReader class
  * calls as it reads a file containing the animation and builds a model It is
@@ -113,4 +114,5 @@ public interface TweenModelBuilder<T> {
    * @return the model that was constructed so far
    */
   T build();
+
 }
