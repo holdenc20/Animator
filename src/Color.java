@@ -3,9 +3,9 @@
  */
 public class Color {
 
-  private final int red;
-  private final int green;
-  private final int blue;
+  private final float red;
+  private final float green;
+  private final float blue;
 
   /**
    * Constructor to create a simple color object with rgb values.
@@ -15,7 +15,7 @@ public class Color {
    * @param blue  the blue value.
    * @throws IllegalArgumentException if rbg values are not between 0 and 255 inclusive.
    */
-  public Color(int red, int green, int blue) {
+  public Color(float red, float green, float blue) {
     if (red < 0 || red > 255 || green < 0 || green > 255 || blue < 0 || blue > 255) {
       throw new IllegalArgumentException("RGB values are between 0 and 255!");
     }
@@ -29,7 +29,7 @@ public class Color {
    *
    * @return red value.
    */
-  public int getRed() {
+  public float getRed() {
     return red;
   }
 
@@ -38,7 +38,7 @@ public class Color {
    *
    * @return green value.
    */
-  public int getGreen() {
+  public float getGreen() {
     return green;
   }
 
@@ -47,7 +47,7 @@ public class Color {
    *
    * @return blue value.
    */
-  public int getBlue() {
+  public float getBlue() {
     return blue;
   }
 

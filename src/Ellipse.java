@@ -10,7 +10,7 @@ public class Ellipse extends AbstractShape {
    * @param height   - The height.
    * @param color    - The color.
    */
-  public Ellipse(Position position, int width, int height, Color color) {
+  public Ellipse(Position position, float width, float height, Color color) {
     super(position, width, height, color, ShapeType.ELLIPSE);
   }
 

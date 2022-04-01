@@ -15,6 +15,15 @@ public class ShapeAnimator implements Animator {
   private int animationHeight;
 
   /**
+   * Default constructor for the ShapeAnimator class.
+   */
+  public ShapeAnimator() {
+    this.shapes = new HashMap<String, AnimatedShape>();
+    this.animationWidth = 0;
+    this.animationHeight = 0;
+  }
+
+  /**
    * Constructor for the ShapeAnimator class.
    */
   public ShapeAnimator(int width, int height) {
@@ -90,9 +99,24 @@ public class ShapeAnimator implements Animator {
   }
 
   @Override
+  public void setDimensions(int width, int heigth) {
+    this.animationWidth = width;
+    this.animationHeight = heigth;
+  }
+
+  @Override
+  public int getWidth() {
+    return this.animationWidth;
+  }
+
+  @Override
+  public int getHeight() {
+    return this.animationHeight;
+  }
+
+  @Override
   public Shape getShapeAtTime(String shapeID, int time) {
     AnimatedShape animatedShape = getFromID(shapeID);
     return animatedShape.getShapeAtTime(time);
   }
-
 }

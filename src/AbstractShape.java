@@ -4,8 +4,8 @@
  */
 public abstract class AbstractShape implements Shape {
   private final Position position;
-  private final int width;
-  private final int height;
+  private final float width;
+  private final float height;
   private final Color color;
   private final ShapeType type;
 
@@ -18,7 +18,7 @@ public abstract class AbstractShape implements Shape {
    * @param color    - the color of a shape.
    * @throws IllegalArgumentException if width or height is negative.
    */
-  public AbstractShape(Position position, int width, int height, Color color, ShapeType type) {
+  public AbstractShape(Position position, float width, float height, Color color, ShapeType type) {
     if (width < 0 || height < 0) {
       throw new IllegalArgumentException("Width/Height cannot be negative!");
     }
@@ -30,12 +30,12 @@ public abstract class AbstractShape implements Shape {
   }
 
   @Override
-  public int getWidth() {
+  public float getWidth() {
     return this.width;
   }
 
   @Override
-  public int getHeight() {
+  public float getHeight() {
     return this.height;
   }
 

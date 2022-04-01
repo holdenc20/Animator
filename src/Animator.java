@@ -82,4 +82,23 @@ public interface Animator extends AnimatorState {
   void setDeletionTime(String shapeID, int time);
 
 
+  /**
+   * Sets the width and height of the canvas.
+   * @param width Width of the canvas.
+   * @param heigth Height of the canvas.
+   */
+  void setDimensions(int width, int heigth);
+
+  /**
+   * Gets the width of the canvas.
+   * @return The width of the canvas.
+   */
+  int getWidth();
+
+  /**
+   * Gets the height of the canvas.
+   * @return The height of the canvas.
+   */
+  int getHeight();
+
 }

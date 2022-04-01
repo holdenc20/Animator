@@ -13,7 +13,7 @@ public class Utility {
    * @param currTime the time of the average.
    * @return The calculated weighted average.
    */
-  public static int weightedAverage(int start, int end, int tStart, int tEnd, int currTime) {
+  public static float weightedAverage(float start, float end, int tStart, int tEnd, int currTime) {
     return (end - start) * (currTime - tStart) / (tEnd - tStart) + start;
   }
 

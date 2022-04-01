@@ -3,8 +3,8 @@
  */
 public class Position {
 
-  private final int xPos;
-  private final int yPos;
+  private final float xPos;
+  private final float yPos;
 
   /**
    * Constructs a Position object with an x and y position.
@@ -12,7 +12,7 @@ public class Position {
    * @param xPos the x position.
    * @param yPos the y position.
    */
-  public Position(int xPos, int yPos) {
+  public Position(float xPos, float yPos) {
     this.xPos = xPos;
     this.yPos = yPos;
   }
@@ -22,7 +22,7 @@ public class Position {
    *
    * @return the x position.
    */
-  public int getX() {
+  public float getX() {
     return xPos;
   }
 
@@ -31,7 +31,7 @@ public class Position {
    *
    * @return the y position.
    */
-  public int getY() {
+  public float getY() {
     return yPos;
   }
 

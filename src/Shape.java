@@ -16,14 +16,14 @@ public interface Shape {
    *
    * @return - The width.
    */
-  int getWidth();
+  float getWidth();
 
   /**
    * Gets the height of this shape.
    *
    * @return - The height.
    */
-  int getHeight();
+  float getHeight();
 
   /**
    * Gets the color of the shape.
