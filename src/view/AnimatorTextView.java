@@ -2,7 +2,10 @@ package view;
 
 import java.io.IOException;
 
+import model.AnimatedShape;
 import model.AnimatorState;
+import model.Motion;
+import model.Shape;
 
 /**
  * Implementation of the view.AnimatorView in text that appends the toString method to a given
@@ -91,10 +94,28 @@ public class AnimatorTextView implements AnimatorView {
     StringBuilder builder = new StringBuilder();
     addIntro(builder);
     for (String s : state.getShapeIDs()) {
-      builder.append(state.getAnimatedShape(s).toString());
+      addAnimatedShape(builder, state.getAnimatedShape(s));
       builder.append("\n");
     }
     return builder.toString();
+  }
+
+  private void addAnimatedShape(StringBuilder builder, AnimatedShape shape) {
+    addIntro(builder, shape);
+    Shape prevShape = shape.getStartShape();
+    for (Motion m : shape.getMotions()) {
+      builder.append(convertSeconds(m.getStartTime()) + " " + prevShape.toString() + " -> ");
+      builder.append(convertSeconds(m.getEndTime()) + " " + m.getEndShape().toString() + "\n");
+      prevShape = m.getEndShape();
+    }
+  }
+
+  private double convertSeconds(double ticks) {
+    return ticks / tickRate;
+  }
+
+  private void addIntro(StringBuilder builder, AnimatedShape shape) {
+    builder.append(shape.getStartShape().getShapeType() + " " + shape.getID() + ":\n");
   }
 
   private void addIntro(StringBuilder builder) {

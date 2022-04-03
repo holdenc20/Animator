@@ -22,7 +22,7 @@ their motions.
 <h3>Structure</h3>
 ![img.png](img.png)
 
-<h3>Classes Overview for the Model</h3>
+<h3>Classes Overview for the model</h3>
 
 model.Shape: Interface to represent a shape that has a position, width,
 height, and color. This is meant to be immutable and hold 
