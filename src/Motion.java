@@ -27,7 +27,7 @@ public class Motion {
     if (endShape == null) {
       throw new IllegalArgumentException("endShape cannot be null!");
     }
-    if (startTime >= endTime) {
+    if (startTime > endTime) {
       throw new IllegalArgumentException("start time must be strictly less than end time!");
     }
     this.startTime = startTime;

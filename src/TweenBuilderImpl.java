@@ -188,11 +188,12 @@ public class TweenBuilderImpl implements TweenModelBuilder<Animator> {
                                 AnimatedShape dimShape) {
     AnimatedShape animatedShape = initAnimatedShape(posShape, colorShape, dimShape);
     List<Integer> times = getNotableTimes(posShape, colorShape, dimShape).stream().toList();
-
+    times = new ArrayList<Integer>(times);
+    Collections.sort(times);
     if (times.isEmpty()) {
       return animatedShape;
     }
-    int prevTime = 0;
+    int prevTime = posShape.getCreationTime();
     for (int t : times) {
       animatedShape.addMotion(new Motion(prevTime, t,
               combineAtTime(posShape, colorShape, dimShape, t)));

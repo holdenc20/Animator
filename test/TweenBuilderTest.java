@@ -42,15 +42,33 @@ public class TweenBuilderTest {
   @Test
   public void addMove() {
     Animator a = tweenBuilder.setBounds(100,100)
-            .addRectangle("Rect1", 10, 20, 10, 20, 30, 40, 50, 2, 22)
+            .addRectangle("Rect1", 10, 20, 10, 20, 30, 40, 50, 0, 30)
             .addMove("Rect1", 10, 20, 20, 30, 10, 20)
             .addMove("Rect1", 20,30, 100, 100, 21, 23).build();
     a.setCreationTime("Rect1", 0);
     a.setDeletionTime("Rect1", 25);
+    assertEquals(a.getAnimatedShape("Rect1").getShapeAtTime(15).getPosition().getX(), 15, 0.1);
+    assertEquals(a.getAnimatedShape("Rect1").getShapeAtTime(15).getPosition().getY(), 25, 0.1);
+    assertEquals(a.getAnimatedShape("Rect1").getShapeAtTime(22).getPosition().getX(), 60, 0.1);
+    assertEquals(a.getAnimatedShape("Rect1").getShapeAtTime(22).getPosition().getY(), 65, 0.1);
   }
 
   @Test
   public void addColorChange() {
+    Animator a = tweenBuilder.setBounds(100,100)
+            .addRectangle("Rect1", 10, 20, 10, 20, 30, 40, 50, 0, 30)
+            .addColorChange("Rect1", 30, 40, 50, 100, 100, 100, 5, 15)
+            .addColorChange("Rect1", 100, 100, 100, 30, 40, 50, 5, 25)
+            .build();
+    a.setCreationTime("Rect1", 0);
+    a.setDeletionTime("Rect1", 30);
+    assertEquals(a.getAnimatedShape("Rect1").getShapeAtTime(10).getColor().getRed(), 65, 0.1);
+    assertEquals(a.getAnimatedShape("Rect1").getShapeAtTime(10).getColor().getGreen(), 70, 0.1);
+    assertEquals(a.getAnimatedShape("Rect1").getShapeAtTime(10).getColor().getBlue(), 75, 0.1);
+
+    assertEquals(a.getAnimatedShape("Rect1").getShapeAtTime(20).getColor().getRed(), 65, 0.1);
+    assertEquals(a.getAnimatedShape("Rect1").getShapeAtTime(20).getColor().getGreen(), 70, 0.1);
+    assertEquals(a.getAnimatedShape("Rect1").getShapeAtTime(20).getColor().getBlue(), 75, 0.1);
   }
 
   @Test

@@ -26,7 +26,7 @@ public class Utility {
    * @return
    */
   public static boolean clamp(int lo, int hi, int value) {
-    return lo <= value && value < hi;
+    return lo < value && value < hi;
   }
 
 }
