@@ -18,4 +18,19 @@ public class AnimatorFrame extends JFrame implements AnimatorView {
   public void renderAnimation() throws IOException {
 
   }
+
+  @Override
+  public void setModelState(AnimatorState state) {
+
+  }
+
+  @Override
+  public void setTickRate(double tickRate) {
+
+  }
+
+  @Override
+  public void setOutput(Appendable app) {
+
+  }
 }

@@ -120,15 +120,15 @@ public class SVGView implements AnimatorView {
   }
 
   private String svgColorString(Color color) {
-    return String.format("(%d,%d,%d)", (int) color.getRed(), (int) color.getGreen(),
+    return String.format("(%s,%s,%s)", (int) color.getRed(), (int) color.getGreen(),
             (int) color.getBlue());
   }
 
   private void addAnimateTag(double startTime, double endTime, String attribute, String from,
                              String to, StringBuilder builder) {
-    builder.append(String.format("<animate attributeType=\"xml\" begin=\"%fms\" " +
-                    "dur=\"%fms\" attributeName=\"%s\" from=\"%d\" to=\"%d\" fill=\"freeze\" />\n",
-            convertSeconds(startTime), convertSeconds(endTime - startTime),
+    builder.append(String.format("<animate attributeType=\"xml\" begin=\"%sms\" " +
+                    "dur=\"%sms\" attributeName=\"%s\" from=\"%s\" to=\"%s\" fill=\"freeze\" />\n",
+            (int) convertSeconds(startTime), (int) convertSeconds(endTime - startTime),
             attribute, from, to));
   }
 
@@ -145,16 +145,16 @@ public class SVGView implements AnimatorView {
   }
 
   private void addRectangleHeader(Shape shape, StringBuilder builder, String name) {
-    builder.append(String.format("<rect id=\"%s\" x=\"%d\" y=\"%d\" width=\"%d\" height=\"%d\" " +
-                    "fill=\"rgb(%d,%d,%d)\" visibility=\"visible\" >\n", name,
+    builder.append(String.format("<rect id=\"%s\" x=\"%s\" y=\"%s\" width=\"%s\" height=\"%s\" " +
+                    "fill=\"rgb(%s,%s,%s)\" visibility=\"visible\" >\n", name,
             (int) shape.getPosition().getX(), (int) shape.getPosition().getY(),
             (int) shape.getWidth(), (int) shape.getHeight(), (int) shape.getColor().getRed(),
             (int) shape.getColor().getGreen(), (int) shape.getColor().getBlue()));
   }
 
   private void addEllipseHeader(Shape shape, StringBuilder builder, String name) {
-    builder.append(String.format("<ellipse id=\"%s\" cx=\"%d\" cy=\"%d\" rx=\"%d\" ry=\"%d\" " +
-                    "fill=\"rgb(%d,%d,%d)\" visibility=\"visible\" >\n", name,
+    builder.append(String.format("<ellipse id=\"%s\" cx=\"%s\" cy=\"%s\" rx=\"%s\" ry=\"%s\" " +
+                    "fill=\"rgb(%s,%s,%s)\" visibility=\"visible\" >\n", name,
             (int) (shape.getPosition().getX() + shape.getWidth() / 2),
             (int) (shape.getPosition().getY() + shape.getHeight() / 2),
             (int) (shape.getWidth() / 2), (int) (shape.getHeight() / 2),
@@ -163,8 +163,8 @@ public class SVGView implements AnimatorView {
   }
 
   private void addHeader(StringBuilder builder) {
-    builder.append(String.format("<svg width=\"%d\" height=\"%d\" version=\"1.1\" " +
-            "xmlns=\"http://www.w3.org/2000/svg\">"), state.getWidth(), state.getHeight());
+    builder.append(String.format("<svg width=\"%s\" height=\"%s\" version=\"1.1\" " +
+            "xmlns=\"http://www.w3.org/2000/svg\">", state.getWidth(), state.getHeight()));
     builder.append("\n");
   }
 }

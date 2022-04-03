@@ -12,15 +12,17 @@ public class AnimatorTextViewTest {
 
   Appendable app;
   Animator state;
-  AnimatorTextView atv;
+  AnimatorView atv;
 
   /**
-   * Constructor to intiialize text values.
+   * Constructor to initialize text values.
    */
   public AnimatorTextViewTest() {
     app = new StringBuffer();
     state = new ShapeAnimator(300, 300);
-    atv = new AnimatorTextView(state, app, 1);
+    atv = new AnimatorTextView();
+    atv.setModelState(state);
+    atv.setOutput(app);
   }
 
   @Test
