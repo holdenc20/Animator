@@ -10,16 +10,15 @@ import javax.swing.*;
 public class SwingView extends JFrame implements AnimatorView {
 
   /**
-   * Constructor for the SwingView that takes in a title and an animation state.
+   * Constructor for the SwingView that takes in a title.
    *
    * @param windowTitle The title of the window
-   * @param state       The state of the animation
    */
-  public SwingView(String windowTitle, AnimatorState state, double tickRate) {
+  public SwingView(String windowTitle) {
     super(windowTitle);
     setLocationRelativeTo(null);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    SwingPanel panel = new SwingPanel(state, tickRate);
+    SwingPanel panel = new SwingPanel(null, 1); //TODO: panel tickrate
     this.add(panel);
     this.pack();
     this.setVisible(true);
@@ -28,5 +27,20 @@ public class SwingView extends JFrame implements AnimatorView {
   @Override
   public void renderAnimation() throws IOException {
     this.repaint();
+  }
+
+  @Override
+  public void setModelState(AnimatorState state) {
+
+  }
+
+  @Override
+  public void setTickRate(double tickRate) {
+
+  }
+
+  @Override
+  public void setOutput(Appendable app) {
+
   }
 }

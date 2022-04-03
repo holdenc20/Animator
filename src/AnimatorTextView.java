@@ -9,18 +9,15 @@ public class AnimatorTextView implements AnimatorView {
 
   private Appendable app;
   private AnimatorState state;
-  private int tickRate;
+  private double tickRate;
 
   /**
-   * Constructor for an AnimatorTextView with a given state and appendable.
-   *
-   * @param state the state of the animation.
-   * @param app the output of rendering.
+   * Default Constructor for the AnimatorTextView which initializes all variables.
    */
-  public AnimatorTextView(AnimatorState state, Appendable app, int tickRate) {
-    this.app = app;
-    this.state = state;
-    this.tickRate = tickRate;
+  public AnimatorTextView() {
+    this.app = System.out;
+    this.state = null;
+    this.tickRate = 1;
   }
 
   /**
@@ -37,6 +34,21 @@ public class AnimatorTextView implements AnimatorView {
   @Override
   public void renderAnimation() throws IOException {
     app.append(this.toString());
+  }
+
+  @Override
+  public void setModelState(AnimatorState state) {
+    this.state = state;
+  }
+
+  @Override
+  public void setTickRate(double tickRate) {
+    this.tickRate = tickRate;
+  }
+
+  @Override
+  public void setOutput(Appendable app) {
+    this.app = app;
   }
 
   /**

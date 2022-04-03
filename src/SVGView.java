@@ -12,20 +12,32 @@ public class SVGView implements AnimatorView {
   private double tickRate;
 
   /**
-   * Constructs an SVGView with a given AnimatorState and Appendable.
-   *
-   * @param state The animator state
-   * @param app   The appendable
+   * Constructs an SVGView with default values.
    */
-  public SVGView(AnimatorState state, Appendable app, double tickRate) {
-    this.app = app;
-    this.state = state;
-    this.tickRate = tickRate;
+  public SVGView() {
+    this.app = null;
+    this.state = null;
+    this.tickRate = 1;
   }
 
   @Override
   public void renderAnimation() throws IOException {
     app.append(toString());
+  }
+
+  @Override
+  public void setModelState(AnimatorState state) {
+    this.state = state;
+  }
+
+  @Override
+  public void setTickRate(double tickRate) {
+    this.tickRate = tickRate;
+  }
+
+  @Override
+  public void setOutput(Appendable app) {
+    this.app = app;
   }
 
   @Override
