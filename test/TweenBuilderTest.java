@@ -2,13 +2,17 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Tester class for the TweenModelBuilder interface.
+ */
 public class TweenBuilderTest {
+  private TweenBuilderImpl tweenBuilder;
 
-  TweenBuilderImpl tweenBuilder;
-
+  /**
+   * Initializing variables to be used in the test methods.
+   */
   public TweenBuilderTest() {
     tweenBuilder = new TweenBuilderImpl();
-
   }
 
   @Test
@@ -58,7 +62,7 @@ public class TweenBuilderTest {
     Animator a = tweenBuilder.setBounds(100,100)
             .addRectangle("Rect1", 10, 20, 10, 20, 30, 40, 50, 0, 30)
             .addColorChange("Rect1", 30, 40, 50, 100, 100, 100, 5, 15)
-            .addColorChange("Rect1", 100, 100, 100, 30, 40, 50, 5, 25)
+            .addColorChange("Rect1", 100, 100, 100, 30, 40, 50, 15, 25)
             .build();
     a.setCreationTime("Rect1", 0);
     a.setDeletionTime("Rect1", 30);
@@ -73,9 +77,41 @@ public class TweenBuilderTest {
 
   @Test
   public void addScaleToChange() {
+    Animator a = tweenBuilder.setBounds(100,100)
+            .addRectangle("Rect1", 10, 20, 10, 20, 30, 40, 50, 0, 30)
+            .addScaleToChange("Rect1", 10, 20, 40, 100, 3, 13)
+            .addScaleToChange("Rect1", 40, 100, 2, 2, 15, 25)
+            .build();
+    a.setCreationTime("Rect1", 0);
+    a.setDeletionTime("Rect1", 30);
+    assertEquals(a.getAnimatedShape("Rect1").getShapeAtTime(8).getWidth(), 25, 0.1);
+    assertEquals(a.getAnimatedShape("Rect1").getShapeAtTime(8).getHeight(), 60, 0.1);
+
+    assertEquals(a.getAnimatedShape("Rect1").getShapeAtTime(15).getWidth(), 40, 0.1);
+    assertEquals(a.getAnimatedShape("Rect1").getShapeAtTime(15).getHeight(), 100, 0.1);
+
+    assertEquals(a.getAnimatedShape("Rect1").getShapeAtTime(20).getWidth(), 21, 0.1);
+    assertEquals(a.getAnimatedShape("Rect1").getShapeAtTime(20).getHeight(), 51, 0.1);
   }
 
   @Test
   public void build() {
+    Animator a = tweenBuilder.setBounds(100,100)
+            .addRectangle("Rect1", 10, 20, 10, 20, 30, 40, 50, 0, 30)
+            .addScaleToChange("Rect1", 10, 20, 40, 100, 3, 13)
+            .addScaleToChange("Rect1", 40, 100, 2, 2, 15, 25)
+            .addColorChange("Rect1", 30, 40, 50, 100, 100, 100, 5, 15)
+            .addColorChange("Rect1", 100, 100, 100, 30, 40, 50, 15, 25)
+            .addMove("Rect1", 10, 20, 20, 30, 10, 20)
+            .addMove("Rect1", 20,30, 100, 100, 21, 23)
+            .build();
+    assertEquals(a.getAnimatedShape("Rect1").getShapeAtTime(22).getPosition().getX(), 60, 0.1);
+    assertEquals(a.getAnimatedShape("Rect1").getShapeAtTime(22).getPosition().getY(), 65, 0.1);
+    assertEquals(a.getAnimatedShape("Rect1").getShapeAtTime(20).getColor().getRed(), 65, 0.1);
+    assertEquals(a.getAnimatedShape("Rect1").getShapeAtTime(20).getColor().getGreen(), 70, 0.1);
+    assertEquals(a.getAnimatedShape("Rect1").getShapeAtTime(20).getColor().getBlue(), 75, 0.1);
+    assertEquals(a.getAnimatedShape("Rect1").getShapeAtTime(20).getWidth(), 21, 0.1);
+    assertEquals(a.getAnimatedShape("Rect1").getShapeAtTime(20).getHeight(), 51, 0.1);
+
   }
 }
