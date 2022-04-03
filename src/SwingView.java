@@ -5,6 +5,7 @@ import javax.swing.*;
 /**
  * Java Swing implementation of an AnimatorView that displays an animation in a JFrame window.
  * TODO: implement scroll bars
+ * TODO: package everything
  */
 public class SwingView extends JFrame implements AnimatorView {
 

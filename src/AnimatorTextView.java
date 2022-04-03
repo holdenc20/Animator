@@ -3,6 +3,7 @@ import java.io.IOException;
 /**
  * Implementation of the AnimatorView in text that appends the toString method to a given
  * appendable upon call of the renderAnimation() method.
+ * TODO: Implement tickrate
  */
 public class AnimatorTextView implements AnimatorView {
 
