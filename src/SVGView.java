@@ -116,7 +116,12 @@ public class SVGView implements AnimatorView {
                              String to, StringBuilder builder) {
     builder.append(String.format("<animate attributeType=\"xml\" begin=\"%fms\" " +
                     "dur=\"%fms\" attributeName=\"%s\" from=\"%d\" to=\"%d\" fill=\"freeze\" />\n",
-            startTime, endTime - startTime, attribute, from, to));
+            convertSeconds(startTime), convertSeconds(endTime - startTime),
+            attribute, from, to));
+  }
+
+  private double convertSeconds(double ticks) {
+    return ticks * 1000 / tickRate;
   }
 
   private void addShapeHeader(AnimatedShape shape, StringBuilder builder) {
