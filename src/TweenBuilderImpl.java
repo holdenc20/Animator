@@ -54,7 +54,7 @@ public class TweenBuilderImpl implements TweenModelBuilder<Animator> {
     Shape startShape = new Rectangle(new Position(lx, ly), width, height,
             new Color(red, green, blue));
     createShape(name, startShape, startOfLife, endOfLife);
-    return null;
+    return this;
   }
 
   private void createShape(String name, Shape shape, int startTime, int endTime) {
@@ -188,7 +188,7 @@ public class TweenBuilderImpl implements TweenModelBuilder<Animator> {
                                 AnimatedShape dimShape) {
     AnimatedShape animatedShape = initAnimatedShape(posShape, colorShape, dimShape);
     List<Integer> times = getNotableTimes(posShape, colorShape, dimShape).stream().toList();
-    Collections.sort(times);
+
     if (times.isEmpty()) {
       return animatedShape;
     }
@@ -206,7 +206,6 @@ public class TweenBuilderImpl implements TweenModelBuilder<Animator> {
     Shape pos = posShape.getShapeAtTime(time);
     Shape color = colorShape.getShapeAtTime(time);
     Shape dim = dimShape.getShapeAtTime(time);
-    Shape comb;
     if (pos.getShapeType() == ShapeType.ELLIPSE) {
       return new Ellipse(pos.getPosition(), dim.getWidth(), dim.getHeight(), color.getColor());
     } else {
