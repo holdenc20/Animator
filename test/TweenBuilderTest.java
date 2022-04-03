@@ -1,9 +1,12 @@
 import org.junit.Test;
 
+import model.Animator;
+import io.TweenBuilderImpl;
+
 import static org.junit.Assert.assertEquals;
 
 /**
- * Tester class for the TweenModelBuilder interface.
+ * Tester class for the io.TweenModelBuilder interface.
  */
 public class TweenBuilderTest {
   private TweenBuilderImpl tweenBuilder;

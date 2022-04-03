@@ -1,3 +1,5 @@
+package io;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -6,8 +8,21 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import io.TweenModelBuilder;
+import model.AnimatedShape;
+import model.Animator;
+import model.Color;
+import model.Ellipse;
+import model.Motion;
+import model.Position;
+import model.Rectangle;
+import model.Shape;
+import model.ShapeAnimator;
+import model.ShapeType;
+import model.SimpleAnimatedShape;
+
 /**
- * Implementation of the TweenModelBuilder interface that creates an animation of type Animator
+ * Implementation of the io.TweenModelBuilder interface that creates an animation of type view.Animator
  * from a file.
  * TODO: consider validating inputs for addmotion methods.
  */

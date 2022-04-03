@@ -1,7 +1,16 @@
+package view;
+
 import java.io.IOException;
 
+import model.AnimatedShape;
+import model.AnimatorState;
+import model.Color;
+import model.Motion;
+import model.Shape;
+import model.ShapeType;
+
 /**
- * Implementation of AnimatorView that creates an SVG formatted text.
+ * Implementation of view.AnimatorView that creates an SVG formatted text.
  * TODO: figure out y flip
  * TODO: visibility in creation
  */
@@ -12,7 +21,7 @@ public class SVGView implements AnimatorView {
   private double tickRate;
 
   /**
-   * Constructs an SVGView with default values.
+   * Constructs an view.SVGView with default values.
    */
   public SVGView() {
     this.app = null;

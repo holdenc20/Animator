@@ -2,10 +2,20 @@ import org.junit.Test;
 
 import java.io.IOException;
 
+import model.Animator;
+import model.Color;
+import model.Ellipse;
+import model.Position;
+import model.Rectangle;
+import model.Shape;
+import model.ShapeAnimator;
+import view.AnimatorView;
+import view.SVGView;
+
 import static org.junit.Assert.*;
 
 /**
- * Tester class for the SVGView class.
+ * Tester class for the view.SVGView class.
  */
 public class SVGViewTest {
 

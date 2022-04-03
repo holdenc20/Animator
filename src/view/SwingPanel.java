@@ -1,3 +1,5 @@
+package view;
+
 import java.awt.*;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -5,8 +7,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import model.AnimatorState;
+import model.ShapeType;
+
 /**
- * SwingPanel class that controls the JPanel of the animation.
+ * view.SwingPanel class that controls the JPanel of the animation.
  */
 public class SwingPanel extends JPanel implements ActionListener {
 
@@ -14,7 +19,7 @@ public class SwingPanel extends JPanel implements ActionListener {
   int currentTick;
 
   /**
-   * Constructor for a SwingPanel.
+   * Constructor for a view.SwingPanel.
    *
    * @param state    The state of the model
    * @param tickRate the ticks per second of the animation
@@ -34,7 +39,7 @@ public class SwingPanel extends JPanel implements ActionListener {
     }
   }
 
-  private void drawShape(Shape s, Graphics g) {
+  private void drawShape(model.Shape s, Graphics g) {
     g.setColor(new Color(s.getColor().getRed(), s.getColor().getGreen(), s.getColor().getBlue()));
     if (s.getShapeType() == ShapeType.ELLIPSE) {
       g.fillOval((int) s.getPosition().getX(), (int) s.getPosition().getY(), (int) s.getWidth(),

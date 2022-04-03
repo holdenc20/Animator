@@ -1,9 +1,11 @@
 import org.junit.Test;
 
+import model.Utility;
+
 import static org.junit.Assert.assertEquals;
 
 /**
- * Tester class for the Utility class methods.
+ * Tester class for the model.Utility class methods.
  */
 public class UtilityTest {
 

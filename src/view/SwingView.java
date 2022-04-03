@@ -1,16 +1,22 @@
+package view;
+
 import java.io.IOException;
 
 import javax.swing.*;
 
+import model.AnimatorState;
+import view.AnimatorView;
+import view.SwingPanel;
+
 /**
- * Java Swing implementation of an AnimatorView that displays an animation in a JFrame window.
+ * Java Swing implementation of an view.AnimatorView that displays an animation in a JFrame window.
  * TODO: implement scroll bars
  * TODO: package everything
  */
 public class SwingView extends JFrame implements AnimatorView {
 
   /**
-   * Constructor for the SwingView that takes in a title.
+   * Constructor for the view.SwingView that takes in a title.
    *
    * @param windowTitle The title of the window
    */

@@ -1,3 +1,5 @@
+package model;
+
 /**
  * Class to represent the x and y values of a position on the animation.
  */
@@ -7,7 +9,7 @@ public class Position {
   private final float yPos;
 
   /**
-   * Constructs a Position object with an x and y position.
+   * Constructs a model.Position object with an x and y position.
    *
    * @param xPos the x position.
    * @param yPos the y position.
@@ -47,7 +49,7 @@ public class Position {
    * @param tStart   the start of the time period.
    * @param tEnd     the end of the time period.
    * @param currTime the time of the average.
-   * @return the Position representing the average.
+   * @return the model.Position representing the average.
    */
   public Position weightedAverage(Position other, int tStart, int tEnd, int currTime) {
     return new Position(Utility.weightedAverage(getX(), other.getX(), tStart, tEnd, currTime),

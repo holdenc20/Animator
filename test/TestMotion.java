@@ -1,9 +1,15 @@
 import org.junit.Test;
 
+import model.Color;
+import model.Motion;
+import model.Position;
+import model.Rectangle;
+import model.Shape;
+
 import static org.junit.Assert.assertEquals;
 
 /**
- * Tester class for the Motion class.
+ * Tester class for the model.Motion class.
  */
 public class TestMotion {
   Shape s = new Rectangle(new Position(10, 10), 10, 20, new Color(10, 10, 10));

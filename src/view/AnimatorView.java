@@ -1,4 +1,8 @@
+package view;
+
 import java.io.IOException;
+
+import model.AnimatorState;
 
 /**
  * Interface to represent the view of a given animation.
@@ -7,7 +11,7 @@ import java.io.IOException;
 public interface AnimatorView {
 
   /**
-   * Renders the Animator to a given destination.
+   * Renders the view.Animator to a given destination.
    *
    * @throws IOException if an error appending occurs.
    */

@@ -1,7 +1,11 @@
+package model;
+
 import java.util.List;
 
+import model.AnimatedShape;
+
 /**
- * Interface which contains several getter methods for an Animator that can be called to obtain
+ * Interface which contains several getter methods for an view.Animator that can be called to obtain
  * information about the state of an animation. It has the ability to get the information about a
  * given shape at a specific time. It also has the ability to get any animated shape in the
  * animation given the ID.
@@ -13,7 +17,7 @@ public interface AnimatorState {
    *
    * @param shapeID the ID of the shape to be returned.
    * @param time    the time that is being looked for.
-   * @return Shape representing the data of the given shape at the given time.
+   * @return model.Shape representing the data of the given shape at the given time.
    * @throws IllegalArgumentException if time is negative.
    * @throws IllegalArgumentException if shapeID does not match any shapes.
    */

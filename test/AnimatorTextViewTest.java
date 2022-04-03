@@ -2,10 +2,20 @@ import org.junit.Test;
 
 import java.io.IOException;
 
+import model.Animator;
+import model.Color;
+import model.Ellipse;
+import model.Position;
+import model.Rectangle;
+import model.Shape;
+import model.ShapeAnimator;
+import view.AnimatorTextView;
+import view.AnimatorView;
+
 import static org.junit.Assert.assertEquals;
 
 /**
- * Tester for the AnimatorTextView class.
+ * Tester for the view.AnimatorTextView class.
  * TODO: Write empty animation test
  */
 public class AnimatorTextViewTest {
@@ -43,7 +53,7 @@ public class AnimatorTextViewTest {
             "c == color as (r, g, b)\n" +
             "t pos w h color -> t pos w h color\n" +
             "----------------------------------\n" +
-            "Rectangle Rect1:\n\n");
+            "model.Rectangle Rect1:\n\n");
   }
 
   @Test
@@ -59,7 +69,7 @@ public class AnimatorTextViewTest {
             "c == color as (r, g, b)\n" +
             "t pos w h color -> t pos w h color\n" +
             "----------------------------------\n" +
-            "Rectangle Rect1:\n\n");
+            "model.Rectangle Rect1:\n\n");
 
     Position p1 = new Position(100, 40);
     Color c1 = new Color(30, 40, 50);
@@ -72,7 +82,7 @@ public class AnimatorTextViewTest {
             "c == color as (r, g, b)\n" +
             "t pos w h color -> t pos w h color\n" +
             "----------------------------------\n" +
-            "Rectangle Rect1:\n" +
+            "model.Rectangle Rect1:\n" +
             "1 (10.0, 10.0) 10.0 20.0 (30.0, 40.0, 50.0) -> 25 (100.0, 40.0) 30.0 40.0 (30.0, 40.0, 50.0)\n\n");
 
     Position p2 = new Position(1, 1);
@@ -86,7 +96,7 @@ public class AnimatorTextViewTest {
             "c == color as (r, g, b)\n" +
             "t pos w h color -> t pos w h color\n" +
             "----------------------------------\n" +
-            "Rectangle Rect1:\n" +
+            "model.Rectangle Rect1:\n" +
             "1 (10.0, 10.0) 10.0 20.0 (30.0, 40.0, 50.0) -> 25 (100.0, 40.0) 30.0 40.0 (30.0, 40.0, 50.0)\n" +
             "40 (100.0, 40.0) 30.0 40.0 (30.0, 40.0, 50.0) -> 50 (1.0, 1.0) 30.0 40.0 (30.0, 4.0, 5.0)\n\n");
 
@@ -103,10 +113,10 @@ public class AnimatorTextViewTest {
             "c == color as (r, g, b)\n" +
             "t pos w h color -> t pos w h color\n" +
             "----------------------------------\n" +
-            "Ellipse Ellipse1:\n" +
+            "model.Ellipse Ellipse1:\n" +
             "40 (100.0, 40.0) 10.0 20.0 (30.0, 40.0, 50.0) -> 50 (2.0, 2.0) 130.0 140.0 (60.0, 14.0, 15.0)\n" +
             "\n" +
-            "Rectangle Rect1:\n" +
+            "model.Rectangle Rect1:\n" +
             "1 (10.0, 10.0) 10.0 20.0 (30.0, 40.0, 50.0) -> 25 (100.0, 40.0) 30.0 40.0 (30.0, 40.0, 50.0)\n" +
             "40 (100.0, 40.0) 30.0 40.0 (30.0, 40.0, 50.0) -> 50 (1.0, 1.0) 30.0 40.0 (30.0, 4.0, 5.0)\n\n");
   }

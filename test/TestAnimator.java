@@ -2,10 +2,19 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
+import model.Animator;
+import model.Color;
+import model.Ellipse;
+import model.Motion;
+import model.Position;
+import model.Rectangle;
+import model.Shape;
+import model.ShapeAnimator;
+
 import static org.junit.Assert.assertEquals;
 
 /**
- * Tester class for the Animator interface. Tests on the SimpleAnimator implementation.
+ * Tester class for the view.Animator interface. Tests on the SimpleAnimator implementation.
  */
 public class TestAnimator {
   Animator a;

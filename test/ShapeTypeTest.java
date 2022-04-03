@@ -1,9 +1,11 @@
 import org.junit.Test;
 
+import model.ShapeType;
+
 import static org.junit.Assert.assertEquals;
 
 /**
- * Tester class for the ShapeType enumeration.
+ * Tester class for the model.ShapeType enumeration.
  */
 public class ShapeTypeTest {
 
@@ -11,7 +13,7 @@ public class ShapeTypeTest {
   public void testToString() {
     ShapeType rect = ShapeType.RECTANGLE;
     ShapeType circ = ShapeType.ELLIPSE;
-    assertEquals(rect.toString(), "Rectangle");
-    assertEquals(circ.toString(), "Ellipse");
+    assertEquals(rect.toString(), "model.Rectangle");
+    assertEquals(circ.toString(), "model.Ellipse");
   }
 }

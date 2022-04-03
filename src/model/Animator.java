@@ -1,7 +1,9 @@
+package model;
+
 /**
  * Represents an animator that moves shapes. An animation is made out of AnimatedShapes that are
  * referred to by their ID. To create an Animated shape, the makeAnimatedShape method is used
- * with an ID and a Shape to represent the shape that will be displayed at the time of creation.
+ * with an ID and a model.Shape to represent the shape that will be displayed at the time of creation.
  * This shape can be changed later with the setStartShape method.
  *
  * <p>By default, Animated shapes are created at time 0 and have no deletion time, but these times

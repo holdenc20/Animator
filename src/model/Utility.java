@@ -1,3 +1,5 @@
+package model;
+
 /**
  * A utility class used for mathematical functions that are used in various locations.
  */

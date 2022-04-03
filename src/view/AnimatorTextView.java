@@ -1,7 +1,11 @@
+package view;
+
 import java.io.IOException;
 
+import model.AnimatorState;
+
 /**
- * Implementation of the AnimatorView in text that appends the toString method to a given
+ * Implementation of the view.AnimatorView in text that appends the toString method to a given
  * appendable upon call of the renderAnimation() method.
  * TODO: Implement tickrate
  */
@@ -12,7 +16,7 @@ public class AnimatorTextView implements AnimatorView {
   private double tickRate;
 
   /**
-   * Default Constructor for the AnimatorTextView which initializes all variables.
+   * Default Constructor for the view.AnimatorTextView which initializes all variables.
    */
   public AnimatorTextView() {
     this.app = System.out;
@@ -21,7 +25,7 @@ public class AnimatorTextView implements AnimatorView {
   }
 
   /**
-   * Constructor for an AnimatorTextView that uses the console as output.
+   * Constructor for an view.AnimatorTextView that uses the console as output.
    *
    * @param state the state of the animation.
    */

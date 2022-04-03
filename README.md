@@ -1,73 +1,85 @@
-# Animator Project
+# model.Animator Project
  
 <h3>Overview of Design</h3>
 
-The main feature of this project is the model Animator interface 
-implemented by the ShapeAnimator class. Animator has the functionality
+The main feature of this project is the model model.Animator interface 
+implemented by the model.ShapeAnimator class. model.Animator has the functionality
 to Add and remove shapes to the animation, and add and remove motions
 of these shapes over time.
 
-This is done by using the AnimatedShape interface as a representation
+This is done by using the model.AnimatedShape interface as a representation
 of a single shape and all of its movements throughout the animation.
-Each AnimatedShape contains Shapes which are representations of
+Each model.AnimatedShape contains Shapes which are representations of
 a shape at one point in time as well as motions which are the
 interactions between these Shapes.
 
-Each Shape has a position, width, height, and a color.
+Each model.Shape has a position, width, height, and a color.
 
 This project also contains a AnimationView that is implemented
-as a text view which displays all shapes in the animation and
+as a text model which displays all shapes in the animation and
 their motions.
 
 <h3>Structure</h3>
 ![img.png](img.png)
 
-<h3>Classes Overview</h3>
+<h3>Classes Overview for the Model</h3>
 
-Shape: Interface to represent a shape that has a position, width,
+model.Shape: Interface to represent a shape that has a position, width,
 height, and color. This is meant to be immutable and hold 
 information solely for a shape at one point in time in the animation.
 
-AbstractShape: Abstract implementation of Shape that simply holds
+model.AbstractShape: Abstract implementation of model.Shape that simply holds
 variables for position, width, height, and color and implements
 basic shape functions.
 
-Rectangle & Ellipse: Concrete implementations of AbstractShape
-that currently have no difference than name and ShapeType.
+model.Rectangle & model.Ellipse: Concrete implementations of model.AbstractShape
+that currently have no difference than name and model.ShapeType.
 
-AnimatorState: This is a state representation of the model that
+model.AnimatorState: This is a state representation of the model that
 only has the ability to get information about an animation, not 
-mutate. This is used by the view.
+mutate. This is used by the model.
 
-Animator: Extension of the AnimatorState that adds the ability
+model.Animator: Extension of the model.AnimatorState that adds the ability
 to modify and add shapes and motions to the animation as described
 in the documentation.
 
-ShapeAnimator: Implementation of Animator which uses AnimatedShapes and 
+model.ShapeAnimator: Implementation of model.Animator which uses AnimatedShapes and 
 ShapeID strings in key value pairs to hold information about the shapes.
 
-AnimatedShape: Represents a specific shape throughout an animation.
+model.AnimatedShape: Represents a specific shape throughout an animation.
 
-SimpleAnimatedShape: Implementation of AnimatedShape.
+model.SimpleAnimatedShape: Implementation of model.AnimatedShape.
 
-AnimatorView: Interface to view the model with a render method.
+model.Color: Representation of a color with red, green, and blue values.
 
-AnimatorTextView: Implementation of AnimatorView that uses text
-to display a representation of an animation.
-
-Color: Representation of a color with red, green, and blue values.
-
-Position: Representation of a position on a canvas with an x and y
+model.Position: Representation of a position on a canvas with an x and y
 value.
 
-Motion: Representation of a motion of a shape that has a start time, 
+model.Motion: Representation of a motion of a shape that has a start time, 
 and end time, and an end shape. Throughout the motion, the shape will
 continuously transform to the end shape. 
 
-ShapeType: Enum which represents the types of shapes that can be
-made in the animation. Currently, this only holds Rectangle and Ellipse.
+model.ShapeType: Enum which represents the types of shapes that can be
+made in the animation. Currently, this only holds model.Rectangle and model.Ellipse.
 
-AnimationRunner: Class with a main method used for manual testing.
+io.AnimationRunner: Class with a main method used for manual testing.
 
-Utility: class with static methods that are generally useful
+model.Utility: class with static methods that are generally useful
 throughout the program.
+
+<h3>Classes Overview for the Views</h3>
+
+view.AnimatorView: Interface to model the model with a render method.
+
+view.AnimatorTextView: Implementation of view.AnimatorView that uses text
+to display a representation of an animation.
+
+view.SVGView: Implementation of view.AnimatorView that uses SVG
+to display an animation. Can be saved to an SVG file 
+to be run as an animation
+
+view.SwingView:
+
+view.SwingPanel:
+
+

@@ -1,3 +1,5 @@
+package model;
+
 /**
  * Represents an animated shape object. This is an immutable shape that stores the state of a given
  * shape. Each shape has a position, width, height, and a color.

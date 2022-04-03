@@ -1,17 +1,21 @@
+package model;
+
 /**
- * Represents an ellipse shape. Concrete implementation of the AbstractShape class of type Ellipse.
+ * Represents a rectangle shape. Concrete implementation of the view.AbstractShape class of type
+ * model.Rectangle.
  */
-public class Ellipse extends AbstractShape {
+public class Rectangle extends AbstractShape {
+
   /**
-   * Constructor for an Ellipse that takes in a position, width, height, and color.
+   * Constructor for a model.Rectangle that takes in a position, width, height, and color.
    *
    * @param position - The position.
    * @param width    - The width.
    * @param height   - The height.
    * @param color    - The color.
    */
-  public Ellipse(Position position, float width, float height, Color color) {
-    super(position, width, height, color, ShapeType.ELLIPSE);
+  public Rectangle(Position position, float width, float height, Color color) {
+    super(position, width, height, color, ShapeType.RECTANGLE);
   }
 
   @Override
@@ -22,7 +26,7 @@ public class Ellipse extends AbstractShape {
     if (!validateTimes(startT, endT, currT)) {
       throw new IllegalArgumentException("Times are not valid");
     }
-    return new Ellipse(
+    return new Rectangle(
             this.getPosition().weightedAverage(other.getPosition(), startT, endT, currT),
             Utility.weightedAverage(this.getWidth(), other.getWidth(), startT, endT, currT),
             Utility.weightedAverage(this.getHeight(), other.getHeight(), startT, endT, currT),

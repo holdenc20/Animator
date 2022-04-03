@@ -1,9 +1,16 @@
 import org.junit.Test;
 
+import model.Color;
+import model.Ellipse;
+import model.Position;
+import model.Rectangle;
+import model.Shape;
+import model.ShapeType;
+
 import static org.junit.Assert.assertEquals;
 
 /**
- * Tester class for the Shape interface. Includes testing for each of the Shape implementations.
+ * Tester class for the model.Shape interface. Includes testing for each of the model.Shape implementations.
  */
 public class TestShape {
   Shape rect;
@@ -14,7 +21,7 @@ public class TestShape {
   Color c = new Color(100, 150, 200);
 
   /**
-   * Initializes Shape objects.
+   * Initializes model.Shape objects.
    */
   public TestShape() {
     rect = new Rectangle(p, 20, 30, c);

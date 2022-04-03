@@ -1,9 +1,11 @@
 import org.junit.Test;
 
+import model.Position;
+
 import static org.junit.Assert.assertEquals;
 
 /**
- * Tester class for the Position class.
+ * Tester class for the model.Position class.
  */
 public class TestPosition {
   Position p;

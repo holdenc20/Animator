@@ -1,3 +1,5 @@
+package model;
+
 import java.util.List;
 
 /**
@@ -19,7 +21,7 @@ public interface AnimatedShape {
    * Gets the state of the animated shape at a given time.
    *
    * @param time - The time to be shown.
-   * @return Shape representing the state of the shape at the given time.
+   * @return model.Shape representing the state of the shape at the given time.
    * @throws IllegalArgumentException if time is out of range.
    */
   Shape getShapeAtTime(int time);
@@ -27,7 +29,7 @@ public interface AnimatedShape {
   /**
    * Gets a list of all motions to be performed by the shape during the animation.
    *
-   * @return List of Motion objects.
+   * @return List of model.Motion objects.
    */
   List<Motion> getMotions();
 

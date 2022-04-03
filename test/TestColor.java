@@ -1,11 +1,13 @@
 import org.junit.Test;
 
+import model.Color;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Tester class for the Color class.
+ * Tester class for the model.Color class.
  */
 public class TestColor {
   Color c;

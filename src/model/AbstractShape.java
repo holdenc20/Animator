@@ -1,5 +1,7 @@
+package model;
+
 /**
- * Represents an abstract shape of a given ShapeType.
+ * Represents an abstract shape of a given model.ShapeType.
  * This shape stores a position, width, height, and a color.
  */
 public abstract class AbstractShape implements Shape {

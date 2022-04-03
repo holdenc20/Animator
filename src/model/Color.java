@@ -1,3 +1,5 @@
+package model;
+
 /**
  * Class representing a color object with rgb values from 0 to 255 inclusive.
  */
@@ -63,7 +65,7 @@ public class Color {
    * @param tStart the start of the time period.
    * @param tEnd the end of the time period.
    * @param currTime the time of the average.
-   * @return the Color representing the average.
+   * @return the model.Color representing the average.
    */
   public Color weightedAverage(Color other, int tStart, int tEnd, int currTime) {
     return new Color(Utility.weightedAverage(getRed(), other.getRed(), tStart, tEnd, currTime),

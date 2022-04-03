@@ -1,9 +1,18 @@
 import org.junit.Test;
 
+import model.AnimatedShape;
+import model.Color;
+import model.Ellipse;
+import model.Motion;
+import model.Position;
+import model.Rectangle;
+import model.Shape;
+import model.SimpleAnimatedShape;
+
 import static org.junit.Assert.assertEquals;
 
 /**
- * Tester class for the Animated Shape interface. Tests on the SimpleAnimatedShape implementation.
+ * Tester class for the Animated model.Shape interface. Tests on the model.SimpleAnimatedShape implementation.
  */
 public class TestAnimatedShape {
   AnimatedShape as;

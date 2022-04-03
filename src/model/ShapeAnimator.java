@@ -1,12 +1,19 @@
+package model;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import model.AnimatedShape;
+import model.Animator;
+import model.Motion;
+import model.Shape;
+
 /**
- * An implementation of the Animator. This implementation uses a Map of string IDs to AnimatedShapes
+ * An implementation of the view.Animator. This implementation uses a Map of string IDs to AnimatedShapes
  * in order to store information. Otherwise, this is a straightforward implementation to the
- * Animator interface.
+ * view.Animator interface.
  */
 public class ShapeAnimator implements Animator {
 
@@ -15,7 +22,7 @@ public class ShapeAnimator implements Animator {
   private int animationHeight;
 
   /**
-   * Default constructor for the ShapeAnimator class.
+   * Default constructor for the model.ShapeAnimator class.
    */
   public ShapeAnimator() {
     this.shapes = new HashMap<String, AnimatedShape>();
@@ -24,7 +31,7 @@ public class ShapeAnimator implements Animator {
   }
 
   /**
-   * Constructor for the ShapeAnimator class.
+   * Constructor for the model.ShapeAnimator class.
    */
   public ShapeAnimator(int width, int height) {
     this.shapes = new HashMap<String, AnimatedShape>();
