@@ -8,6 +8,7 @@ public class AnimatorTextView implements AnimatorView {
 
   private Appendable app;
   private AnimatorState state;
+  private int tickRate;
 
   /**
    * Constructor for an AnimatorTextView with a given state and appendable.
@@ -15,9 +16,10 @@ public class AnimatorTextView implements AnimatorView {
    * @param state the state of the animation.
    * @param app the output of rendering.
    */
-  public AnimatorTextView(AnimatorState state, Appendable app) {
+  public AnimatorTextView(AnimatorState state, Appendable app, int tickRate) {
     this.app = app;
     this.state = state;
+    this.tickRate = tickRate;
   }
 
   /**
@@ -28,6 +30,7 @@ public class AnimatorTextView implements AnimatorView {
   public AnimatorTextView(AnimatorState state) {
     this.state = state;
     this.app = System.out;
+    this.tickRate = 1;
   }
 
   @Override
