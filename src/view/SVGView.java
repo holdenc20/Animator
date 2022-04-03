@@ -67,11 +67,20 @@ public class SVGView implements AnimatorView {
       addMotion(m, builder, prevShape);
       prevShape = m.getEndShape();
     }
+
+    addDeletion(builder);
+
     if (shape.getStartShape().getShapeType() == ShapeType.ELLIPSE) {
       builder.append("</ellipse>\n");
     } else {
       builder.append("</rect>\n");
     }
+  }
+
+  private void addDeletion(StringBuilder builder) {
+    //TODO NOT DONE.
+    builder.append("<animate attributeType=\"xml\" begin=\"base.begin+2000.0ms\" dur=\"5000.0ms\" fill=\"remove\" />\n");
+
   }
 
   private void addMotion(Motion m, StringBuilder builder, Shape prevShape) {

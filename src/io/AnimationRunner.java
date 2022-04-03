@@ -4,7 +4,6 @@ import view.AnimatorView;
 
 /**
  * Runner class to hold a main method.
- * TODO: put code in packages
  */
 public class AnimationRunner {
 

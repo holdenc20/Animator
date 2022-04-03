@@ -24,7 +24,6 @@ import model.SimpleAnimatedShape;
 /**
  * Implementation of the io.TweenModelBuilder interface that creates an animation of type view.Animator
  * from a file.
- * TODO: consider validating inputs for addmotion methods.
  */
 public class TweenBuilderImpl implements TweenModelBuilder<Animator> {
 

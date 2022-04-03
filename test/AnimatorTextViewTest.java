@@ -16,7 +16,6 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * Tester for the view.AnimatorTextView class.
- * TODO: Write empty animation test
  */
 public class AnimatorTextViewTest {
 
@@ -58,6 +57,14 @@ public class AnimatorTextViewTest {
 
   @Test
   public void testToString() {
+    assertEquals(atv.toString(), "t == time\n" +
+            "p == position as (x, y)\n" +
+            "w == width\n" +
+            "h == height\n" +
+            "c == color as (r, g, b)\n" +
+            "t pos w h color -> t pos w h color\n" +
+            "----------------------------------\n");
+
     Position p = new Position(10, 10);
     Color c = new Color(30, 40, 50);
     Shape s1 = new Rectangle(p, 10, 20, c);
@@ -119,5 +126,22 @@ public class AnimatorTextViewTest {
             "model.Rectangle Rect1:\n" +
             "1.0 (10.0, 10.0) 10.0 20.0 (30.0, 40.0, 50.0) -> 25.0 (100.0, 40.0) 30.0 40.0 (30.0, 40.0, 50.0)\n" +
             "40.0 (100.0, 40.0) 30.0 40.0 (30.0, 40.0, 50.0) -> 50.0 (1.0, 1.0) 30.0 40.0 (30.0, 4.0, 5.0)\n\n");
+
+    atv.setTickRate(2);
+    assertEquals(atv.toString(), "t == time\n" +
+            "p == position as (x, y)\n" +
+            "w == width\n" +
+            "h == height\n" +
+            "c == color as (r, g, b)\n" +
+            "t pos w h color -> t pos w h color\n" +
+            "----------------------------------\n" +
+            "model.Ellipse Ellipse1:\n" +
+            "20.0 (100.0, 40.0) 10.0 20.0 (30.0, 40.0, 50.0) -> 25.0 (2.0, 2.0) 130.0 140.0 (60.0, 14.0, 15.0)\n" +
+            "\n" +
+            "model.Rectangle Rect1:\n" +
+            "0.5 (10.0, 10.0) 10.0 20.0 (30.0, 40.0, 50.0) -> 12.5 (100.0, 40.0) 30.0 40.0 (30.0, 40.0, 50.0)\n" +
+            "20.0 (100.0, 40.0) 30.0 40.0 (30.0, 40.0, 50.0) -> 25.0 (1.0, 1.0) 30.0 40.0 (30.0, 4.0, 5.0)\n\n");
+
+
   }
 }
