@@ -10,8 +10,8 @@ import static org.junit.Assert.assertTrue;
  * Tester class for the Color class.
  */
 public class TestColor {
-  Color c;
-  Color badColor;
+  private Color c;
+  private Color badColor;
 
   /**
    * Initializes color variables to use in test cases.

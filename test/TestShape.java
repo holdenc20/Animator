@@ -13,12 +13,12 @@ import static org.junit.Assert.assertEquals;
  * Tester class for the Shape interface. Includes testing for each of the Shape implementations.
  */
 public class TestShape {
-  Shape rect;
-  Shape circ;
-  Shape badShape1;
-  Shape badShape2;
-  Position p = new Position(10, 11);
-  Color c = new Color(100, 150, 200);
+  private Shape rect;
+  private Shape circ;
+  private Shape badShape1;
+  private Shape badShape2;
+  private Position p = new Position(10, 11);
+  private Color c = new Color(100, 150, 200);
 
   /**
    * Initializes model.Shape objects.

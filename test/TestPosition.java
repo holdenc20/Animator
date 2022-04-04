@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
  * Tester class for the model.Position class.
  */
 public class TestPosition {
-  Position p;
+  private Position p;
 
   /**
    * Initializes position variables to use in test cases.

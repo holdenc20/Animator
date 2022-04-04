@@ -12,10 +12,10 @@ import static org.junit.Assert.assertEquals;
  * Tester class for the model.Motion class.
  */
 public class TestMotion {
-  Shape s = new Rectangle(new Position(10, 10), 10, 20, new Color(10, 10, 10));
-  Motion m1;
-  Motion badMotion1;
-  Motion badMotion2;
+  private Shape s = new Rectangle(new Position(10, 10), 10, 20, new Color(10, 10, 10));
+  private Motion m1;
+  private Motion badMotion1;
+  private Motion badMotion2;
 
   /**
    * Initializes motion variables to use in test cases.

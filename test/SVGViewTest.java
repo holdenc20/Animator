@@ -18,10 +18,9 @@ import static org.junit.Assert.assertEquals;
  * Tester class for the view.SVGView class.
  */
 public class SVGViewTest {
-
-  Appendable app;
-  Animator state;
-  AnimatorView svg;
+  private Appendable app;
+  private Animator state;
+  private AnimatorView svg;
 
   /**
    * Initializes variables used in tests.

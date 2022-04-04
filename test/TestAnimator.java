@@ -17,14 +17,14 @@ import static org.junit.Assert.assertEquals;
  * Tester class for the Animator interface. Tests on the SimpleAnimator implementation.
  */
 public class TestAnimator {
-  Animator a;
-  Position p = new Position(10, 10);
-  Position p2 = new Position(20, 30);
-  Color c = new Color(30, 40, 50);
-  Shape s1 = new Rectangle(p, 10, 20, c);
-  Shape s1dest = new Rectangle(p2, 50, 100, c);
-  Shape s2 = new Rectangle(p, 100, 200, c);
-  Shape s1destBad = new Ellipse(p2, 50, 100, c);
+  private Animator a;
+  private Position p = new Position(10, 10);
+  private Position p2 = new Position(20, 30);
+  private Color c = new Color(30, 40, 50);
+  private Shape s1 = new Rectangle(p, 10, 20, c);
+  private Shape s1dest = new Rectangle(p2, 50, 100, c);
+  private Shape s2 = new Rectangle(p, 100, 200, c);
+  private Shape s1destBad = new Ellipse(p2, 50, 100, c);
 
   /**
    * Initializes a ShapeAnimator that will be used in the test cases.

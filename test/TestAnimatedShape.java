@@ -15,11 +15,11 @@ import static org.junit.Assert.assertEquals;
  * Tester class for the Animated Shape interface. Tests on the SimpleAnimatedShape implementation.
  */
 public class TestAnimatedShape {
-  AnimatedShape as;
-  AnimatedShape fail;
-  Position p = new Position(10, 10);
-  Color c = new Color(30, 40, 50);
-  Shape s1 = new Rectangle(p, 10, 20, c);
+  private AnimatedShape as;
+  private AnimatedShape fail;
+  private Position p = new Position(10, 10);
+  private Color c = new Color(30, 40, 50);
+  private Shape s1 = new Rectangle(p, 10, 20, c);
 
   /**
    * Initializes the AnimatedShapes that will be used in the test cases.

@@ -19,9 +19,9 @@ import static org.junit.Assert.assertEquals;
  */
 public class AnimatorTextViewTest {
 
-  Appendable app;
-  Animator state;
-  AnimatorView atv;
+  private Appendable app;
+  private Animator state;
+  private AnimatorView atv;
 
   /**
    * Constructor to initialize text values.
