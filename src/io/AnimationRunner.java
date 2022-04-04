@@ -7,7 +7,6 @@ import java.io.IOException;
 
 import model.Animator;
 import view.AnimatorView;
-import view.ViewFactory;
 
 /**
  * Runner class to hold a main method.

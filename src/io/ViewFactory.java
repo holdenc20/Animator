@@ -1,4 +1,4 @@
-package view;
+package io;
 
 import view.AnimatorTextView;
 import view.AnimatorView;
