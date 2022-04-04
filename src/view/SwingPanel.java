@@ -13,16 +13,16 @@ import model.AnimatorState;
 import model.ShapeType;
 
 /**
- * view.SwingPanel class that controls the JPanel of the animation.
+ * SwingPanel class that controls the JPanel of the animation.
  */
 public class SwingPanel extends JPanel implements ActionListener {
 
   private AnimatorState state;
-  int currentTick;
-  Timer timer;
+  private int currentTick;
+  private Timer timer;
 
   /**
-   * Constructor for a view.SwingPanel.
+   * Constructor for a SwingPanel.
    *
    * @param tickRate the ticks per second of the animation
    */

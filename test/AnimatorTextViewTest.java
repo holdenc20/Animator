@@ -1,7 +1,11 @@
 import org.junit.Test;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Scanner;
 
+import io.AnimationRunner;
 import model.Animator;
 import model.Color;
 import model.Ellipse;
@@ -13,6 +17,7 @@ import view.AnimatorTextView;
 import view.AnimatorView;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 /**
  * Tester for the AnimatorTextView class.
@@ -53,6 +58,25 @@ public class AnimatorTextViewTest {
             "t pos w h color -> t pos w h color\n" +
             "----------------------------------\n" +
             "Rectangle Rect1:\n\n");
+  }
+
+  @Test
+  public void testProperOutput() {
+    String in = "-in resources/smalldemo.txt -out resources/output.txt -speed 2 -view text";
+    String[] args = in.split(" ");
+    AnimationRunner.main(args);
+    try {
+      Scanner s = new Scanner(new File("resources/output.txt"));
+      int numLines = 0;
+      while (s.hasNextLine()) {
+        numLines++;
+        String trash = s.nextLine();
+      }
+      s.close();
+      assertEquals(20, numLines); //There should be 20 lines out output
+    } catch (FileNotFoundException e) {
+      fail("No exception expected");
+    }
   }
 
   @Test
