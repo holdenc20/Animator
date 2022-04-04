@@ -4,7 +4,7 @@
 
 The main feature of this project is the model model.Animator interface 
 implemented by the model.ShapeAnimator class. model.Animator has the functionality
-to Add and remove shapes to the animation, and add and remove motions
+to add and remove shapes to the animation, and add and remove motions
 of these shapes over time.
 
 This is done by using the model.AnimatedShape interface as a representation
@@ -16,16 +16,32 @@ interactions between these Shapes.
 Each model.Shape has a position, width, height, and a color.
 
 This project also contains a AnimationView that is implemented
-as a text model which displays all shapes in the animation and
-their motions.
+as a text view, a SVG view, and a Swing view. Each of the views are visual 
+representations of the animation. 
 
 <h3>Structure</h3>
-![img.png](img.png)
+<h2>Shape diagram:</h2>
+
+![](../../../../../Desktop/Screen Shot 2022-04-03 at 8.39.11 PM.png)
+
+<h2>Animator diagram:</h2>
+
+![](../../../../../Desktop/Screen Shot 2022-04-03 at 8.39.15 PM.png)
+
+<h2>View diagram:</h2>
+
+![](../../../../../Desktop/Screen Shot 2022-04-03 at 8.39.20 PM.png)
+
+<h2>Animated Shape diagram:</h2>
+
+![](../../../../../Desktop/Screen Shot 2022-04-03 at 8.39.24 PM.png)
+
+
 
 <h3>Classes Overview for the model</h3>
 
-model.Shape: Interface to represent a shape that has a position, width,
-height, and color. This is meant to be immutable and hold 
+model.Shape: Interface to represent a shape that has a Position, width,
+height, and Color. This is meant to be immutable and hold 
 information solely for a shape at one point in time in the animation.
 
 model.AbstractShape: Abstract implementation of model.Shape that simply holds
@@ -34,6 +50,11 @@ basic shape functions.
 
 model.Rectangle & model.Ellipse: Concrete implementations of model.AbstractShape
 that currently have no difference than name and model.ShapeType.
+
+model.Position: Representation of a position on a canvas with an x and y
+value.
+
+model.Color: Representation of a color with red, green, and blue values.
 
 model.AnimatorState: This is a state representation of the model that
 only has the ability to get information about an animation, not 
@@ -50,19 +71,12 @@ model.AnimatedShape: Represents a specific shape throughout an animation.
 
 model.SimpleAnimatedShape: Implementation of model.AnimatedShape.
 
-model.Color: Representation of a color with red, green, and blue values.
-
-model.Position: Representation of a position on a canvas with an x and y
-value.
-
 model.Motion: Representation of a motion of a shape that has a start time, 
 and end time, and an end shape. Throughout the motion, the shape will
 continuously transform to the end shape. 
 
 model.ShapeType: Enum which represents the types of shapes that can be
 made in the animation. Currently, this only holds model.Rectangle and model.Ellipse.
-
-io.AnimationRunner: Class with a main method used for manual testing.
 
 model.Utility: class with static methods that are generally useful
 throughout the program.
@@ -82,4 +96,10 @@ view.SwingView:
 
 view.SwingPanel:
 
+io.AnimationFileReader:
 
+io.AnimationRunner: Class with a main method used for manual testing.
+
+io.TweenBuilderImpl:
+
+io.TweenModelBuilder:

@@ -11,7 +11,6 @@ import model.ShapeType;
 
 /**
  * Implementation of view.AnimatorView that creates an SVG formatted text.
- * TODO: figure out y flip
  * TODO: visibility in creation
  */
 public class SVGView implements AnimatorView {
@@ -63,12 +62,15 @@ public class SVGView implements AnimatorView {
   private void addAnimatedShape(AnimatedShape shape, StringBuilder builder) {
     addShapeHeader(shape, builder);
     Shape prevShape = shape.getStartShape();
+
+    addCreation(shape.getID(), builder);
+
     for (Motion m : shape.getMotions()) {
       addMotion(m, builder, prevShape);
       prevShape = m.getEndShape();
     }
 
-    addDeletion(builder);
+    addDeletion(shape.getID(), builder);
 
     if (shape.getStartShape().getShapeType() == ShapeType.ELLIPSE) {
       builder.append("</ellipse>\n");
@@ -77,10 +79,19 @@ public class SVGView implements AnimatorView {
     }
   }
 
-  private void addDeletion(StringBuilder builder) {
-    //TODO NOT DONE.
-    builder.append("<animate attributeType=\"xml\" begin=\"base.begin+2000.0ms\" dur=\"5000.0ms\" fill=\"remove\" />\n");
+  private void addCreation(String shapeID, StringBuilder builder) {
+    int creationTime = state.getAnimatedShape(shapeID).getCreationTime();
+      addAnimateTag(0, creationTime,
+              "visibility", "hidden", "visible", builder);
+  }
 
+
+  private void addDeletion(String shapeID, StringBuilder builder) {
+    int delTime = state.getAnimatedShape(shapeID).getDeletionTime();
+    if(delTime != -1){
+      addAnimateTag(delTime, delTime+1,
+              "visibility", "visible", "hidden", builder);
+    }
   }
 
   private void addMotion(Motion m, StringBuilder builder, Shape prevShape) {
@@ -164,7 +175,7 @@ public class SVGView implements AnimatorView {
 
   private void addRectangleHeader(Shape shape, StringBuilder builder, String name) {
     builder.append(String.format("<rect id=\"%s\" x=\"%s\" y=\"%s\" width=\"%s\" height=\"%s\" " +
-                    "fill=\"rgb(%s,%s,%s)\" visibility=\"visible\" >\n", name,
+                    "fill=\"rgb(%s,%s,%s)\" visibility=\"hidden\" >\n", name,
             (int) shape.getPosition().getX(), (int) shape.getPosition().getY(),
             (int) shape.getWidth(), (int) shape.getHeight(), (int) shape.getColor().getRed(),
             (int) shape.getColor().getGreen(), (int) shape.getColor().getBlue()));
@@ -172,7 +183,7 @@ public class SVGView implements AnimatorView {
 
   private void addEllipseHeader(Shape shape, StringBuilder builder, String name) {
     builder.append(String.format("<ellipse id=\"%s\" cx=\"%s\" cy=\"%s\" rx=\"%s\" ry=\"%s\" " +
-                    "fill=\"rgb(%s,%s,%s)\" visibility=\"visible\" >\n", name,
+                    "fill=\"rgb(%s,%s,%s)\" visibility=\"hidden\" >\n", name,
             (int) (shape.getPosition().getX() + shape.getWidth() / 2),
             (int) (shape.getPosition().getY() + shape.getHeight() / 2),
             (int) (shape.getWidth() / 2), (int) (shape.getHeight() / 2),
