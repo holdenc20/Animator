@@ -19,22 +19,24 @@ This project also contains a AnimationView that is implemented
 as a text view, a SVG view, and a Swing view. Each of the views are visual 
 representations of the animation. 
 
+
+
 <h3>Structure</h3>
 <h2>Shape diagram:</h2>
 
-![](../../../../Desktop/Screen%20Shot%202022-04-03%20at%208.39.11%20PM.png)
+![](Screen%20Shot%202022-04-03%20at%208.39.11%20PM.png)
 
 <h2>Animator diagram:</h2>
 
-![](../../../../Desktop/Screen%20Shot%202022-04-03%20at%208.39.15%20PM.png)
+![](Screen%20Shot%202022-04-03%20at%208.39.15%20PM.png)
 
 <h2>View diagram:</h2>
 
-![](../../../../Desktop/Screen%20Shot%202022-04-03%20at%208.39.20%20PM.png)
+![](Screen%20Shot%202022-04-03%20at%208.39.20%20PM.png)
 
 <h2>Animated Shape diagram:</h2>
 
-![](../../../../Desktop/Screen%20Shot%202022-04-03%20at%208.39.24%20PM.png)
+![](Screen%20Shot%202022-04-03%20at%208.39.24%20PM.png)
 
 
 
@@ -92,14 +94,24 @@ view.SVGView: Implementation of view.AnimatorView that uses SVG
 to display an animation. Can be saved to an SVG file 
 to be run as an animation
 
-view.SwingView:
+view.SwingView: Implementation of the view.AnimatorView interface 
+and uses Java Swing's JFrame class to visually display the animation. 
 
-view.SwingPanel:
+view.SwingPanel: Extension of the Java Swing's JPanel class that handles the actual 
+construction of the animation onto the SwingView.
 
-io.AnimationFileReader:
+<h3>Classes Overview for the Input classes and Model Builders</h3>
 
-io.AnimationRunner: Class with a main method used for manual testing.
+io.AnimationFileReader: This class represents a file reader for the animation file. 
+This reads in the file in the prescribed file format, and relies on a model 
+builder interface.
 
-io.TweenBuilderImpl:
+io.AnimationRunner: Class with a main method used for manual testing and 
+running command-line arguments for running certain commands to input and handle the output.
 
-io.TweenModelBuilder:
+io.TweenModelBuilder: This interface contains all the methods that the io.AnimationFileReader class 
+calls as it reads a file containing the animation and builds a model. It is 
+parameterized over the actual model type.
+
+io.TweenBuilderImpl: Implementation of the TweenModelBuilder interface that creates an animation of type Animator 
+from a file.
