@@ -2,7 +2,7 @@ package io;
 
 /**
  * This interface contains all the methods that the io.AnimationFileReader class
- * calls as it reads a file containing the animation and builds a model It is
+ * calls as it reads a file containing the animation and builds a model. It is
  * parameterized over the actual model type.
  */
 
