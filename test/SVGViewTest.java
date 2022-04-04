@@ -1,10 +1,7 @@
-import com.sun.tools.javac.Main;
-
 import org.junit.Test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -44,7 +41,7 @@ public class SVGViewTest {
   @Test
   public void renderAnimation() {
     Position p = new Position(10, 10);
-    Color c = new Color(30, 40, 50);
+    Color c = new Color(0, 0, 1);
     Shape s1 = new Rectangle(p, 10, 20, c);
     state.makeAnimatedShape("Rect1", s1);
     try {
@@ -55,7 +52,7 @@ public class SVGViewTest {
     assertEquals(app.toString(), "<svg width=\"300\" height=\"300\" version=\"1.1\" " +
             "xmlns=\"http://www.w3.org/2000/svg\">\n" +
             "<rect id=\"Rect1\" x=\"10\" y=\"10\" width=\"10\" height=\"20\" fill=\"" +
-            "rgb(30,40,50)\" visibility=\"hidden\" >\n" +
+            "rgb(0,0,255)\" visibility=\"hidden\" >\n" +
             "<animate attributeType=\"xml\" begin=\"0ms\" dur=\"0ms\" attributeName=\"" +
             "visibility\" from=\"hidden\" to=\"visible\" fill=\"freeze\" />\n" +
             "</rect>\n" +
@@ -88,26 +85,26 @@ public class SVGViewTest {
             "</svg>");
 
     Position p = new Position(10, 10);
-    Color c = new Color(30, 40, 50);
+    Color c = new Color(1, 1, 0);
     Shape s1 = new Rectangle(p, 10, 20, c);
     state.makeAnimatedShape("Rect1", s1);
     assertEquals(svg.toString(), "<svg width=\"300\" height=\"300\" version=\"1.1\" " +
             "xmlns=\"http://www.w3.org/2000/svg\">\n" +
             "<rect id=\"Rect1\" x=\"10\" y=\"10\" width=\"10\" height=\"20\" fill=\"" +
-            "rgb(30,40,50)\" visibility=\"hidden\" >\n" +
+            "rgb(255,255,0)\" visibility=\"hidden\" >\n" +
             "<animate attributeType=\"xml\" begin=\"0ms\" dur=\"0ms\" attributeName=\"" +
             "visibility\" from=\"hidden\" to=\"visible\" fill=\"freeze\" />\n" +
             "</rect>\n" +
             "</svg>");
 
     Position p1 = new Position(100, 40);
-    Color c1 = new Color(30, 40, 50);
+    Color c1 = new Color(0.2f, 0.2f, 0.2f);
     Shape s2 = new Rectangle(p1, 30, 40, c1);
     state.addMotion("Rect1", s2, 1, 25);
     assertEquals(svg.toString(), "<svg width=\"300\" height=\"300\" version=\"1.1\" " +
             "xmlns=\"http://www.w3.org/2000/svg\">\n" +
             "<rect id=\"Rect1\" x=\"10\" y=\"10\" width=\"10\" height=\"20\" fill=\"" +
-            "rgb(30,40,50)\" visibility=\"hidden\" >\n" +
+            "rgb(255,255,0)\" visibility=\"hidden\" >\n" +
             "<animate attributeType=\"xml\" begin=\"0ms\" dur=\"0ms\" attributeName=\"v" +
             "isibility\" from=\"hidden\" to=\"visible\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"1000ms\" dur=\"24000ms\" attributeName=\"x\" " +
@@ -119,18 +116,18 @@ public class SVGViewTest {
             "<animate attributeType=\"xml\" begin=\"1000ms\" dur=\"24000ms\" " +
             "attributeName=\"height\" from=\"20\" to=\"40\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"1000ms\" dur=\"24000ms\" " +
-            "attributeName=\"fill\" from=\"(30,40,50)\" to=\"(30,40,50)\" fill=\"freeze\" />\n" +
+            "attributeName=\"fill\" from=\"rgb(255,255,0)\" to=\"rgb(51,51,51)\" fill=\"freeze\" />\n" +
             "</rect>\n" +
             "</svg>");
 
     Position p2 = new Position(1, 1);
-    Color c2 = new Color(30, 4, 5);
+    Color c2 = new Color(0, 0, 0);
     Shape s3 = new Rectangle(p2, 30, 40, c2);
     state.addMotion("Rect1", s3, 40, 50);
     assertEquals(svg.toString(), "<svg width=\"300\" height=\"300\" version=\"1.1\" " +
             "xmlns=\"http://www.w3.org/2000/svg\">\n" +
             "<rect id=\"Rect1\" x=\"10\" y=\"10\" width=\"10\" height=\"20\" fill=\"" +
-            "rgb(30,40,50)\" visibility=\"hidden\" >\n" +
+            "rgb(255,255,0)\" visibility=\"hidden\" >\n" +
             "<animate attributeType=\"xml\" begin=\"0ms\" dur=\"0ms\" attributeName=\"" +
             "visibility\" from=\"hidden\" to=\"visible\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"1000ms\" dur=\"24000ms\" " +
@@ -142,7 +139,7 @@ public class SVGViewTest {
             "<animate attributeType=\"xml\" begin=\"1000ms\" dur=\"24000ms\" " +
             "attributeName=\"height\" from=\"20\" to=\"40\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"1000ms\" dur=\"24000ms\" " +
-            "attributeName=\"fill\" from=\"(30,40,50)\" to=\"(30,40,50)\" fill=\"freeze\" />\n" +
+            "attributeName=\"fill\" from=\"rgb(255,255,0)\" to=\"rgb(51,51,51)\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"40000ms\" dur=\"10000ms\" " +
             "attributeName=\"x\" from=\"100\" to=\"1\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"40000ms\" dur=\"10000ms\" " +
@@ -152,13 +149,13 @@ public class SVGViewTest {
             "<animate attributeType=\"xml\" begin=\"40000ms\" dur=\"10000ms\" " +
             "attributeName=\"height\" from=\"40\" to=\"40\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"40000ms\" dur=\"10000ms\" " +
-            "attributeName=\"fill\" from=\"(30,40,50)\" to=\"(30,4,5)\" fill=\"freeze\" />\n" +
+            "attributeName=\"fill\" from=\"rgb(51,51,51)\" to=\"rgb(0,0,0)\" fill=\"freeze\" />\n" +
             "</rect>\n" +
             "</svg>");
 
     Shape s5 = new Ellipse(p1, 10, 20, c1);
     Position p4 = new Position(2, 2);
-    Color c4 = new Color(60, 14, 15);
+    Color c4 = new Color(0, 0, 0);
     Shape s4 = new Ellipse(p4, 130, 140, c4);
     state.makeAnimatedShape("Ellipse1", s5);
     state.setCreationTime("Ellipse1", 35);
@@ -166,7 +163,7 @@ public class SVGViewTest {
     assertEquals(svg.toString(), "<svg width=\"300\" height=\"300\" " +
             "version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\">\n" +
             "<rect id=\"Rect1\" x=\"10\" y=\"10\" width=\"10\" height=\"20\" " +
-            "fill=\"rgb(30,40,50)\" visibility=\"hidden\" >\n" +
+            "fill=\"rgb(255,255,0)\" visibility=\"hidden\" >\n" +
             "<animate attributeType=\"xml\" begin=\"0ms\" dur=\"0ms\" attributeName=\"" +
             "visibility\" from=\"hidden\" to=\"visible\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"1000ms\" dur=\"24000ms\" " +
@@ -178,7 +175,7 @@ public class SVGViewTest {
             "<animate attributeType=\"xml\" begin=\"1000ms\" dur=\"24000ms\" " +
             "attributeName=\"height\" from=\"20\" to=\"40\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"1000ms\" dur=\"24000ms\" " +
-            "attributeName=\"fill\" from=\"(30,40,50)\" to=\"(30,40,50)\" fill=\"freeze\" />\n" +
+            "attributeName=\"fill\" from=\"rgb(255,255,0)\" to=\"rgb(51,51,51)\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"40000ms\" dur=\"10000ms\" " +
             "attributeName=\"x\" from=\"100\" to=\"1\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"40000ms\" dur=\"10000ms\" " +
@@ -188,10 +185,10 @@ public class SVGViewTest {
             "<animate attributeType=\"xml\" begin=\"40000ms\" dur=\"10000ms\" " +
             "attributeName=\"height\" from=\"40\" to=\"40\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"40000ms\" dur=\"10000ms\" " +
-            "attributeName=\"fill\" from=\"(30,40,50)\" to=\"(30,4,5)\" fill=\"freeze\" />\n" +
+            "attributeName=\"fill\" from=\"rgb(51,51,51)\" to=\"rgb(0,0,0)\" fill=\"freeze\" />\n" +
             "</rect>\n" +
             "<ellipse id=\"Ellipse1\" cx=\"105\" cy=\"50\" rx=\"5\" ry=\"10\" " +
-            "fill=\"rgb(30,40,50)\" visibility=\"hidden\" >\n" +
+            "fill=\"rgb(51,51,51)\" visibility=\"hidden\" >\n" +
             "<animate attributeType=\"xml\" begin=\"0ms\" dur=\"35000ms\" " +
             "attributeName=\"visibility\" from=\"hidden\" to=\"visible\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"40000ms\" dur=\"10000ms\" " +
@@ -203,7 +200,7 @@ public class SVGViewTest {
             "<animate attributeType=\"xml\" begin=\"40000ms\" dur=\"10000ms\" " +
             "attributeName=\"ry\" from=\"10\" to=\"70\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"40000ms\" dur=\"10000ms\" " +
-            "attributeName=\"fill\" from=\"(30,40,50)\" to=\"(60,14,15)\" fill=\"freeze\" />\n" +
+            "attributeName=\"fill\" from=\"rgb(51,51,51)\" to=\"rgb(0,0,0)\" fill=\"freeze\" />\n" +
             "</ellipse>\n" +
             "</svg>");
 
@@ -211,7 +208,7 @@ public class SVGViewTest {
     assertEquals(svg.toString(), "<svg width=\"300\" height=\"300\" version=\"1.1\" " +
             "xmlns=\"http://www.w3.org/2000/svg\">\n" +
             "<rect id=\"Rect1\" x=\"10\" y=\"10\" width=\"10\" height=\"20\" fill=\"" +
-            "rgb(30,40,50)\" visibility=\"hidden\" >\n" +
+            "rgb(255,255,0)\" visibility=\"hidden\" >\n" +
             "<animate attributeType=\"xml\" begin=\"0ms\" dur=\"0ms\" attributeName=\"v" +
             "isibility\" from=\"hidden\" to=\"visible\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"500ms\" dur=\"12000ms\" " +
@@ -223,7 +220,7 @@ public class SVGViewTest {
             "<animate attributeType=\"xml\" begin=\"500ms\" dur=\"12000ms\" " +
             "attributeName=\"height\" from=\"20\" to=\"40\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"500ms\" dur=\"12000ms\" " +
-            "attributeName=\"fill\" from=\"(30,40,50)\" to=\"(30,40,50)\" fill=\"freeze\" />\n" +
+            "attributeName=\"fill\" from=\"rgb(255,255,0)\" to=\"rgb(51,51,51)\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"20000ms\" dur=\"5000ms\" " +
             "attributeName=\"x\" from=\"100\" to=\"1\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"20000ms\" dur=\"5000ms\" " +
@@ -233,10 +230,10 @@ public class SVGViewTest {
             "<animate attributeType=\"xml\" begin=\"20000ms\" dur=\"5000ms\" " +
             "attributeName=\"height\" from=\"40\" to=\"40\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"20000ms\" dur=\"5000ms\" " +
-            "attributeName=\"fill\" from=\"(30,40,50)\" to=\"(30,4,5)\" fill=\"freeze\" />\n" +
+            "attributeName=\"fill\" from=\"rgb(51,51,51)\" to=\"rgb(0,0,0)\" fill=\"freeze\" />\n" +
             "</rect>\n" +
             "<ellipse id=\"Ellipse1\" cx=\"105\" cy=\"50\" rx=\"5\" ry=\"10\"" +
-            " fill=\"rgb(30,40,50)\" visibility=\"hidden\" >\n" +
+            " fill=\"rgb(51,51,51)\" visibility=\"hidden\" >\n" +
             "<animate attributeType=\"xml\" begin=\"0ms\" dur=\"17500ms\" a" +
             "ttributeName=\"visibility\" from=\"hidden\" to=\"visible\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"20000ms\" dur=\"5000ms\"" +
@@ -248,7 +245,7 @@ public class SVGViewTest {
             "<animate attributeType=\"xml\" begin=\"20000ms\" dur=\"5000ms\" " +
             "attributeName=\"ry\" from=\"10\" to=\"70\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"20000ms\" dur=\"5000ms\"" +
-            " attributeName=\"fill\" from=\"(30,40,50)\" to=\"(60,14,15)\" fill=\"freeze\" />\n" +
+            " attributeName=\"fill\" from=\"rgb(51,51,51)\" to=\"rgb(0,0,0)\" fill=\"freeze\" />\n" +
             "</ellipse>\n" +
             "</svg>");
 
@@ -256,7 +253,7 @@ public class SVGViewTest {
     assertEquals(svg.toString(), "<svg width=\"300\" height=\"300\"" +
             " version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\">\n" +
             "<rect id=\"Rect1\" x=\"10\" y=\"10\" width=\"10\" height=\"20\" " +
-            "fill=\"rgb(30,40,50)\" visibility=\"hidden\" >\n" +
+            "fill=\"rgb(255,255,0)\" visibility=\"hidden\" >\n" +
             "<animate attributeType=\"xml\" begin=\"0ms\" dur=\"0ms\" " +
             "attributeName=\"visibility\" from=\"hidden\" to=\"visible\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"500ms\" dur=\"12000ms\" " +
@@ -268,7 +265,8 @@ public class SVGViewTest {
             "<animate attributeType=\"xml\" begin=\"500ms\" dur=\"12000ms\" " +
             "attributeName=\"height\" from=\"20\" to=\"40\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"500ms\" dur=\"12000ms\" " +
-            "attributeName=\"fill\" from=\"(30,40,50)\" to=\"(30,40,50)\" fill=\"freeze\" />\n" +
+            "attributeName=\"fill\" from=\"rgb(255,255,0)\" to=\"rgb(51,51,51)\" fill=\"freeze\" " +
+            "/>\n" +
             "<animate attributeType=\"xml\" begin=\"20000ms\" dur=\"5000ms\"" +
             " attributeName=\"x\" from=\"100\" to=\"1\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"20000ms\" dur=\"5000ms\" " +
@@ -278,12 +276,13 @@ public class SVGViewTest {
             "<animate attributeType=\"xml\" begin=\"20000ms\" dur=\"5000ms\" " +
             "attributeName=\"height\" from=\"40\" to=\"40\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"20000ms\" dur=\"5000ms\"" +
-            " attributeName=\"fill\" from=\"(30,40,50)\" to=\"(30,4,5)\" fill=\"freeze\" />\n" +
+            " attributeName=\"fill\" from=\"rgb(51,51,51)\" to=\"rgb(0,0,0)\" fill=\"freeze\" " +
+            "/>\n" +
             "<animate attributeType=\"xml\" begin=\"25000ms\" dur=\"500ms\" " +
             "attributeName=\"visibility\" from=\"visible\" to=\"hidden\" fill=\"freeze\" />\n" +
             "</rect>\n" +
             "<ellipse id=\"Ellipse1\" cx=\"105\" cy=\"50\" rx=\"5\" ry=\"10\" " +
-            "fill=\"rgb(30,40,50)\" visibility=\"hidden\" >\n" +
+            "fill=\"rgb(51,51,51)\" visibility=\"hidden\" >\n" +
             "<animate attributeType=\"xml\" begin=\"0ms\" dur=\"17500ms\" " +
             "attributeName=\"visibility\" from=\"hidden\" to=\"visible\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"20000ms\" dur=\"5000ms\" " +
@@ -295,7 +294,7 @@ public class SVGViewTest {
             "<animate attributeType=\"xml\" begin=\"20000ms\" dur=\"5000ms\" " +
             "attributeName=\"ry\" from=\"10\" to=\"70\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"20000ms\" dur=\"5000ms\" " +
-            "attributeName=\"fill\" from=\"(30,40,50)\" to=\"(60,14,15)\" fill=\"freeze\" />\n" +
+            "attributeName=\"fill\" from=\"rgb(51,51,51)\" to=\"rgb(0,0,0)\" fill=\"freeze\" />\n" +
             "</ellipse>\n" +
             "</svg>");
   }

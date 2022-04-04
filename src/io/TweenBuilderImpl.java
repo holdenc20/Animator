@@ -7,6 +7,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import model.AnimatedShape;
 import model.Animator;
@@ -202,7 +203,8 @@ public class TweenBuilderImpl implements TweenModelBuilder<Animator> {
   private AnimatedShape combine(AnimatedShape posShape, AnimatedShape colorShape,
                                 AnimatedShape dimShape) {
     AnimatedShape animatedShape = initAnimatedShape(posShape, colorShape, dimShape);
-    List<Integer> times = getNotableTimes(posShape, colorShape, dimShape).stream().toList();
+    List<Integer> times = getNotableTimes(posShape, colorShape, dimShape).stream()
+            .collect(Collectors.toList());
     times = new ArrayList<Integer>(times);
     Collections.sort(times);
     if (times.isEmpty()) {

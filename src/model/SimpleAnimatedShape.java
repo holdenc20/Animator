@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 import model.AnimatedShape;
 import model.Motion;
@@ -102,7 +103,7 @@ public class SimpleAnimatedShape implements AnimatedShape {
 
   @Override
   public List<Motion> getMotions() {
-    return new ArrayList<>(motions.stream().toList());
+    return new ArrayList<>(motions.stream().collect(Collectors.toList()));
   }
 
   @Override
