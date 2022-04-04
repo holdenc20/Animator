@@ -11,7 +11,6 @@ import static org.junit.Assert.assertTrue;
  */
 public class TestColor {
   private Color c;
-  private Color badColor;
 
   /**
    * Initializes color variables to use in test cases.
@@ -23,7 +22,7 @@ public class TestColor {
 
   @Test(expected = IllegalArgumentException.class)
   public void testCreateIllegalColor() {
-    badColor = new Color(10000, 1, 1);
+    new Color(10000, 1, 1);
   }
 
   private boolean doesFailCreation(int r, int g, int b) {

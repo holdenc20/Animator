@@ -15,8 +15,6 @@ import static org.junit.Assert.assertEquals;
 public class TestShape {
   private Shape rect;
   private Shape circ;
-  private Shape badShape1;
-  private Shape badShape2;
   private Position p = new Position(10, 11);
   private Color c = new Color(100, 150, 200);
 
@@ -30,12 +28,12 @@ public class TestShape {
 
   @Test(expected = IllegalArgumentException.class)
   public void testCreateIllegalShape1() {
-    badShape1 = new Rectangle(p, -10, 10, c);
+    new Rectangle(p, -10, 10, c);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void testCreateIllegalShape2() {
-    badShape2 = new Rectangle(p, 10, -10, c);
+    new Rectangle(p, 10, -10, c);
   }
 
   @Test
