@@ -1,7 +1,14 @@
+import com.sun.tools.javac.Main;
+
 import org.junit.Test;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 
+import io.AnimationRunner;
 import model.Animator;
 import model.Color;
 import model.Ellipse;
@@ -13,6 +20,7 @@ import view.AnimatorView;
 import view.SVGView;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 /**
  * Tester class for the view.SVGView class.
@@ -53,6 +61,25 @@ public class SVGViewTest {
             "visibility\" from=\"hidden\" to=\"visible\" fill=\"freeze\" />\n" +
             "</rect>\n" +
             "</svg>");
+  }
+
+  @Test
+  public void testProperOutput() {
+    String in = "-in resources/smalldemo.txt -out resources/output.txt -speed 2 -view svg";
+    String[] args = in.split(" ");
+    AnimationRunner.main(args);
+    try {
+      Scanner s = new Scanner(new File("resources/output.txt"));
+      int numLines = 0;
+      while (s.hasNextLine()) {
+        numLines++;
+        String trash = s.nextLine();
+      }
+      s.close();
+      assertEquals(55, numLines); //There should be 55 lines out output
+    } catch (FileNotFoundException e) {
+      fail("No exception expected");
+    }
   }
 
   @Test

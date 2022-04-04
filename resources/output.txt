@@ -1,0 +1,55 @@
+<svg width="360" height="360" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<rect id="R" x="200" y="200" width="50" height="100" fill="rgb(255,0,0)" visibility="hidden" >
+<animate attributeType="xml" begin="0ms" dur="500ms" attributeName="visibility" from="hidden" to="visible" fill="freeze" />
+<animate attributeType="xml" begin="500ms" dur="4500ms" attributeName="x" from="200" to="200" fill="freeze" />
+<animate attributeType="xml" begin="500ms" dur="4500ms" attributeName="y" from="200" to="200" fill="freeze" />
+<animate attributeType="xml" begin="500ms" dur="4500ms" attributeName="width" from="50" to="50" fill="freeze" />
+<animate attributeType="xml" begin="500ms" dur="4500ms" attributeName="height" from="100" to="100" fill="freeze" />
+<animate attributeType="xml" begin="500ms" dur="4500ms" attributeName="fill" from="rgb(255,0,0)" to="rgb(255,0,0)" fill="freeze" />
+<animate attributeType="xml" begin="5000ms" dur="20000ms" attributeName="x" from="200" to="300" fill="freeze" />
+<animate attributeType="xml" begin="5000ms" dur="20000ms" attributeName="y" from="200" to="300" fill="freeze" />
+<animate attributeType="xml" begin="5000ms" dur="20000ms" attributeName="width" from="50" to="50" fill="freeze" />
+<animate attributeType="xml" begin="5000ms" dur="20000ms" attributeName="height" from="100" to="100" fill="freeze" />
+<animate attributeType="xml" begin="5000ms" dur="20000ms" attributeName="fill" from="rgb(255,0,0)" to="rgb(255,0,0)" fill="freeze" />
+<animate attributeType="xml" begin="25000ms" dur="500ms" attributeName="x" from="300" to="300" fill="freeze" />
+<animate attributeType="xml" begin="25000ms" dur="500ms" attributeName="y" from="300" to="300" fill="freeze" />
+<animate attributeType="xml" begin="25000ms" dur="500ms" attributeName="width" from="50" to="50" fill="freeze" />
+<animate attributeType="xml" begin="25000ms" dur="500ms" attributeName="height" from="100" to="100" fill="freeze" />
+<animate attributeType="xml" begin="25000ms" dur="500ms" attributeName="fill" from="rgb(255,0,0)" to="rgb(255,0,0)" fill="freeze" />
+<animate attributeType="xml" begin="25500ms" dur="9500ms" attributeName="x" from="300" to="300" fill="freeze" />
+<animate attributeType="xml" begin="25500ms" dur="9500ms" attributeName="y" from="300" to="300" fill="freeze" />
+<animate attributeType="xml" begin="25500ms" dur="9500ms" attributeName="width" from="50" to="25" fill="freeze" />
+<animate attributeType="xml" begin="25500ms" dur="9500ms" attributeName="height" from="100" to="100" fill="freeze" />
+<animate attributeType="xml" begin="25500ms" dur="9500ms" attributeName="fill" from="rgb(255,0,0)" to="rgb(255,0,0)" fill="freeze" />
+<animate attributeType="xml" begin="35000ms" dur="15000ms" attributeName="x" from="300" to="200" fill="freeze" />
+<animate attributeType="xml" begin="35000ms" dur="15000ms" attributeName="y" from="300" to="200" fill="freeze" />
+<animate attributeType="xml" begin="35000ms" dur="15000ms" attributeName="width" from="25" to="25" fill="freeze" />
+<animate attributeType="xml" begin="35000ms" dur="15000ms" attributeName="height" from="100" to="100" fill="freeze" />
+<animate attributeType="xml" begin="35000ms" dur="15000ms" attributeName="fill" from="rgb(255,0,0)" to="rgb(255,0,0)" fill="freeze" />
+<animate attributeType="xml" begin="50000ms" dur="500ms" attributeName="visibility" from="visible" to="hidden" fill="freeze" />
+</rect>
+<ellipse id="C" cx="500" cy="100" rx="60" ry="30" fill="rgb(0,0,255)" visibility="hidden" >
+<animate attributeType="xml" begin="0ms" dur="3000ms" attributeName="visibility" from="hidden" to="visible" fill="freeze" />
+<animate attributeType="xml" begin="3000ms" dur="7000ms" attributeName="cx" from="500" to="500" fill="freeze" />
+<animate attributeType="xml" begin="3000ms" dur="7000ms" attributeName="cy" from="100" to="100" fill="freeze" />
+<animate attributeType="xml" begin="3000ms" dur="7000ms" attributeName="rx" from="60" to="60" fill="freeze" />
+<animate attributeType="xml" begin="3000ms" dur="7000ms" attributeName="ry" from="30" to="30" fill="freeze" />
+<animate attributeType="xml" begin="3000ms" dur="7000ms" attributeName="fill" from="rgb(0,0,255)" to="rgb(0,0,255)" fill="freeze" />
+<animate attributeType="xml" begin="10000ms" dur="15000ms" attributeName="cx" from="500" to="500" fill="freeze" />
+<animate attributeType="xml" begin="10000ms" dur="15000ms" attributeName="cy" from="100" to="280" fill="freeze" />
+<animate attributeType="xml" begin="10000ms" dur="15000ms" attributeName="rx" from="60" to="60" fill="freeze" />
+<animate attributeType="xml" begin="10000ms" dur="15000ms" attributeName="ry" from="30" to="30" fill="freeze" />
+<animate attributeType="xml" begin="10000ms" dur="15000ms" attributeName="fill" from="rgb(0,0,255)" to="rgb(0,0,255)" fill="freeze" />
+<animate attributeType="xml" begin="25000ms" dur="10000ms" attributeName="cx" from="500" to="500" fill="freeze" />
+<animate attributeType="xml" begin="25000ms" dur="10000ms" attributeName="cy" from="280" to="400" fill="freeze" />
+<animate attributeType="xml" begin="25000ms" dur="10000ms" attributeName="rx" from="60" to="60" fill="freeze" />
+<animate attributeType="xml" begin="25000ms" dur="10000ms" attributeName="ry" from="30" to="30" fill="freeze" />
+<animate attributeType="xml" begin="25000ms" dur="10000ms" attributeName="fill" from="rgb(0,0,255)" to="rgb(0,170,84)" fill="freeze" />
+<animate attributeType="xml" begin="35000ms" dur="5000ms" attributeName="cx" from="500" to="500" fill="freeze" />
+<animate attributeType="xml" begin="35000ms" dur="5000ms" attributeName="cy" from="400" to="400" fill="freeze" />
+<animate attributeType="xml" begin="35000ms" dur="5000ms" attributeName="rx" from="60" to="60" fill="freeze" />
+<animate attributeType="xml" begin="35000ms" dur="5000ms" attributeName="ry" from="30" to="30" fill="freeze" />
+<animate attributeType="xml" begin="35000ms" dur="5000ms" attributeName="fill" from="rgb(0,170,84)" to="rgb(0,255,0)" fill="freeze" />
+<animate attributeType="xml" begin="50000ms" dur="500ms" attributeName="visibility" from="visible" to="hidden" fill="freeze" />
+</ellipse>
+</svg>
