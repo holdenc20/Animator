@@ -19,7 +19,13 @@ This project also contains a AnimationView that is implemented
 as a text view, a SVG view, and a Swing view. Each of the views are visual 
 representations of the animation. 
 
-
+<h3>Overview of io</h3>
+The io of our program takes in up to 4 parameters from main: speed, 
+input, output, and viewType. The main method processes these by first creating 
+the correct View implementation using the ViewFactory class based on viewType, then 
+the method processes the input file with a TweenModelBuilder to initialize our animatior.
+Then this animator and the tickrate are then passed into the view along with the given output.
+Lastly, the render method is called and the view begins to output. 
 
 <h3>Structure</h3>
 <h2>Shape diagram:</h2>
@@ -111,7 +117,10 @@ running command-line arguments for running certain commands to input and handle 
 
 io.TweenModelBuilder: This interface contains all the methods that the io.AnimationFileReader class 
 calls as it reads a file containing the animation and builds a model. It is 
-parameterized over the actual model type.
+parameterized over the actual model type. One important detail about our TweenModelBuilder is
+that our Animation only stores one type of Motion which represents all three types of changes (
+position, color, scale) at once. Thus, our TweenModelBuilder has to do extra computations to combine
+each of these types of motions into one before building. 
 
 io.TweenBuilderImpl: Implementation of the TweenModelBuilder interface that creates an animation of type Animator 
 from a file.
