@@ -19,16 +19,16 @@ public class TestPosition {
 
   @Test
   public void testGetX() {
-    assertEquals(p.getX(), 10);
+    assertEquals(p.getX(), 10, 0.01);
   }
 
   @Test
   public void testGetY() {
-    assertEquals(p.getY(), 11);
+    assertEquals(p.getY(), 11, 0.01);
   }
 
   @Test
   public void testToString() {
-    assertEquals("(10, 11)", p.toString());
+    assertEquals("(10.0, 11.0)", p.toString());
   }
 }

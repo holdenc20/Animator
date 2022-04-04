@@ -36,14 +36,8 @@ public class TestMotion {
 
   @Test(expected = IllegalArgumentException.class)
   public void testCreateIllegalMotion3() {
-    badMotion2 = new Motion(10, 10, s);
-  }
-
-  @Test(expected = IllegalArgumentException.class)
-  public void testCreateIllegalMotion4() {
     badMotion2 = new Motion(10, 9, s);
   }
-
 
   @Test
   public void testGetStartTime() {

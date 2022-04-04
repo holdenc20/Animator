@@ -22,19 +22,19 @@ representations of the animation.
 <h3>Structure</h3>
 <h2>Shape diagram:</h2>
 
-![](../../../../../Desktop/Screen Shot 2022-04-03 at 8.39.11 PM.png)
+![](../../../../Desktop/Screen%20Shot%202022-04-03%20at%208.39.11%20PM.png)
 
 <h2>Animator diagram:</h2>
 
-![](../../../../../Desktop/Screen Shot 2022-04-03 at 8.39.15 PM.png)
+![](../../../../Desktop/Screen%20Shot%202022-04-03%20at%208.39.15%20PM.png)
 
 <h2>View diagram:</h2>
 
-![](../../../../../Desktop/Screen Shot 2022-04-03 at 8.39.20 PM.png)
+![](../../../../Desktop/Screen%20Shot%202022-04-03%20at%208.39.20%20PM.png)
 
 <h2>Animated Shape diagram:</h2>
 
-![](../../../../../Desktop/Screen Shot 2022-04-03 at 8.39.24 PM.png)
+![](../../../../Desktop/Screen%20Shot%202022-04-03%20at%208.39.24%20PM.png)
 
 
 

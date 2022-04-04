@@ -40,12 +40,12 @@ public class TestShape {
 
   @Test
   public void testGetWidth() {
-    assertEquals(rect.getWidth(), 20);
+    assertEquals(rect.getWidth(), 20, 0.01);
   }
 
   @Test
   public void testGetHeight() {
-    assertEquals(rect.getHeight(), 30);
+    assertEquals(rect.getHeight(), 30, 0.01);
   }
 
   @Test
@@ -66,7 +66,7 @@ public class TestShape {
 
   @Test
   public void testToString() {
-    assertEquals("(10, 11) 20 30 (100, 150, 200)", rect.toString());
-    assertEquals("(10, 11) 20 20 (100, 150, 200)", circ.toString());
+    assertEquals("(10.0, 11.0) 20.0 30.0 (100.0, 150.0, 200.0)", rect.toString());
+    assertEquals("(10.0, 11.0) 20.0 20.0 (100.0, 150.0, 200.0)", circ.toString());
   }
 }

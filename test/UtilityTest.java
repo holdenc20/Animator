@@ -11,7 +11,7 @@ public class UtilityTest {
 
   @Test
   public void weightedAverage() {
-    assertEquals(Utility.weightedAverage(10, 20, 0, 10, 4), 14);
+    assertEquals(Utility.weightedAverage(10, 20, 0, 10, 4), 14, 0.01);
   }
 
   @Test
