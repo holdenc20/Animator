@@ -116,7 +116,8 @@ public class SVGViewTest {
             "<animate attributeType=\"xml\" begin=\"1000ms\" dur=\"24000ms\" " +
             "attributeName=\"height\" from=\"20\" to=\"40\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"1000ms\" dur=\"24000ms\" " +
-            "attributeName=\"fill\" from=\"rgb(255,255,0)\" to=\"rgb(51,51,51)\" fill=\"freeze\" />\n" +
+            "attributeName=\"fill\" from=\"rgb(255,255,0)\" to=\"rgb(51,51,51)\" fill=\"freeze\" " +
+            "/>\n" +
             "</rect>\n" +
             "</svg>");
 
@@ -139,7 +140,8 @@ public class SVGViewTest {
             "<animate attributeType=\"xml\" begin=\"1000ms\" dur=\"24000ms\" " +
             "attributeName=\"height\" from=\"20\" to=\"40\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"1000ms\" dur=\"24000ms\" " +
-            "attributeName=\"fill\" from=\"rgb(255,255,0)\" to=\"rgb(51,51,51)\" fill=\"freeze\" />\n" +
+            "attributeName=\"fill\" from=\"rgb(255,255,0)\" to=\"rgb(51,51,51)\" fill=\"freeze\" " +
+            "/>\n" +
             "<animate attributeType=\"xml\" begin=\"40000ms\" dur=\"10000ms\" " +
             "attributeName=\"x\" from=\"100\" to=\"1\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"40000ms\" dur=\"10000ms\" " +
@@ -149,7 +151,8 @@ public class SVGViewTest {
             "<animate attributeType=\"xml\" begin=\"40000ms\" dur=\"10000ms\" " +
             "attributeName=\"height\" from=\"40\" to=\"40\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"40000ms\" dur=\"10000ms\" " +
-            "attributeName=\"fill\" from=\"rgb(51,51,51)\" to=\"rgb(0,0,0)\" fill=\"freeze\" />\n" +
+            "attributeName=\"fill\" from=\"rgb(51,51,51)\" to=\"rgb(0,0,0)\" fill=\"freeze\" " +
+            "/>\n" +
             "</rect>\n" +
             "</svg>");
 
@@ -175,7 +178,8 @@ public class SVGViewTest {
             "<animate attributeType=\"xml\" begin=\"1000ms\" dur=\"24000ms\" " +
             "attributeName=\"height\" from=\"20\" to=\"40\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"1000ms\" dur=\"24000ms\" " +
-            "attributeName=\"fill\" from=\"rgb(255,255,0)\" to=\"rgb(51,51,51)\" fill=\"freeze\" />\n" +
+            "attributeName=\"fill\" from=\"rgb(255,255,0)\" to=\"rgb(51,51,51)\" fill=\"freeze\" " +
+            "/>\n" +
             "<animate attributeType=\"xml\" begin=\"40000ms\" dur=\"10000ms\" " +
             "attributeName=\"x\" from=\"100\" to=\"1\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"40000ms\" dur=\"10000ms\" " +
@@ -185,7 +189,8 @@ public class SVGViewTest {
             "<animate attributeType=\"xml\" begin=\"40000ms\" dur=\"10000ms\" " +
             "attributeName=\"height\" from=\"40\" to=\"40\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"40000ms\" dur=\"10000ms\" " +
-            "attributeName=\"fill\" from=\"rgb(51,51,51)\" to=\"rgb(0,0,0)\" fill=\"freeze\" />\n" +
+            "attributeName=\"fill\" from=\"rgb(51,51,51)\" to=\"rgb(0,0,0)\" fill=\"freeze\" " +
+            "/>\n" +
             "</rect>\n" +
             "<ellipse id=\"Ellipse1\" cx=\"105\" cy=\"50\" rx=\"5\" ry=\"10\" " +
             "fill=\"rgb(51,51,51)\" visibility=\"hidden\" >\n" +
@@ -220,7 +225,8 @@ public class SVGViewTest {
             "<animate attributeType=\"xml\" begin=\"500ms\" dur=\"12000ms\" " +
             "attributeName=\"height\" from=\"20\" to=\"40\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"500ms\" dur=\"12000ms\" " +
-            "attributeName=\"fill\" from=\"rgb(255,255,0)\" to=\"rgb(51,51,51)\" fill=\"freeze\" />\n" +
+            "attributeName=\"fill\" from=\"rgb(255,255,0)\" to=\"rgb(51,51,51)\" fill=\"freeze\" " +
+            "/>\n" +
             "<animate attributeType=\"xml\" begin=\"20000ms\" dur=\"5000ms\" " +
             "attributeName=\"x\" from=\"100\" to=\"1\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"20000ms\" dur=\"5000ms\" " +
@@ -245,7 +251,8 @@ public class SVGViewTest {
             "<animate attributeType=\"xml\" begin=\"20000ms\" dur=\"5000ms\" " +
             "attributeName=\"ry\" from=\"10\" to=\"70\" fill=\"freeze\" />\n" +
             "<animate attributeType=\"xml\" begin=\"20000ms\" dur=\"5000ms\"" +
-            " attributeName=\"fill\" from=\"rgb(51,51,51)\" to=\"rgb(0,0,0)\" fill=\"freeze\" />\n" +
+            " attributeName=\"fill\" from=\"rgb(51,51,51)\" to=\"rgb(0,0,0)\" fill=\"freeze\" " +
+            "/>\n" +
             "</ellipse>\n" +
             "</svg>");
 
