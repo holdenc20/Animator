@@ -15,38 +15,41 @@ import view.SwingPanel;
  */
 public class SwingView extends JFrame implements AnimatorView {
 
+  SwingPanel panel;
+
   /**
-   * Constructor for the view.SwingView that takes in a title.
+   * Constructor for the SwingView that takes in a title.
    *
    * @param windowTitle The title of the window
    */
   public SwingView(String windowTitle) {
     super(windowTitle);
-    setLocationRelativeTo(null);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    SwingPanel panel = new SwingPanel(null, 1); //TODO: panel tickrate
+    panel = new SwingPanel(1); //TODO: panel tickrate
     this.add(panel);
-    this.pack();
-    this.setVisible(true);
   }
 
   @Override
   public void renderAnimation() throws IOException {
+    this.setVisible(true);
+    panel.startTimer();
     this.repaint();
   }
 
   @Override
   public void setModelState(AnimatorState state) {
-
+    panel.setState(state);
+    this.pack();
+    setLocationRelativeTo(null);
   }
 
   @Override
   public void setTickRate(double tickRate) {
-
+    panel.setTickRate(tickRate);
   }
 
   @Override
   public void setOutput(Appendable app) {
-
+    //This view's only output is the JFrame window.
   }
 }

@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -25,7 +26,7 @@ public class ShapeAnimator implements Animator {
    * Default constructor for the model.ShapeAnimator class.
    */
   public ShapeAnimator() {
-    this.shapes = new HashMap<String, AnimatedShape>();
+    this.shapes = new LinkedHashMap<String, AnimatedShape>();
     this.animationWidth = 0;
     this.animationHeight = 0;
   }
@@ -34,7 +35,7 @@ public class ShapeAnimator implements Animator {
    * Constructor for the model.ShapeAnimator class.
    */
   public ShapeAnimator(int width, int height) {
-    this.shapes = new HashMap<String, AnimatedShape>();
+    this.shapes = new LinkedHashMap<String, AnimatedShape>();
     this.animationWidth = width;
     this.animationHeight = height;
   }
@@ -56,7 +57,7 @@ public class ShapeAnimator implements Animator {
 
   @Override
   public List<String> getShapeIDs() {
-    return new ArrayList<>(shapes.keySet());
+    return new ArrayList<>();
   }
 
   @Override

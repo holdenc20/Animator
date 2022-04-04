@@ -4,8 +4,8 @@ package model;
  * An enumeration for the type of the shape.
  */
 public enum ShapeType {
-  RECTANGLE("model.Rectangle"),
-  ELLIPSE("model.Ellipse");
+  RECTANGLE("Rectangle"),
+  ELLIPSE("Ellipse");
 
   private String type;
 

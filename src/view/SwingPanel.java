@@ -17,17 +17,16 @@ public class SwingPanel extends JPanel implements ActionListener {
 
   private AnimatorState state;
   int currentTick;
+  Timer timer;
 
   /**
    * Constructor for a view.SwingPanel.
    *
-   * @param state    The state of the model
    * @param tickRate the ticks per second of the animation
    */
-  public SwingPanel(AnimatorState state, double tickRate) {
-    this.state = state;
-    this.setPreferredSize(new Dimension(state.getWidth(), state.getHeight()));
-    Timer timer = new Timer((int) (1000 / tickRate), this);
+  public SwingPanel(double tickRate) {
+    this.state = null;
+    timer = new Timer((int) (1000 / tickRate), this);
     currentTick = 0;
   }
 
@@ -35,7 +34,12 @@ public class SwingPanel extends JPanel implements ActionListener {
   public void paintComponent(Graphics g) {
     super.paintComponent(g);
     for (String name : state.getShapeIDs()) {
-      drawShape(state.getShapeAtTime(name, currentTick), g);
+      try {
+        drawShape(state.getShapeAtTime(name, currentTick), g);
+      } catch (IllegalArgumentException e) {
+        //Time is out of range
+        continue;
+      }
     }
   }
 
@@ -53,5 +57,27 @@ public class SwingPanel extends JPanel implements ActionListener {
   @Override
   public void actionPerformed(ActionEvent e) {
     currentTick++;
+    repaint();
+  }
+
+  /**
+   * Starts the timer and begins the animation.
+   */
+  public void startTimer() {
+    timer.start();
+  }
+
+  /**
+   * Sets the tick rate of the animation and resets the timer.
+   *
+   * @param tickRate the new tickrate
+   */
+  public void setTickRate(double tickRate) {
+    timer = new Timer((int) (1000 / tickRate), this);
+  }
+
+  public void setState(AnimatorState state) {
+    this.state = state;
+    this.setPreferredSize(new Dimension(state.getWidth(), state.getHeight()));
   }
 }
