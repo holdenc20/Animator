@@ -8,7 +8,7 @@ import model.Motion;
 import model.Shape;
 
 /**
- * Implementation of the view.AnimatorView in text that appends the toString method to a given
+ * Implementation of the AnimatorView in text that appends the toString method to a given
  * appendable upon call of the renderAnimation() method.
  */
 public class AnimatorTextView implements AnimatorView {
@@ -89,7 +89,6 @@ public class AnimatorTextView implements AnimatorView {
    */
   @Override
   public String toString() {
-    //TODO: Add creation and deletion markers for text view
     StringBuilder builder = new StringBuilder();
     addIntro(builder);
     for (String s : state.getShapeIDs()) {

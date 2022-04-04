@@ -15,7 +15,7 @@ import view.AnimatorView;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Tester for the view.AnimatorTextView class.
+ * Tester for the AnimatorTextView class.
  */
 public class AnimatorTextViewTest {
 
@@ -52,7 +52,7 @@ public class AnimatorTextViewTest {
             "c == color as (r, g, b)\n" +
             "t pos w h color -> t pos w h color\n" +
             "----------------------------------\n" +
-            "model.Rectangle Rect1:\n\n");
+            "Rectangle Rect1:\n\n");
   }
 
   @Test
@@ -76,7 +76,7 @@ public class AnimatorTextViewTest {
             "c == color as (r, g, b)\n" +
             "t pos w h color -> t pos w h color\n" +
             "----------------------------------\n" +
-            "model.Rectangle Rect1:\n\n");
+            "Rectangle Rect1:\n\n");
 
     Position p1 = new Position(100, 40);
     Color c1 = new Color(30, 40, 50);
@@ -89,8 +89,9 @@ public class AnimatorTextViewTest {
             "c == color as (r, g, b)\n" +
             "t pos w h color -> t pos w h color\n" +
             "----------------------------------\n" +
-            "model.Rectangle Rect1:\n" +
-            "1.0 (10.0, 10.0) 10.0 20.0 (30.0, 40.0, 50.0) -> 25.0 (100.0, 40.0) 30.0 40.0 (30.0, 40.0, 50.0)\n\n");
+            "Rectangle Rect1:\n" +
+            "1.0 (10.0, 10.0) 10.0 20.0 (30.0, 40.0, 50.0) -> " +
+            "25.0 (100.0, 40.0) 30.0 40.0 (30.0, 40.0, 50.0)\n\n");
 
     Position p2 = new Position(1, 1);
     Color c2 = new Color(30, 4, 5);
@@ -103,9 +104,11 @@ public class AnimatorTextViewTest {
             "c == color as (r, g, b)\n" +
             "t pos w h color -> t pos w h color\n" +
             "----------------------------------\n" +
-            "model.Rectangle Rect1:\n" +
-            "1.0 (10.0, 10.0) 10.0 20.0 (30.0, 40.0, 50.0) -> 25.0 (100.0, 40.0) 30.0 40.0 (30.0, 40.0, 50.0)\n" +
-            "40.0 (100.0, 40.0) 30.0 40.0 (30.0, 40.0, 50.0) -> 50.0 (1.0, 1.0) 30.0 40.0 (30.0, 4.0, 5.0)\n\n");
+            "Rectangle Rect1:\n" +
+            "1.0 (10.0, 10.0) 10.0 20.0 (30.0, 40.0, 50.0) -> " +
+            "25.0 (100.0, 40.0) 30.0 40.0 (30.0, 40.0, 50.0)\n" +
+            "40.0 (100.0, 40.0) 30.0 40.0 (30.0, 40.0, 50.0) -> " +
+            "50.0 (1.0, 1.0) 30.0 40.0 (30.0, 4.0, 5.0)\n\n");
 
     Shape s5 = new Ellipse(p1, 10, 20, c1);
     Position p4 = new Position(2, 2);
@@ -120,12 +123,16 @@ public class AnimatorTextViewTest {
             "c == color as (r, g, b)\n" +
             "t pos w h color -> t pos w h color\n" +
             "----------------------------------\n" +
-            "model.Ellipse Ellipse1:\n" +
-            "40.0 (100.0, 40.0) 10.0 20.0 (30.0, 40.0, 50.0) -> 50.0 (2.0, 2.0) 130.0 140.0 (60.0, 14.0, 15.0)\n" +
-            "\n" +
-            "model.Rectangle Rect1:\n" +
-            "1.0 (10.0, 10.0) 10.0 20.0 (30.0, 40.0, 50.0) -> 25.0 (100.0, 40.0) 30.0 40.0 (30.0, 40.0, 50.0)\n" +
-            "40.0 (100.0, 40.0) 30.0 40.0 (30.0, 40.0, 50.0) -> 50.0 (1.0, 1.0) 30.0 40.0 (30.0, 4.0, 5.0)\n\n");
+            "Rectangle Rect1:\n" +
+            "1.0 (10.0, 10.0) 10.0 20.0 (30.0, 40.0, 50.0) -> " +
+            "25.0 (100.0, 40.0) 30.0 40.0 (30.0, 40.0, 50.0)\n" +
+            "40.0 (100.0, 40.0) 30.0 40.0 (30.0, 40.0, 50.0) -> " +
+            "50.0 (1.0, 1.0) 30.0 40.0 (30.0, 4.0, 5.0)\n\n" +
+            "Ellipse Ellipse1:\n" +
+            "40.0 (100.0, 40.0) 10.0 20.0 (30.0, 40.0, 50.0) -> " +
+            "50.0 (2.0, 2.0) 130.0 140.0 (60.0, 14.0, 15.0)\n" +
+            "\n");
+
 
     atv.setTickRate(2);
     assertEquals(atv.toString(), "t == time\n" +
@@ -135,12 +142,15 @@ public class AnimatorTextViewTest {
             "c == color as (r, g, b)\n" +
             "t pos w h color -> t pos w h color\n" +
             "----------------------------------\n" +
-            "model.Ellipse Ellipse1:\n" +
-            "20.0 (100.0, 40.0) 10.0 20.0 (30.0, 40.0, 50.0) -> 25.0 (2.0, 2.0) 130.0 140.0 (60.0, 14.0, 15.0)\n" +
-            "\n" +
-            "model.Rectangle Rect1:\n" +
-            "0.5 (10.0, 10.0) 10.0 20.0 (30.0, 40.0, 50.0) -> 12.5 (100.0, 40.0) 30.0 40.0 (30.0, 40.0, 50.0)\n" +
-            "20.0 (100.0, 40.0) 30.0 40.0 (30.0, 40.0, 50.0) -> 25.0 (1.0, 1.0) 30.0 40.0 (30.0, 4.0, 5.0)\n\n");
+            "Rectangle Rect1:\n" +
+            "0.5 (10.0, 10.0) 10.0 20.0 (30.0, 40.0, 50.0) -> " +
+            "12.5 (100.0, 40.0) 30.0 40.0 (30.0, 40.0, 50.0)\n" +
+            "20.0 (100.0, 40.0) 30.0 40.0 (30.0, 40.0, 50.0) -> " +
+            "25.0 (1.0, 1.0) 30.0 40.0 (30.0, 4.0, 5.0)\n\n" +
+            "Ellipse Ellipse1:\n" +
+            "20.0 (100.0, 40.0) 10.0 20.0 (30.0, 40.0, 50.0) -> " +
+            "25.0 (2.0, 2.0) 130.0 140.0 (60.0, 14.0, 15.0)\n" +
+            "\n");
 
 
   }

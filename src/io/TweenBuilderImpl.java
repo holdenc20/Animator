@@ -2,14 +2,12 @@ package io;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import io.TweenModelBuilder;
 import model.AnimatedShape;
 import model.Animator;
 import model.Color;
@@ -23,7 +21,7 @@ import model.ShapeType;
 import model.SimpleAnimatedShape;
 
 /**
- * Implementation of the io.TweenModelBuilder interface that creates an animation of type view.Animator
+ * Implementation of the TweenModelBuilder interface that creates an animation of type Animator
  * from a file.
  */
 public class TweenBuilderImpl implements TweenModelBuilder<Animator> {

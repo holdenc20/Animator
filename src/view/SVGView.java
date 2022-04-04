@@ -10,8 +10,7 @@ import model.Shape;
 import model.ShapeType;
 
 /**
- * Implementation of view.AnimatorView that creates an SVG formatted text.
- * TODO: visibility in creation
+ * Implementation of AnimatorView that creates an SVG formatted text.
  */
 public class SVGView implements AnimatorView {
 
@@ -20,7 +19,7 @@ public class SVGView implements AnimatorView {
   private double tickRate;
 
   /**
-   * Constructs an view.SVGView with default values.
+   * Constructs an SVGView with default values.
    */
   public SVGView() {
     this.app = null;
@@ -81,15 +80,15 @@ public class SVGView implements AnimatorView {
 
   private void addCreation(String shapeID, StringBuilder builder) {
     int creationTime = state.getAnimatedShape(shapeID).getCreationTime();
-      addAnimateTag(0, creationTime,
-              "visibility", "hidden", "visible", builder);
+    addAnimateTag(0, creationTime,
+            "visibility", "hidden", "visible", builder);
   }
 
 
   private void addDeletion(String shapeID, StringBuilder builder) {
     int delTime = state.getAnimatedShape(shapeID).getDeletionTime();
-    if(delTime != -1){
-      addAnimateTag(delTime, delTime+1,
+    if (delTime != -1) {
+      addAnimateTag(delTime, delTime + 1,
               "visibility", "visible", "hidden", builder);
     }
   }
@@ -149,8 +148,9 @@ public class SVGView implements AnimatorView {
   }
 
   private String svgColorString(Color color) {
-    return String.format("(%s,%s,%s)", (int) color.getRed(), (int) color.getGreen(),
-            (int) color.getBlue());
+    return String.format("rgb(%d,%d,%d)", (int) (255 * color.getRed()),
+            (int) (255 * color.getGreen()),
+            (int) (255 * color.getBlue()));
   }
 
   private void addAnimateTag(double startTime, double endTime, String attribute, String from,
@@ -175,20 +175,18 @@ public class SVGView implements AnimatorView {
 
   private void addRectangleHeader(Shape shape, StringBuilder builder, String name) {
     builder.append(String.format("<rect id=\"%s\" x=\"%s\" y=\"%s\" width=\"%s\" height=\"%s\" " +
-                    "fill=\"rgb(%s,%s,%s)\" visibility=\"hidden\" >\n", name,
+                    "fill=\"%s\" visibility=\"hidden\" >\n", name,
             (int) shape.getPosition().getX(), (int) shape.getPosition().getY(),
-            (int) shape.getWidth(), (int) shape.getHeight(), (int) shape.getColor().getRed(),
-            (int) shape.getColor().getGreen(), (int) shape.getColor().getBlue()));
+            (int) shape.getWidth(), (int) shape.getHeight(), svgColorString(shape.getColor())));
   }
 
   private void addEllipseHeader(Shape shape, StringBuilder builder, String name) {
     builder.append(String.format("<ellipse id=\"%s\" cx=\"%s\" cy=\"%s\" rx=\"%s\" ry=\"%s\" " +
-                    "fill=\"rgb(%s,%s,%s)\" visibility=\"hidden\" >\n", name,
+                    "fill=\"%s\" visibility=\"hidden\" >\n", name,
             (int) (shape.getPosition().getX() + shape.getWidth() / 2),
             (int) (shape.getPosition().getY() + shape.getHeight() / 2),
             (int) (shape.getWidth() / 2), (int) (shape.getHeight() / 2),
-            (int) shape.getColor().getRed(), (int) shape.getColor().getGreen(),
-            (int) shape.getColor().getBlue()));
+            svgColorString(shape.getColor())));
   }
 
   private void addHeader(StringBuilder builder) {

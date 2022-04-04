@@ -1,20 +1,14 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import model.AnimatedShape;
-import model.Animator;
-import model.Motion;
-import model.Shape;
-
 /**
- * An implementation of the view.Animator. This implementation uses a Map of string IDs to AnimatedShapes
+ * An implementation of the Animator. This implementation uses a Map of string IDs to AnimatedShapes
  * in order to store information. Otherwise, this is a straightforward implementation to the
- * view.Animator interface.
+ * Animator interface.
  */
 public class ShapeAnimator implements Animator {
 

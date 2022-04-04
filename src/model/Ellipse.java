@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Represents an ellipse shape. Concrete implementation of the view.AbstractShape class of type model.Ellipse.
+ * Represents an ellipse shape. Concrete implementation of the AbstractShape class of type Ellipse.
  */
 public class Ellipse extends AbstractShape {
   /**

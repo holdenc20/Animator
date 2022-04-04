@@ -2,16 +2,12 @@ package view;
 
 import java.io.IOException;
 
-import javax.swing.*;
+import javax.swing.JFrame;
 
 import model.AnimatorState;
-import view.AnimatorView;
-import view.SwingPanel;
 
 /**
- * Java Swing implementation of an view.AnimatorView that displays an animation in a JFrame window.
- * TODO: implement scroll bars
- * TODO: package everything
+ * Java Swing implementation of an AnimatorView that displays an animation in a JFrame window.
  */
 public class SwingView extends JFrame implements AnimatorView {
 
@@ -25,7 +21,7 @@ public class SwingView extends JFrame implements AnimatorView {
   public SwingView(String windowTitle) {
     super(windowTitle);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    panel = new SwingPanel(1); //TODO: panel tickrate
+    panel = new SwingPanel(1);
     this.add(panel);
   }
 

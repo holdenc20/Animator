@@ -7,7 +7,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Tester class for the model.Color class.
+ * Tester class for the Color class.
  */
 public class TestColor {
   Color c;

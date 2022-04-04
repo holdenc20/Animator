@@ -6,7 +6,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import model.Animator;
-import model.AnimatorState;
 import view.AnimatorView;
 import view.ViewFactory;
 
@@ -55,9 +54,10 @@ public class AnimationRunner {
       e.printStackTrace();
     }
     view.setModelState(animator);
+    FileWriter writer = null;
     if (!out.equals("System.out")) {
       try {
-        FileWriter writer = new FileWriter(new File(out));
+        writer = new FileWriter(new File(out));
         view.setOutput(writer);
       } catch (IOException e) {
         System.out.println("IOException");
@@ -66,7 +66,10 @@ public class AnimationRunner {
     }
     try {
       view.renderAnimation();
-    } catch (IOException e){
+      if (writer != null) {
+        writer.flush();
+      }
+    } catch (IOException e) {
       e.printStackTrace();
       System.out.println("IOException");
     }

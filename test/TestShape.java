@@ -10,7 +10,7 @@ import model.ShapeType;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Tester class for the model.Shape interface. Includes testing for each of the model.Shape implementations.
+ * Tester class for the Shape interface. Includes testing for each of the Shape implementations.
  */
 public class TestShape {
   Shape rect;

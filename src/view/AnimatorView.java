@@ -6,7 +6,6 @@ import model.AnimatorState;
 
 /**
  * Interface to represent the view of a given animation.
- * TODO: make sure correct shapes are on top.
  */
 public interface AnimatorView {
 

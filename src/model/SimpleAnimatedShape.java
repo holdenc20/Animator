@@ -10,7 +10,7 @@ import model.Motion;
 import model.Shape;
 
 /**
- * Implementation of an view.AnimatedShape that stores a sorted list of Motions by the starting time,
+ * Implementation of an AnimatedShape that stores a sorted list of Motions by the starting time,
  * and also implements a creation and deletion time for the animation.
  */
 public class SimpleAnimatedShape implements AnimatedShape {
@@ -22,7 +22,7 @@ public class SimpleAnimatedShape implements AnimatedShape {
   private int deletionTime;
 
   /**
-   * Constructor to create an view.AnimatedShape with a given ID and startingShape. By default, there
+   * Constructor to create an AnimatedShape with a given ID and startingShape. By default, there
    * are no motions, the creation time is 0, and there is no deletion time.
    *
    * @param shapeID    the ID of the shape.

@@ -14,7 +14,7 @@ import model.ShapeAnimator;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Tester class for the view.Animator interface. Tests on the SimpleAnimator implementation.
+ * Tester class for the Animator interface. Tests on the SimpleAnimator implementation.
  */
 public class TestAnimator {
   Animator a;
@@ -27,7 +27,7 @@ public class TestAnimator {
   Shape s1destBad = new Ellipse(p2, 50, 100, c);
 
   /**
-   * Initializes a ShapeAnimater that will be used in the test cases.
+   * Initializes a ShapeAnimator that will be used in the test cases.
    */
   public TestAnimator() {
     a = new ShapeAnimator(300, 300);

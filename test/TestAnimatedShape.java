@@ -12,7 +12,7 @@ import model.SimpleAnimatedShape;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Tester class for the Animated model.Shape interface. Tests on the model.SimpleAnimatedShape implementation.
+ * Tester class for the Animated Shape interface. Tests on the SimpleAnimatedShape implementation.
  */
 public class TestAnimatedShape {
   AnimatedShape as;
@@ -67,37 +67,37 @@ public class TestAnimatedShape {
   @Test
   public void testGetShapeAtTime() {
     Shape endShape1 = new Rectangle(p, 100, 200, c);
-    Motion temp = new Motion(1,11, endShape1);
+    Motion temp = new Motion(1, 11, endShape1);
     as.addMotion(temp);
     Position p1 = new Position(20, 30);
     Shape endShape2 = new Rectangle(p1, 100, 200, c);
-    Motion temp2 = new Motion(12,22, endShape2);
+    Motion temp2 = new Motion(12, 22, endShape2);
     as.addMotion(temp2);
-    assertEquals(as.getShapeAtTime(2).getPosition().getX(), p.getX());
-    assertEquals(as.getShapeAtTime(2).getPosition().getY(), p.getY());
-    assertEquals(as.getShapeAtTime(2).getWidth(), 19);
-    assertEquals(as.getShapeAtTime(2).getHeight(), 38);
-    assertEquals(as.getShapeAtTime(2).getColor().getRed(), c.getRed());
-    assertEquals(as.getShapeAtTime(2).getColor().getBlue(), c.getBlue());
-    assertEquals(as.getShapeAtTime(2).getColor().getGreen(), c.getGreen());
+    assertEquals(as.getShapeAtTime(2).getPosition().getX(), p.getX(), 0.01);
+    assertEquals(as.getShapeAtTime(2).getPosition().getY(), p.getY(), 0.01);
+    assertEquals(as.getShapeAtTime(2).getWidth(), 19, 0.01);
+    assertEquals(as.getShapeAtTime(2).getHeight(), 38, 0.01);
+    assertEquals(as.getShapeAtTime(2).getColor().getRed(), c.getRed(), 0.01);
+    assertEquals(as.getShapeAtTime(2).getColor().getBlue(), c.getBlue(), 0.01);
+    assertEquals(as.getShapeAtTime(2).getColor().getGreen(), c.getGreen(), 0.01);
 
-    assertEquals(as.getShapeAtTime(20).getPosition().getX(), 18);
-    assertEquals(as.getShapeAtTime(20).getPosition().getY(), 26);
-    assertEquals(as.getShapeAtTime(20).getWidth(), 100);
-    assertEquals(as.getShapeAtTime(20).getHeight(), 200);
-    assertEquals(as.getShapeAtTime(20).getColor().getRed(), c.getRed());
-    assertEquals(as.getShapeAtTime(20).getColor().getBlue(), c.getBlue());
-    assertEquals(as.getShapeAtTime(20).getColor().getGreen(), c.getGreen());
+    assertEquals(as.getShapeAtTime(20).getPosition().getX(), 18, 0.01);
+    assertEquals(as.getShapeAtTime(20).getPosition().getY(), 26, 0.01);
+    assertEquals(as.getShapeAtTime(20).getWidth(), 100, 0.01);
+    assertEquals(as.getShapeAtTime(20).getHeight(), 200, 0.01);
+    assertEquals(as.getShapeAtTime(20).getColor().getRed(), c.getRed(), 0.01);
+    assertEquals(as.getShapeAtTime(20).getColor().getBlue(), c.getBlue(), 0.01);
+    assertEquals(as.getShapeAtTime(20).getColor().getGreen(), c.getGreen(), 0.01);
   }
 
   @Test
   public void testGetMotions() {
     Shape endShape1 = new Rectangle(p, 100, 200, c);
-    Motion temp = new Motion(1,11, endShape1);
+    Motion temp = new Motion(1, 11, endShape1);
     as.addMotion(temp);
     Position p1 = new Position(20, 30);
     Shape endShape2 = new Rectangle(p1, 100, 200, c);
-    Motion temp2 = new Motion(12,22, endShape2);
+    Motion temp2 = new Motion(12, 22, endShape2);
     as.addMotion(temp2);
     assertEquals(as.getMotions().get(0), temp);
     assertEquals(as.getMotions().get(1), temp2);
@@ -145,7 +145,7 @@ public class TestAnimatedShape {
   @Test(expected = IllegalArgumentException.class)
   public void testAddBadMotion2() {
     Shape endShape1 = new Rectangle(p, 100, 200, c);
-    Motion temp = new Motion(5,26, endShape1);
+    Motion temp = new Motion(5, 26, endShape1);
     as.setDeletionTime(20);
     as.addMotion(temp);
   }
@@ -153,89 +153,89 @@ public class TestAnimatedShape {
   @Test(expected = IllegalArgumentException.class)
   public void testAddBadMotion3() {
     Shape endShape1 = new Ellipse(p, 100, 200, c);
-    Motion temp = new Motion(5,26, endShape1);
+    Motion temp = new Motion(5, 26, endShape1);
     as.addMotion(temp);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void testAddBadMotion4() {
     Shape endShape1 = new Rectangle(p, 100, 200, c);
-    Motion temp = new Motion(5,26, endShape1);
+    Motion temp = new Motion(5, 26, endShape1);
     as.addMotion(temp);
 
     Shape endShape2 = new Rectangle(p, 100, 200, c);
-    Motion temp2 = new Motion(4,6, endShape2);
+    Motion temp2 = new Motion(4, 6, endShape2);
     as.addMotion(temp2);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void testAddBadMotion5() {
     Shape endShape1 = new Rectangle(p, 100, 200, c);
-    Motion temp = new Motion(5,26, endShape1);
+    Motion temp = new Motion(5, 26, endShape1);
     as.addMotion(temp);
 
     Shape endShape2 = new Rectangle(p, 100, 200, c);
-    Motion temp2 = new Motion(25,30, endShape2);
+    Motion temp2 = new Motion(25, 30, endShape2);
     as.addMotion(temp2);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void testAddBadMotion6() {
     Shape endShape1 = new Rectangle(p, 100, 200, c);
-    Motion temp = new Motion(5,26, endShape1);
+    Motion temp = new Motion(5, 26, endShape1);
     as.addMotion(temp);
 
     Shape endShape2 = new Rectangle(p, 100, 200, c);
-    Motion temp2 = new Motion(7,8, endShape2);
+    Motion temp2 = new Motion(7, 8, endShape2);
     as.addMotion(temp2);
   }
 
   @Test
   public void testAddAndRemoveMotion() {
     Shape endShape1 = new Rectangle(p, 100, 200, c);
-    Motion temp = new Motion(5,26, endShape1);
+    Motion temp = new Motion(5, 26, endShape1);
     as.addMotion(temp);
 
     assertEquals(as.getMotions().get(0).getStartTime(), 5);
     assertEquals(as.getMotions().get(0).getEndTime(), 26);
-    assertEquals(as.getMotions().get(0).getEndShape().getPosition().getX(), p.getX());
-    assertEquals(as.getMotions().get(0).getEndShape().getPosition().getY(), p.getY());
-    assertEquals(as.getMotions().get(0).getEndShape().getWidth(), 100);
-    assertEquals(as.getMotions().get(0).getEndShape().getHeight(), 200);
-    assertEquals(as.getMotions().get(0).getEndShape().getColor().getRed(), c.getRed());
-    assertEquals(as.getMotions().get(0).getEndShape().getColor().getGreen(), c.getGreen());
-    assertEquals(as.getMotions().get(0).getEndShape().getColor().getBlue(), c.getBlue());
+    assertEquals(as.getMotions().get(0).getEndShape().getPosition().getX(), p.getX(), 0.01);
+    assertEquals(as.getMotions().get(0).getEndShape().getPosition().getY(), p.getY(), 0.01);
+    assertEquals(as.getMotions().get(0).getEndShape().getWidth(), 100, 0.01);
+    assertEquals(as.getMotions().get(0).getEndShape().getHeight(), 200, 0.01);
+    assertEquals(as.getMotions().get(0).getEndShape().getColor().getRed(), c.getRed(), 0.01);
+    assertEquals(as.getMotions().get(0).getEndShape().getColor().getGreen(), c.getGreen(), 0.01);
+    assertEquals(as.getMotions().get(0).getEndShape().getColor().getBlue(), c.getBlue(), 0.01);
 
     Shape endShape2 = new Rectangle(p, 100, 200, c);
-    Motion temp2 = new Motion(28,40, endShape2);
+    Motion temp2 = new Motion(28, 40, endShape2);
     as.addMotion(temp2);
 
     as.removeMotion(6);
-    assertEquals(as.getMotions().get(0).getStartTime(), 28);
-    assertEquals(as.getMotions().get(0).getEndTime(), 40);
-    assertEquals(as.getMotions().get(0).getEndShape().getPosition().getX(), p.getX());
-    assertEquals(as.getMotions().get(0).getEndShape().getPosition().getY(), p.getY());
-    assertEquals(as.getMotions().get(0).getEndShape().getWidth(), 100);
-    assertEquals(as.getMotions().get(0).getEndShape().getHeight(), 200);
-    assertEquals(as.getMotions().get(0).getEndShape().getColor().getRed(), c.getRed());
-    assertEquals(as.getMotions().get(0).getEndShape().getColor().getGreen(), c.getGreen());
-    assertEquals(as.getMotions().get(0).getEndShape().getColor().getBlue(), c.getBlue());
+    assertEquals(as.getMotions().get(0).getStartTime(), 28, 0.01);
+    assertEquals(as.getMotions().get(0).getEndTime(), 40, 0.01);
+    assertEquals(as.getMotions().get(0).getEndShape().getPosition().getX(), p.getX(), 0.01);
+    assertEquals(as.getMotions().get(0).getEndShape().getPosition().getY(), p.getY(), 0.01);
+    assertEquals(as.getMotions().get(0).getEndShape().getWidth(), 100, 0.01);
+    assertEquals(as.getMotions().get(0).getEndShape().getHeight(), 200, 0.01);
+    assertEquals(as.getMotions().get(0).getEndShape().getColor().getRed(), c.getRed(), 0.01);
+    assertEquals(as.getMotions().get(0).getEndShape().getColor().getGreen(), c.getGreen(), 0.01);
+    assertEquals(as.getMotions().get(0).getEndShape().getColor().getBlue(), c.getBlue(), 0.01);
   }
 
   @Test
   public void testGetStartShape() {
     Shape endShape1 = new Rectangle(p, 100, 200, c);
-    Motion temp = new Motion(5,26, endShape1);
+    Motion temp = new Motion(5, 26, endShape1);
     as.addMotion(temp);
 
     as.getStartShape();
-    assertEquals(as.getStartShape().getPosition().getX(), p.getX());
-    assertEquals(as.getStartShape().getPosition().getY(), p.getY());
-    assertEquals(as.getStartShape().getWidth(), 10);
-    assertEquals(as.getStartShape().getHeight(), 20);
-    assertEquals(as.getStartShape().getColor().getRed(), c.getRed());
-    assertEquals(as.getStartShape().getColor().getGreen(), c.getGreen());
-    assertEquals(as.getStartShape().getColor().getBlue(), c.getBlue());
+    assertEquals(as.getStartShape().getPosition().getX(), p.getX(), 0.01);
+    assertEquals(as.getStartShape().getPosition().getY(), p.getY(), 0.01);
+    assertEquals(as.getStartShape().getWidth(), 10, 0.01);
+    assertEquals(as.getStartShape().getHeight(), 20, 0.01);
+    assertEquals(as.getStartShape().getColor().getRed(), c.getRed(), 0.01);
+    assertEquals(as.getStartShape().getColor().getGreen(), c.getGreen(), 0.01);
+    assertEquals(as.getStartShape().getColor().getBlue(), c.getBlue(), 0.01);
   }
 
   @Test(expected = IllegalArgumentException.class)
@@ -252,26 +252,26 @@ public class TestAnimatedShape {
   @Test
   public void testSetStartShape() {
     Shape endShape1 = new Rectangle(p, 100, 200, c);
-    Motion temp = new Motion(5,26, endShape1);
+    Motion temp = new Motion(5, 26, endShape1);
     as.addMotion(temp);
 
     as.getStartShape();
-    assertEquals(as.getStartShape().getPosition().getX(), p.getX());
-    assertEquals(as.getStartShape().getPosition().getY(), p.getY());
-    assertEquals(as.getStartShape().getWidth(), 10);
-    assertEquals(as.getStartShape().getHeight(), 20);
-    assertEquals(as.getStartShape().getColor().getRed(), c.getRed());
-    assertEquals(as.getStartShape().getColor().getGreen(), c.getGreen());
-    assertEquals(as.getStartShape().getColor().getBlue(), c.getBlue());
+    assertEquals(as.getStartShape().getPosition().getX(), p.getX(), 0.01);
+    assertEquals(as.getStartShape().getPosition().getY(), p.getY(), 0.01);
+    assertEquals(as.getStartShape().getWidth(), 10, 0.01);
+    assertEquals(as.getStartShape().getHeight(), 20, 0.01);
+    assertEquals(as.getStartShape().getColor().getRed(), c.getRed(), 0.01);
+    assertEquals(as.getStartShape().getColor().getGreen(), c.getGreen(), 0.01);
+    assertEquals(as.getStartShape().getColor().getBlue(), c.getBlue(), 0.01);
 
     Shape startShape2 = new Rectangle(p, 200, 300, c);
     as.setStartShape(startShape2);
-    assertEquals(as.getStartShape().getPosition().getX(), p.getX());
-    assertEquals(as.getStartShape().getPosition().getY(), p.getY());
-    assertEquals(as.getStartShape().getWidth(), 200);
-    assertEquals(as.getStartShape().getHeight(), 300);
-    assertEquals(as.getStartShape().getColor().getRed(), c.getRed());
-    assertEquals(as.getStartShape().getColor().getGreen(), c.getGreen());
-    assertEquals(as.getStartShape().getColor().getBlue(), c.getBlue());
+    assertEquals(as.getStartShape().getPosition().getX(), p.getX(), 0.01);
+    assertEquals(as.getStartShape().getPosition().getY(), p.getY(), 0.01);
+    assertEquals(as.getStartShape().getWidth(), 200, 0.01);
+    assertEquals(as.getStartShape().getHeight(), 300, 0.01);
+    assertEquals(as.getStartShape().getColor().getRed(), c.getRed(), 0.01);
+    assertEquals(as.getStartShape().getColor().getGreen(), c.getGreen(), 0.01);
+    assertEquals(as.getStartShape().getColor().getBlue(), c.getBlue(), 0.01);
   }
 }

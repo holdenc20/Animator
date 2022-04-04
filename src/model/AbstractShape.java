@@ -65,7 +65,8 @@ public abstract class AbstractShape implements Shape {
 
   @Override
   public String toString() {
-    return position.toString() + " " + String.format("%.1f", width) + " " + String.format("%.1f", height) + " " + color.toString();
+    return position.toString() + " " + String.format("%.1f", width) + " " +
+            String.format("%.1f", height) + " " + color.toString();
   }
 
   @Override
