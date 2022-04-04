@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -39,9 +40,9 @@ public class TweenBuilderImpl implements TweenModelBuilder<Animator> {
   public TweenBuilderImpl() {
     this.width = 0;
     this.height = 0;
-    posShapes = new HashMap<>();
-    dimShapes = new HashMap<>();
-    colorShapes = new HashMap<>();
+    posShapes = new LinkedHashMap<>();
+    dimShapes = new LinkedHashMap<>();
+    colorShapes = new LinkedHashMap<>();
   }
 
   @Override
@@ -55,8 +56,8 @@ public class TweenBuilderImpl implements TweenModelBuilder<Animator> {
   public TweenModelBuilder<Animator> addOval(String name, float cx, float cy, float xRadius,
                                              float yRadius, float red, float green, float blue,
                                              int startOfLife, int endOfLife) {
-    Shape startShape = new Ellipse(new Position((cx - xRadius), (cy - yRadius)),
-            2 * xRadius, 2 * yRadius, new Color(red, green, blue));
+    Shape startShape = new Ellipse(new Position(cx, cy),
+            xRadius, yRadius, new Color(red, green, blue));
     createShape(name, startShape, startOfLife, endOfLife);
     return this;
   }
@@ -184,9 +185,11 @@ public class TweenBuilderImpl implements TweenModelBuilder<Animator> {
                                           AnimatedShape dimShape) {
     Shape startShape;
     if (posShape.getStartShape().getShapeType() == ShapeType.ELLIPSE) {
-      startShape = new Ellipse(posShape.getStartShape().getPosition(),
-              dimShape.getStartShape().getWidth(), dimShape.getStartShape().getHeight(),
-              colorShape.getStartShape().getColor());
+      startShape = new Ellipse(new Position(posShape.getStartShape().getPosition().getX() -
+              dimShape.getStartShape().getWidth(), posShape.getStartShape().getPosition().getY() -
+              dimShape.getStartShape().getHeight()), 2 * dimShape.getStartShape().getWidth(),
+              2 * dimShape.getStartShape().getHeight(), colorShape.getStartShape().getColor());
+
     } else {
       startShape = new Rectangle(posShape.getStartShape().getPosition(),
               dimShape.getStartShape().getWidth(), dimShape.getStartShape().getHeight(),
@@ -222,7 +225,9 @@ public class TweenBuilderImpl implements TweenModelBuilder<Animator> {
     Shape color = colorShape.getShapeAtTime(time);
     Shape dim = dimShape.getShapeAtTime(time);
     if (pos.getShapeType() == ShapeType.ELLIPSE) {
-      return new Ellipse(pos.getPosition(), dim.getWidth(), dim.getHeight(), color.getColor());
+      return new Ellipse(new Position(pos.getPosition().getX() - dim.getWidth(),
+              pos.getPosition().getY() - dim.getHeight()), 2 * dim.getWidth(),
+              2 * dim.getHeight(), color.getColor());
     } else {
       return new Rectangle(pos.getPosition(), dim.getWidth(), dim.getHeight(), color.getColor());
     }

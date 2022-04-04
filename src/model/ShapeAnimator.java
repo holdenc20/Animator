@@ -57,7 +57,7 @@ public class ShapeAnimator implements Animator {
 
   @Override
   public List<String> getShapeIDs() {
-    return new ArrayList<>();
+    return new ArrayList<>(shapes.keySet());
   }
 
   @Override
