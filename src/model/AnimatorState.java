@@ -5,7 +5,7 @@ import java.util.List;
 import model.AnimatedShape;
 
 /**
- * Interface which contains several getter methods for an view.Animator that can be called to obtain
+ * Interface which contains several getter methods for an Animator that can be called to obtain
  * information about the state of an animation. It has the ability to get the information about a
  * given shape at a specific time. It also has the ability to get any animated shape in the
  * animation given the ID.
@@ -48,18 +48,21 @@ public interface AnimatorState {
    * [shape3] -> [shape4]
    * ...
    * </pre>
+   *
    * @return the formatted string as seen above.
    */
   String toString();
 
   /**
    * Gets the width of the canvas.
+   *
    * @return The width of the canvas.
    */
   int getWidth();
 
   /**
    * Gets the height of the canvas.
+   *
    * @return The height of the canvas.
    */
   int getHeight();

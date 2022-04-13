@@ -10,7 +10,7 @@ import model.AnimatorState;
 public interface AnimatorView {
 
   /**
-   * Renders the view.Animator to a given destination.
+   * Renders the Animator to a given destination.
    *
    * @throws IOException if an error appending occurs.
    */

@@ -11,7 +11,7 @@ import model.AnimatorState;
  */
 public class SwingView extends JFrame implements AnimatorView {
 
-  SwingPanel panel;
+  protected SwingPanel panel;
 
   /**
    * Constructor for the SwingView that takes in a title.

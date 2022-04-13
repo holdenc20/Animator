@@ -69,6 +69,10 @@ public class SwingPanel extends JPanel implements ActionListener {
     timer.start();
   }
 
+  public void pauseTimer() {
+    timer.stop();
+  }
+
   /**
    * Sets the tick rate of the animation and resets the timer.
    *
