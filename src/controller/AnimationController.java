@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -15,11 +16,14 @@ import io.TweenBuilderImpl;
 import io.ViewFactory;
 import model.Animator;
 import view.AnimatorView;
+import view.CompositeViewImpl;
 
 /**
  * TODO: document and constructor
  */
 public class AnimationController implements ActionListener, ChangeListener {
+
+  private AnimatorView view;
 
   public AnimationController(String[] args) {
     handleArgs(args);
@@ -29,7 +33,7 @@ public class AnimationController implements ActionListener, ChangeListener {
     int arg = 0;
     String out = "System.out";
     String in = "";
-    AnimatorView view = null;
+
     double tickRate = 1;
     while (args.length > arg) {
       switch (args[arg]) {
@@ -50,6 +54,11 @@ public class AnimationController implements ActionListener, ChangeListener {
       }
       arg += 2;
     }
+    if(view.getClass().equals(new CompositeViewImpl("").getClass())){
+      view = (CompositeViewImpl) view;
+      ((CompositeViewImpl) view).addActionListener(this);
+    }
+
     view.setTickRate(tickRate);
     AnimationFileReader reader = new AnimationFileReader();
     Animator animator = null;
@@ -83,7 +92,22 @@ public class AnimationController implements ActionListener, ChangeListener {
 
   @Override
   public void actionPerformed(ActionEvent e) {
+    if(e.getSource().getClass().equals(new JButton().getClass())) {
+      String action = ((JButton) e.getSource()).getText();
+      switch (action){
+        case "Start":
+          ((CompositeViewImpl) view).start();
+          break;
+        case "Resume":
+          ((CompositeViewImpl) view).resume();
+          break;
+        case "Pause":
+          ((CompositeViewImpl) view).pause();
+          break;
 
+        case "Toggle Looping":
+      }
+    }
   }
 
   @Override

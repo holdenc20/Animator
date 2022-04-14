@@ -11,6 +11,11 @@ import javax.swing.event.ChangeListener;
 public interface CompositeView extends AnimatorView {
 
   /**
+   * Starts the current animation.
+   */
+  void start();
+
+  /**
    * Pauses the current animation.
    */
   void pause();

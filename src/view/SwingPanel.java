@@ -73,6 +73,11 @@ public class SwingPanel extends JPanel implements ActionListener {
     timer.stop();
   }
 
+  public void restartTimer() {
+    currentTick = 0;
+    startTimer();
+  }
+
   /**
    * Sets the tick rate of the animation and resets the timer.
    *
@@ -86,4 +91,6 @@ public class SwingPanel extends JPanel implements ActionListener {
     this.state = state;
     this.setPreferredSize(new Dimension(state.getWidth(), state.getHeight()));
   }
+
+
 }

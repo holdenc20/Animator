@@ -24,20 +24,53 @@ public class CompositeViewImpl extends SwingView implements CompositeView {
   public CompositeViewImpl(String windowTitle) {
     super(windowTitle);
     initButtons();
+    this.pack();
   }
 
   private void initButtons() {
+    GridBagLayout gridbag = new GridBagLayout();
+    GridBagConstraints c = new GridBagConstraints();
+    JPanel pbuttons = new JPanel();
+    pbuttons.setLayout(new BoxLayout(pbuttons, BoxLayout.Y_AXIS));
+
+    c.gridwidth = 1;
+    c.gridheight = 1;
+
     startButton = new JButton("Start");
+    c.fill = GridBagConstraints.VERTICAL;
+    c.gridx = 0;
+    c.gridy = 0;
+    gridbag.setConstraints(startButton, c);
+    pbuttons.add(startButton);
+
     resumeButton = new JButton("Resume");
+    c.gridy = 1;
+    gridbag.setConstraints(resumeButton, c);
+    pbuttons.add(resumeButton);
+
     pauseButton = new JButton("Pause");
+    c.gridy = 2;
+    gridbag.setConstraints(pauseButton, c);
+    pbuttons.add(pauseButton);
+
     toggleLoopButton = new JButton("Toggle Looping");
+    c.gridy = 3;
+    gridbag.setConstraints(toggleLoopButton, c);
+    pbuttons.add(toggleLoopButton);
+
     speedSlider = new JSlider(0, 10, 1);
-    add(startButton);
-    add(resumeButton);
-    add(pauseButton);
-    add(toggleLoopButton);
-    //add(speedSlider);
+    c.gridy = 4;
+    gridbag.setConstraints(toggleLoopButton, c);
+    pbuttons.add(speedSlider);
+
+    this.add(pbuttons);
+
     setResizable(false);
+  }
+
+  @Override
+  public void start() {
+    panel.restartTimer();
   }
 
   @Override
@@ -71,21 +104,12 @@ public class CompositeViewImpl extends SwingView implements CompositeView {
   @Override
   public void setModelState(AnimatorState state) {
     panel.setState(state);
-    setLayout(state);
+
+    this.setLayout(new GridBagLayout());
 
     this.pack();
     setLocationRelativeTo(null);
   }
 
-  private void setLayout(AnimatorState state) {
-    int headerHeight = 50;
-    startButton.setBounds(0, 0, state.getWidth()/4, headerHeight);
-    startButton.setPreferredSize(new Dimension(state.getWidth()/4, headerHeight));
-    pauseButton.setBounds(state.getWidth()/4, 0, state.getWidth()/4, headerHeight);
-    resumeButton.setBounds(state.getWidth()/2, 0, state.getWidth()/4, headerHeight);
-    toggleLoopButton.setBounds(state.getWidth()/4, 0, state.getWidth()/4, headerHeight);
-    panel.setPreferredSize(new Dimension(state.getWidth(), state.getHeight()));
-    add(panel);
-  }
 
 }
