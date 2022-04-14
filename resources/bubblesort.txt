@@ -1,0 +1,173 @@
+canvas 500 500
+rectangle name R5 min-x 0 min-y 0 width 50 height 250 color 0 1 0 from 0 to 124
+rectangle name R7 min-x 50 min-y 0 width 50 height 350 color 0 1 0 from 0 to 124
+rectangle name R6 min-x 100 min-y 0 width 50 height 300 color 0 1 0 from 0 to 124
+rectangle name R2 min-x 150 min-y 0 width 50 height 100 color 0 1 0 from 0 to 124
+rectangle name R9 min-x 200 min-y 0 width 50 height 450 color 0 1 0 from 0 to 124
+rectangle name R8 min-x 250 min-y 0 width 50 height 400 color 0 1 0 from 0 to 124
+rectangle name R10 min-x 300 min-y 0 width 50 height 500 color 0 1 0 from 0 to 124
+rectangle name R4 min-x 350 min-y 0 width 50 height 200 color 0 1 0 from 0 to 124
+rectangle name R3 min-x 400 min-y 0 width 50 height 150 color 0 1 0 from 0 to 124
+rectangle name R1 min-x 450 min-y 0 width 50 height 50 color 0 1 0 from 0 to 124
+change-color name R7 colorto 0 1 0 1 0 0 from 0 to 1
+change-color name R6 colorto 0 1 0 1 0 0 from 0 to 1
+change-color name R7 colorto 1 0 0 0 1 0 from 3 to 4
+change-color name R6 colorto 1 0 0 0 1 0 from 3 to 4
+move name R7 moveto 50 0 100 0 from 0 to 4
+move name R6 moveto 100 0 50 0 from 0 to 4
+change-color name R7 colorto 0 1 0 1 0 0 from 4 to 5
+change-color name R2 colorto 0 1 0 1 0 0 from 4 to 5
+change-color name R7 colorto 1 0 0 0 1 0 from 7 to 8
+change-color name R2 colorto 1 0 0 0 1 0 from 7 to 8
+move name R7 moveto 100 0 150 0 from 4 to 8
+move name R2 moveto 150 0 100 0 from 4 to 8
+change-color name R9 colorto 0 1 0 1 0 0 from 8 to 9
+change-color name R8 colorto 0 1 0 1 0 0 from 8 to 9
+change-color name R9 colorto 1 0 0 0 1 0 from 11 to 12
+change-color name R8 colorto 1 0 0 0 1 0 from 11 to 12
+move name R9 moveto 200 0 250 0 from 8 to 12
+move name R8 moveto 250 0 200 0 from 8 to 12
+change-color name R10 colorto 0 1 0 1 0 0 from 12 to 13
+change-color name R4 colorto 0 1 0 1 0 0 from 12 to 13
+change-color name R10 colorto 1 0 0 0 1 0 from 15 to 16
+change-color name R4 colorto 1 0 0 0 1 0 from 15 to 16
+move name R10 moveto 300 0 350 0 from 12 to 16
+move name R4 moveto 350 0 300 0 from 12 to 16
+change-color name R10 colorto 0 1 0 1 0 0 from 16 to 17
+change-color name R3 colorto 0 1 0 1 0 0 from 16 to 17
+change-color name R10 colorto 1 0 0 0 1 0 from 19 to 20
+change-color name R3 colorto 1 0 0 0 1 0 from 19 to 20
+move name R10 moveto 350 0 400 0 from 16 to 20
+move name R3 moveto 400 0 350 0 from 16 to 20
+change-color name R10 colorto 0 1 0 1 0 0 from 20 to 21
+change-color name R1 colorto 0 1 0 1 0 0 from 20 to 21
+change-color name R10 colorto 1 0 0 0 1 0 from 23 to 24
+change-color name R1 colorto 1 0 0 0 1 0 from 23 to 24
+move name R10 moveto 400 0 450 0 from 20 to 24
+move name R1 moveto 450 0 400 0 from 20 to 24
+change-color name R6 colorto 0 1 0 1 0 0 from 24 to 25
+change-color name R2 colorto 0 1 0 1 0 0 from 24 to 25
+change-color name R6 colorto 1 0 0 0 1 0 from 27 to 28
+change-color name R2 colorto 1 0 0 0 1 0 from 27 to 28
+move name R6 moveto 50 0 100 0 from 24 to 28
+move name R2 moveto 100 0 50 0 from 24 to 28
+change-color name R9 colorto 0 1 0 1 0 0 from 28 to 29
+change-color name R4 colorto 0 1 0 1 0 0 from 28 to 29
+change-color name R9 colorto 1 0 0 0 1 0 from 31 to 32
+change-color name R4 colorto 1 0 0 0 1 0 from 31 to 32
+move name R9 moveto 250 0 300 0 from 28 to 32
+move name R4 moveto 300 0 250 0 from 28 to 32
+change-color name R9 colorto 0 1 0 1 0 0 from 32 to 33
+change-color name R3 colorto 0 1 0 1 0 0 from 32 to 33
+change-color name R9 colorto 1 0 0 0 1 0 from 35 to 36
+change-color name R3 colorto 1 0 0 0 1 0 from 35 to 36
+move name R9 moveto 300 0 350 0 from 32 to 36
+move name R3 moveto 350 0 300 0 from 32 to 36
+change-color name R9 colorto 0 1 0 1 0 0 from 36 to 37
+change-color name R1 colorto 0 1 0 1 0 0 from 36 to 37
+change-color name R9 colorto 1 0 0 0 1 0 from 39 to 40
+change-color name R1 colorto 1 0 0 0 1 0 from 39 to 40
+move name R9 moveto 350 0 400 0 from 36 to 40
+move name R1 moveto 400 0 350 0 from 36 to 40
+change-color name R5 colorto 0 1 0 1 0 0 from 40 to 41
+change-color name R2 colorto 0 1 0 1 0 0 from 40 to 41
+change-color name R5 colorto 1 0 0 0 1 0 from 43 to 44
+change-color name R2 colorto 1 0 0 0 1 0 from 43 to 44
+move name R5 moveto 0 0 50 0 from 40 to 44
+move name R2 moveto 50 0 0 0 from 40 to 44
+change-color name R8 colorto 0 1 0 1 0 0 from 44 to 45
+change-color name R4 colorto 0 1 0 1 0 0 from 44 to 45
+change-color name R8 colorto 1 0 0 0 1 0 from 47 to 48
+change-color name R4 colorto 1 0 0 0 1 0 from 47 to 48
+move name R8 moveto 200 0 250 0 from 44 to 48
+move name R4 moveto 250 0 200 0 from 44 to 48
+change-color name R8 colorto 0 1 0 1 0 0 from 48 to 49
+change-color name R3 colorto 0 1 0 1 0 0 from 48 to 49
+change-color name R8 colorto 1 0 0 0 1 0 from 51 to 52
+change-color name R3 colorto 1 0 0 0 1 0 from 51 to 52
+move name R8 moveto 250 0 300 0 from 48 to 52
+move name R3 moveto 300 0 250 0 from 48 to 52
+change-color name R8 colorto 0 1 0 1 0 0 from 52 to 53
+change-color name R1 colorto 0 1 0 1 0 0 from 52 to 53
+change-color name R8 colorto 1 0 0 0 1 0 from 55 to 56
+change-color name R1 colorto 1 0 0 0 1 0 from 55 to 56
+move name R8 moveto 300 0 350 0 from 52 to 56
+move name R1 moveto 350 0 300 0 from 52 to 56
+change-color name R7 colorto 0 1 0 1 0 0 from 56 to 57
+change-color name R4 colorto 0 1 0 1 0 0 from 56 to 57
+change-color name R7 colorto 1 0 0 0 1 0 from 59 to 60
+change-color name R4 colorto 1 0 0 0 1 0 from 59 to 60
+move name R7 moveto 150 0 200 0 from 56 to 60
+move name R4 moveto 200 0 150 0 from 56 to 60
+change-color name R7 colorto 0 1 0 1 0 0 from 60 to 61
+change-color name R3 colorto 0 1 0 1 0 0 from 60 to 61
+change-color name R7 colorto 1 0 0 0 1 0 from 63 to 64
+change-color name R3 colorto 1 0 0 0 1 0 from 63 to 64
+move name R7 moveto 200 0 250 0 from 60 to 64
+move name R3 moveto 250 0 200 0 from 60 to 64
+change-color name R7 colorto 0 1 0 1 0 0 from 64 to 65
+change-color name R1 colorto 0 1 0 1 0 0 from 64 to 65
+change-color name R7 colorto 1 0 0 0 1 0 from 67 to 68
+change-color name R1 colorto 1 0 0 0 1 0 from 67 to 68
+move name R7 moveto 250 0 300 0 from 64 to 68
+move name R1 moveto 300 0 250 0 from 64 to 68
+change-color name R6 colorto 0 1 0 1 0 0 from 68 to 69
+change-color name R4 colorto 0 1 0 1 0 0 from 68 to 69
+change-color name R6 colorto 1 0 0 0 1 0 from 71 to 72
+change-color name R4 colorto 1 0 0 0 1 0 from 71 to 72
+move name R6 moveto 100 0 150 0 from 68 to 72
+move name R4 moveto 150 0 100 0 from 68 to 72
+change-color name R6 colorto 0 1 0 1 0 0 from 72 to 73
+change-color name R3 colorto 0 1 0 1 0 0 from 72 to 73
+change-color name R6 colorto 1 0 0 0 1 0 from 75 to 76
+change-color name R3 colorto 1 0 0 0 1 0 from 75 to 76
+move name R6 moveto 150 0 200 0 from 72 to 76
+move name R3 moveto 200 0 150 0 from 72 to 76
+change-color name R6 colorto 0 1 0 1 0 0 from 76 to 77
+change-color name R1 colorto 0 1 0 1 0 0 from 76 to 77
+change-color name R6 colorto 1 0 0 0 1 0 from 79 to 80
+change-color name R1 colorto 1 0 0 0 1 0 from 79 to 80
+move name R6 moveto 200 0 250 0 from 76 to 80
+move name R1 moveto 250 0 200 0 from 76 to 80
+change-color name R5 colorto 0 1 0 1 0 0 from 80 to 81
+change-color name R4 colorto 0 1 0 1 0 0 from 80 to 81
+change-color name R5 colorto 1 0 0 0 1 0 from 83 to 84
+change-color name R4 colorto 1 0 0 0 1 0 from 83 to 84
+move name R5 moveto 50 0 100 0 from 80 to 84
+move name R4 moveto 100 0 50 0 from 80 to 84
+change-color name R5 colorto 0 1 0 1 0 0 from 84 to 85
+change-color name R3 colorto 0 1 0 1 0 0 from 84 to 85
+change-color name R5 colorto 1 0 0 0 1 0 from 87 to 88
+change-color name R3 colorto 1 0 0 0 1 0 from 87 to 88
+move name R5 moveto 100 0 150 0 from 84 to 88
+move name R3 moveto 150 0 100 0 from 84 to 88
+change-color name R5 colorto 0 1 0 1 0 0 from 88 to 89
+change-color name R1 colorto 0 1 0 1 0 0 from 88 to 89
+change-color name R5 colorto 1 0 0 0 1 0 from 91 to 92
+change-color name R1 colorto 1 0 0 0 1 0 from 91 to 92
+move name R5 moveto 150 0 200 0 from 88 to 92
+move name R1 moveto 200 0 150 0 from 88 to 92
+change-color name R4 colorto 0 1 0 1 0 0 from 92 to 93
+change-color name R3 colorto 0 1 0 1 0 0 from 92 to 93
+change-color name R4 colorto 1 0 0 0 1 0 from 95 to 96
+change-color name R3 colorto 1 0 0 0 1 0 from 95 to 96
+move name R4 moveto 50 0 100 0 from 92 to 96
+move name R3 moveto 100 0 50 0 from 92 to 96
+change-color name R4 colorto 0 1 0 1 0 0 from 96 to 97
+change-color name R1 colorto 0 1 0 1 0 0 from 96 to 97
+change-color name R4 colorto 1 0 0 0 1 0 from 99 to 100
+change-color name R1 colorto 1 0 0 0 1 0 from 99 to 100
+move name R4 moveto 100 0 150 0 from 96 to 100
+move name R1 moveto 150 0 100 0 from 96 to 100
+change-color name R3 colorto 0 1 0 1 0 0 from 100 to 101
+change-color name R1 colorto 0 1 0 1 0 0 from 100 to 101
+change-color name R3 colorto 1 0 0 0 1 0 from 103 to 104
+change-color name R1 colorto 1 0 0 0 1 0 from 103 to 104
+move name R3 moveto 50 0 100 0 from 100 to 104
+move name R1 moveto 100 0 50 0 from 100 to 104
+change-color name R2 colorto 0 1 0 1 0 0 from 104 to 105
+change-color name R1 colorto 0 1 0 1 0 0 from 104 to 105
+change-color name R2 colorto 1 0 0 0 1 0 from 107 to 108
+change-color name R1 colorto 1 0 0 0 1 0 from 107 to 108
+move name R2 moveto 0 0 50 0 from 104 to 108
+move name R1 moveto 50 0 0 0 from 104 to 108
