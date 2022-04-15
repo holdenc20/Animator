@@ -36,5 +36,4 @@ public interface AnimatorView {
    * @param app The output appendable.
    */
   void setOutput(Appendable app);
-
 }

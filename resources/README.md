@@ -145,5 +145,14 @@ Then this animator and the tickrate are then passed into the view along with the
 Lastly, the render method is called and the view begins to output. The controller also handles
 user input from the view through ActionListeners and ChangeListener.
 
-Changes from the last assignment:
 
+<H3>Modifications to our earlier code from our last assignment:</H3>
+
+We updated the main method to include our interactive view.
+
+We added playback methods to our Swing Panel class that are used by the controller. 
+
+
+
+Buildings animation with our interactive view.
+![](buildingsAnimationWithInteractive.png)

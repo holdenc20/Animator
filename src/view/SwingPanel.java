@@ -106,7 +106,6 @@ public class SwingPanel extends JPanel implements ActionListener {
     else{
       maxEndTime = -1;
     }
-
   }
 
   /**
