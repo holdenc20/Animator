@@ -21,11 +21,13 @@ representations of the animation.
 
 <h3>Overview of io</h3>
 The io of our program takes in up to 4 parameters from main: speed, 
-input, output, and viewType. The main method processes these by first creating 
+input, output, and viewType. As of now, the main method just creates a constructor with its 
+given arguments. When created, the controller class processes these by first creating 
 the correct View implementation using the ViewFactory class based on viewType, then 
 the method processes the input file with a TweenModelBuilder to initialize our animatior.
 Then this animator and the tickrate are then passed into the view along with the given output.
-Lastly, the render method is called and the view begins to output. 
+Lastly, the render method is called and the view begins to output. The controller also handles 
+user input from the view through ActionListeners and ChangeListener.
 
 <h3>Structure</h3>
 <h2>Shape diagram:</h2>
@@ -43,7 +45,6 @@ Lastly, the render method is called and the view begins to output.
 <h2>Animated Shape diagram:</h2>
 
 ![](Screen%20Shot%202022-04-03%20at%208.39.24%20PM.png)
-
 
 
 <h3>Classes Overview for the model</h3>
@@ -89,6 +90,12 @@ made in the animation. Currently, this only holds model.Rectangle and model.Elli
 model.Utility: class with static methods that are generally useful
 throughout the program.
 
+model.BubbleSortCreator: Creates an animation that displays a visual representation 
+of the bubble sort algorithm.
+
+model.PlanetCreator: Creates an animation that displays a visual representation
+of planets orbiting the sun.
+
 <h3>Classes Overview for the Views</h3>
 
 view.AnimatorView: Interface to model the model with a render method.
@@ -105,6 +112,12 @@ and uses Java Swing's JFrame class to visually display the animation.
 
 view.SwingPanel: Extension of the Java Swing's JPanel class that handles the actual 
 construction of the animation onto the SwingView.
+
+view.CompositeView: Represents a AnimatorView which has added functionality to pause, resume, and 
+toggle whether an animation loops after completion.
+
+view.CompositeViewImpl: An implementation of the CompositeView interface which has added Swing 
+components which are used to pause, resume, and toggle whether an animation loops after completion.
 
 <h3>Classes Overview for the Input classes and Model Builders</h3>
 
@@ -124,3 +137,13 @@ each of these types of motions into one before building.
 
 io.TweenBuilderImpl: Implementation of the TweenModelBuilder interface that creates an animation of type Animator 
 from a file.
+
+io.AnimationController: The controller class processes given inputs by first creating
+the correct View implementation using the ViewFactory class based on viewType, then
+the method processes the input file with a TweenModelBuilder to initialize our animatior.
+Then this animator and the tickrate are then passed into the view along with the given output.
+Lastly, the render method is called and the view begins to output. The controller also handles
+user input from the view through ActionListeners and ChangeListener.
+
+Changes from the last assignment:
+
