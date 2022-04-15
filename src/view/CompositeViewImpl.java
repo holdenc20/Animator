@@ -58,13 +58,11 @@ public class CompositeViewImpl extends SwingView implements CompositeView {
     gridbag.setConstraints(toggleLoopButton, c);
     pbuttons.add(toggleLoopButton);
 
-    speedSlider = new JSlider(1, 10, 1);
+    speedSlider = new JSlider(5, 1000, 100);
     c.gridy = 4;
     gridbag.setConstraints(toggleLoopButton, c);
     pbuttons.add(speedSlider);
-
     this.add(pbuttons);
-
     setResizable(false);
   }
 

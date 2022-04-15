@@ -124,7 +124,7 @@ public class AnimationController implements ActionListener, ChangeListener {
   public void stateChanged(ChangeEvent e) {
     if(e.getSource().getClass().equals(new JSlider().getClass())) {
       int value = ((JSlider) e.getSource()).getValue();
-      view.setTickRate(value * tickScale);
+      view.setTickRate(value * tickScale / 100);
     }
   }
 }
