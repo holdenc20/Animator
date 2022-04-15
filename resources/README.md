@@ -153,6 +153,5 @@ We updated the main method to include our interactive view.
 We added playback methods to our Swing Panel class that are used by the controller. 
 
 
-
 Buildings animation with our interactive view.
 ![](buildingsAnimationWithInteractive.png)
