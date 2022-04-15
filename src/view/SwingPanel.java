@@ -69,10 +69,16 @@ public class SwingPanel extends JPanel implements ActionListener {
     timer.start();
   }
 
+  /**
+   * Pauses the timer.
+   */
   public void pauseTimer() {
     timer.stop();
   }
 
+  /**
+   * Restarts the timer to 0 and restarts the timer.
+   */
   public void restartTimer() {
     currentTick = 0;
     startTimer();
@@ -84,13 +90,15 @@ public class SwingPanel extends JPanel implements ActionListener {
    * @param tickRate the new tickrate
    */
   public void setTickRate(double tickRate) {
-    timer = new Timer((int) (1000 / tickRate), this);
+    timer.setDelay((int) (1000 / tickRate));
   }
 
+  /**
+   * Sets the Animator State for the current animation.
+   * @param state The given animator state to display to the panel.
+   */
   public void setState(AnimatorState state) {
     this.state = state;
     this.setPreferredSize(new Dimension(state.getWidth(), state.getHeight()));
   }
-
-
 }

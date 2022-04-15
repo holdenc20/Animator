@@ -57,6 +57,7 @@ public class AnimationController implements ActionListener, ChangeListener {
     if(view.getClass().equals(new CompositeViewImpl("").getClass())){
       view = (CompositeViewImpl) view;
       ((CompositeViewImpl) view).addActionListener(this);
+      ((CompositeViewImpl) view).addChangeListener(this);
     }
 
     view.setTickRate(tickRate);
@@ -104,14 +105,18 @@ public class AnimationController implements ActionListener, ChangeListener {
         case "Pause":
           ((CompositeViewImpl) view).pause();
           break;
-
         case "Toggle Looping":
+          ((CompositeViewImpl) view).toggleLooping();
+          break;
       }
     }
   }
 
   @Override
   public void stateChanged(ChangeEvent e) {
-
+    if(e.getSource().getClass().equals(new JSlider().getClass())) {
+      int value = ((JSlider) e.getSource()).getValue();
+      view.setTickRate(value);
+    }
   }
 }
