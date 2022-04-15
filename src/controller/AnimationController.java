@@ -19,12 +19,22 @@ import view.AnimatorView;
 import view.CompositeViewImpl;
 
 /**
- * TODO: document and constructor
+ * Controller for an Animation that takes arguments on construction in order to
+ * customizable how you want to implement the Animation.
  */
 public class AnimationController implements ActionListener, ChangeListener {
 
   private AnimatorView view;
+  private double tickScale;
 
+  /**
+   * Creates an animation based on the given arguments.
+   * @param args The arguments are in the form of
+   *             -in INPUT FILE LOCATION
+   *             -out OUTPUT FILE LOCATION
+   *             -view VIEW TYPE
+   *             -speed TICKRATE
+   */
   public AnimationController(String[] args) {
     handleArgs(args);
   }
@@ -34,7 +44,6 @@ public class AnimationController implements ActionListener, ChangeListener {
     String out = "System.out";
     String in = "";
 
-    double tickRate = 1;
     while (args.length > arg) {
       switch (args[arg]) {
         case "-in":
@@ -47,7 +56,7 @@ public class AnimationController implements ActionListener, ChangeListener {
           view = ViewFactory.makeView(args[arg + 1]);
           break;
         case "-speed":
-          tickRate = Double.parseDouble(args[arg + 1]);
+          tickScale = Double.parseDouble(args[arg + 1]);
           break;
         default:
           throw new IllegalArgumentException("Invalid Command Line Arguments");
@@ -55,12 +64,11 @@ public class AnimationController implements ActionListener, ChangeListener {
       arg += 2;
     }
     if(view.getClass().equals(new CompositeViewImpl("").getClass())){
-      view = (CompositeViewImpl) view;
       ((CompositeViewImpl) view).addActionListener(this);
       ((CompositeViewImpl) view).addChangeListener(this);
     }
 
-    view.setTickRate(tickRate);
+    view.setTickRate(tickScale);
     AnimationFileReader reader = new AnimationFileReader();
     Animator animator = null;
     try {
@@ -95,17 +103,17 @@ public class AnimationController implements ActionListener, ChangeListener {
   public void actionPerformed(ActionEvent e) {
     if(e.getSource().getClass().equals(new JButton().getClass())) {
       String action = ((JButton) e.getSource()).getText();
-      switch (action){
-        case "Start":
+      switch (action.toLowerCase()){
+        case "start":
           ((CompositeViewImpl) view).start();
           break;
-        case "Resume":
+        case "resume":
           ((CompositeViewImpl) view).resume();
           break;
-        case "Pause":
+        case "pause":
           ((CompositeViewImpl) view).pause();
           break;
-        case "Toggle Looping":
+        case "on/off looping":
           ((CompositeViewImpl) view).toggleLooping();
           break;
       }
@@ -116,7 +124,7 @@ public class AnimationController implements ActionListener, ChangeListener {
   public void stateChanged(ChangeEvent e) {
     if(e.getSource().getClass().equals(new JSlider().getClass())) {
       int value = ((JSlider) e.getSource()).getValue();
-      view.setTickRate(value);
+      view.setTickRate(value * tickScale);
     }
   }
 }

@@ -53,12 +53,12 @@ public class CompositeViewImpl extends SwingView implements CompositeView {
     gridbag.setConstraints(pauseButton, c);
     pbuttons.add(pauseButton);
 
-    toggleLoopButton = new JButton("Toggle Looping");
+    toggleLoopButton = new JButton("on/OFF looping");
     c.gridy = 3;
     gridbag.setConstraints(toggleLoopButton, c);
     pbuttons.add(toggleLoopButton);
 
-    speedSlider = new JSlider(0, 10, 1);
+    speedSlider = new JSlider(1, 10, 1);
     c.gridy = 4;
     gridbag.setConstraints(toggleLoopButton, c);
     pbuttons.add(speedSlider);
@@ -85,7 +85,13 @@ public class CompositeViewImpl extends SwingView implements CompositeView {
 
   @Override
   public void toggleLooping() {
-
+    panel.toggleLooping();
+    if(toggleLoopButton.getText().contains("OFF")){
+      toggleLoopButton.setText("ON/off looping");
+    }
+    else{
+      toggleLoopButton.setText("on/OFF looping");
+    }
   }
 
   @Override
@@ -110,6 +116,4 @@ public class CompositeViewImpl extends SwingView implements CompositeView {
     this.pack();
     setLocationRelativeTo(null);
   }
-
-
 }

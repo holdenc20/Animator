@@ -20,6 +20,7 @@ public class SwingPanel extends JPanel implements ActionListener {
   private AnimatorState state;
   private int currentTick;
   private Timer timer;
+  private int maxEndTime;
 
   /**
    * Constructor for a SwingPanel.
@@ -30,6 +31,7 @@ public class SwingPanel extends JPanel implements ActionListener {
     this.state = null;
     timer = new Timer((int) (1000 / tickRate), this);
     currentTick = 0;
+    maxEndTime = -1;
   }
 
   @Override
@@ -59,6 +61,9 @@ public class SwingPanel extends JPanel implements ActionListener {
   @Override
   public void actionPerformed(ActionEvent e) {
     currentTick++;
+    if(maxEndTime != -1 && currentTick > maxEndTime){
+      restartTimer();
+    }
     repaint();
   }
 
@@ -82,6 +87,26 @@ public class SwingPanel extends JPanel implements ActionListener {
   public void restartTimer() {
     currentTick = 0;
     startTimer();
+  }
+
+  /**
+   * Toggles between not doing anything when the animation ends
+   * and restarting the animation when the animation ends.
+   */
+  public void toggleLooping() {
+    int max = 0;
+    for(String s : state.getShapeIDs()){
+      if(state.getAnimatedShape(s).getDeletionTime() > max){
+        max = state.getAnimatedShape(s).getDeletionTime();
+      }
+    }
+    if(maxEndTime == -1){
+      maxEndTime = max;
+    }
+    else{
+      maxEndTime = -1;
+    }
+
   }
 
   /**
