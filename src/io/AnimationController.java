@@ -16,6 +16,7 @@ import io.TweenBuilderImpl;
 import io.ViewFactory;
 import model.Animator;
 import view.AnimatorView;
+import view.CompositeView;
 import view.CompositeViewImpl;
 
 /**
@@ -24,97 +25,38 @@ import view.CompositeViewImpl;
  */
 public class AnimationController implements ActionListener, ChangeListener {
 
-  private AnimatorView view;
+  private CompositeView view;
   private double tickScale;
 
   /**
-   * Creates an animation based on the given arguments.
-   * @param args The arguments are in the form of
-   *             -in INPUT FILE LOCATION
-   *             -out OUTPUT FILE LOCATION
-   *             -view VIEW TYPE
-   *             -speed TICKRATE
+   * Constructor for an Animation Controller that initializes values.
+   *
+   * @param view      the CompositeView
+   * @param tickScale the tickScale
    */
-  public AnimationController(String[] args) {
-    handleArgs(args);
-  }
-
-  private void handleArgs(String[] args) {
-    int arg = 0;
-    String out = "System.out";
-    String in = "";
-
-    while (args.length > arg) {
-      switch (args[arg]) {
-        case "-in":
-          in = args[arg + 1];
-          break;
-        case "-out":
-          out = args[arg + 1];
-          break;
-        case "-view":
-          view = ViewFactory.makeView(args[arg + 1]);
-          break;
-        case "-speed":
-          tickScale = Double.parseDouble(args[arg + 1]);
-          break;
-        default:
-          throw new IllegalArgumentException("Invalid Command Line Arguments");
-      }
-      arg += 2;
-    }
-    if(view.getClass().equals(new CompositeViewImpl("").getClass())){
-      ((CompositeViewImpl) view).addActionListener(this);
-      ((CompositeViewImpl) view).addChangeListener(this);
-    }
-
-    view.setTickRate(tickScale);
-    AnimationFileReader reader = new AnimationFileReader();
-    Animator animator = null;
-    try {
-      animator = reader.readFile(in, new TweenBuilderImpl());
-    } catch (FileNotFoundException e) {
-      System.out.println("File not found");
-      e.printStackTrace();
-    }
-    view.setModelState(animator);
-    FileWriter writer = null;
-    if (!out.equals("System.out")) {
-      try {
-        writer = new FileWriter(new File(out));
-        view.setOutput(writer);
-      } catch (IOException e) {
-        System.out.println("IOException");
-        e.printStackTrace();
-      }
-    }
-    try {
-      view.renderAnimation();
-      if (writer != null) {
-        writer.flush();
-      }
-    } catch (IOException e) {
-      e.printStackTrace();
-      System.out.println("IOException");
-    }
+  public AnimationController(CompositeView view, double tickScale) {
+    this.view = view;
+    this.tickScale = tickScale;
+    view.addActionListener(this);
+    view.addChangeListener(this);
   }
 
   @Override
   public void actionPerformed(ActionEvent e) {
-    if(e.getSource().getClass().equals(new JButton().getClass())) {
+    if (e.getSource().getClass().equals(new JButton().getClass())) {
       String action = ((JButton) e.getSource()).getText();
-      switch (action.toLowerCase()){
+      switch (action.toLowerCase()) {
         case "start":
-          ((CompositeViewImpl) view).start();
+          view.start();
           break;
         case "resume":
-          ((CompositeViewImpl) view).resume();
+          view.resume();
           break;
         case "pause":
-          ((CompositeViewImpl) view).pause();
+          view.pause();
           break;
         case "on/off looping":
-          ((CompositeViewImpl) view).toggleLooping();
+          view.toggleLooping();
           break;
       }
     }
@@ -122,7 +64,7 @@ public class AnimationController implements ActionListener, ChangeListener {
 
   @Override
   public void stateChanged(ChangeEvent e) {
-    if(e.getSource().getClass().equals(new JSlider().getClass())) {
+    if (e.getSource().getClass().equals(new JSlider().getClass())) {
       int value = ((JSlider) e.getSource()).getValue();
       view.setTickRate(value * tickScale / 100);
     }

@@ -3,6 +3,8 @@ import org.junit.Test;
 import model.Utility;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Tester class for the model.Utility class methods.
@@ -16,7 +18,7 @@ public class UtilityTest {
 
   @Test
   public void clamp() {
-    assertEquals(Utility.clamp(10, 20, 15), true);
-    assertEquals(Utility.clamp(10, 20, 25), false);
+    assertTrue(Utility.clamp(10, 20, 15));
+    assertFalse(Utility.clamp(10, 20, 25));
   }
 }
